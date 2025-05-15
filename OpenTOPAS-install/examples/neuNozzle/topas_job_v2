@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+#SBATCH -p normal
+#SBATCH -N 5
+#SBATCH --job-name=gbjob
+#SBATCH --mem-per-cpu=2375
+#SBATCH --array=1-11%5 -N1
+#SBATCH --time=72:00:00
+#SBATCH -o gb.%j.out
+#SBATCH -e gb.%j.err
+ 
+echo Running `hostname`
+echo ${SLURM_ARRAY_TASK_ID}-SlurmTaskID #From 1 - NJobs
+echo "$SLURM_JOB_ID"-SlurmJobID #From IDJOB to IDJob + N
+ 
+mkdir "$SLURM_JOB_ID"-simul
+cd "$SLURM_JOB_ID"-simul 
+
+ 
+ 
+#cp mgm."$SLURM_JOB_ID".out "$SLURM_JOB_ID"-simul/
+#cp mgm."$SLURM_JOB_ID".err "$SLURM_JOB_ID"-simul/

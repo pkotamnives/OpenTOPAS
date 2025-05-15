@@ -1,0 +1,20 @@
+#!/bin/bash 
+
+#SBATCH --job-name=TOPASGBScanningNozzle.txt 
+
+#SBATCH --mail-user=pkotamnives@mgh.harvard.edu
+
+#SBATCH --partition=short 
+
+#SBATCH --ntasks=1 
+
+#SBATCH --cpus-per-task=1 
+
+#SBATCH --mem-per-cpu=1G 
+
+#SBATCH --error=log%J.err
+ 
+
+# Run a python program on 4 CPUs that splits the iterations of the loop among each CPU 
+
+./gb_job.sh
