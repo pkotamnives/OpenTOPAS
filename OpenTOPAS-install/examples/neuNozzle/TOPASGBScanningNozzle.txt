@@ -1,0 +1,4 @@
+includeFile = GBScanningNozzle.txt
+Ts/Seed = 1
+s:Sc/DoseOnRTGrid/OutputFile       = "DosetoMatProton_Job1"
+s:Sc/scorerAmbDosePerSource/OutputFile = "GBScanAmbientDoseNeutronPerSourceNeutron_Job1" 
