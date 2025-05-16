@@ -1,20 +1,25 @@
 #!/bin/bash 
 
-#SBATCH --job-name=TOPASGBScanningNozzle.txt 
-
 #SBATCH --mail-user=pkotamnives@mgh.harvard.edu
-
-#SBATCH --partition=short 
-
-#SBATCH --ntasks=1 
-
+#SBATCH -p normal
+#SBATCH --ntasks=5 
 #SBATCH --cpus-per-task=1 
-
-#SBATCH --mem-per-cpu=1G 
-
 #SBATCH --error=log%J.err
+#SBATCH --job-name=gbjob
+#SBATCH --mem-per-cpu=2375
+#SBATCH --array=1%5-N1
+#SBATCH --time=72:00:00
+#SBATCH -o gb.%j.out
+#SBATCH -e gb.%j.err
  
+echo Running `hostname`
 
-# Run a python program on 4 CPUs that splits the iterations of the loop among each CPU 
+# Run a TOPAS program 
 
 ./gb_job.sh
+
+mkdir "$HOME/scratch/$SLURM_JOB_ID-gb"
+mv DosetoMatProton_Job1.csv "$HOME/scratch/$SLURM_JOB_ID-gb"
+mv GBScanAmbientDoseNeutronPerSourceNeutron_Job1.csv "$HOME/scratch/$SLURM_JOB_ID-gb"  
+mv gb."$SLURM_JOB_ID".out "$HOME/scratch/$SLURM_JOB_ID-gb"
+mv gb."$SLURM_JOB_ID".err "$HOME/scratch/$SLURM_JOB_ID-gb"
