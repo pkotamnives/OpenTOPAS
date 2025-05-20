@@ -22,7 +22,7 @@ d:Ge/ExitWindow/TransZ       = 207.0 cm #FIXME
 d:Ge/ExitWindow/RotX         = 0.0 deg
 d:Ge/ExitWindow/RotY         = 0.0 deg
 d:Ge/ExitWindow/RotZ         = 0.0 deg
-b:Ge/ExitWindow/Include      = "TRUE"
+b:Ge/ExitWindow/Include      = "FALSE" #FIXMENOW
 s:Ge/ExitWindow/DrawingStyle = "Solid"
 
 #Distance calculation for Pipe
@@ -83,6 +83,7 @@ d:Ge/BeamPipeInQuadsDipoles/TransZ = Ge/ZPlusOf_Pipe - Ge/HLOf_Pipe mm
 d:Ge/BeamPipeInQuadsDipoles/RotX   = 0. deg
 d:Ge/BeamPipeInQuadsDipoles/RotY   = 0. deg
 d:Ge/BeamPipeInQuadsDipoles/RotZ   = 0. deg
+b:Ge/BeamPipeInQuadsDipoles/Include  = "FALSE" #FIXMENOW
 
 d:Ge/ZPlusPipeInDipoles = 0.0 cm # FIXME Ge/PipeConnector/TransZ - Ge/HLOf_PipeConnector cm
 
@@ -98,7 +99,7 @@ d:Ge/PipeInDipoles/TransZ   = Ge/ZPlusPipeInDipoles - Ge/HLOf_PipeInDipoles cm
 d:Ge/PipeInDipoles/RotX     = 0.0 deg
 d:Ge/PipeInDipoles/RotY     = 0.0 deg
 d:Ge/PipeInDipoles/RotZ     = 0.0 deg
-b:Ge/PipeInDipoles/Include  = "TRUE"
+b:Ge/PipeInDipoles/Include  = "FALSE" #FIXMENOW
 
 s:Ge/PipeInDipoles/Gas/Parent   = "PipeInDipoles"
 s:Ge/PipeInDipoles/Gas/Type     = "TsBox"
@@ -112,7 +113,7 @@ d:Ge/PipeInDipoles/Gas/TransZ   = 0.0 mm
 d:Ge/PipeInDipoles/Gas/RotX     = 0.0 deg
 d:Ge/PipeInDipoles/Gas/RotY     = 0.0 deg
 d:Ge/PipeInDipoles/Gas/RotZ     = 0.0 deg
-b:Ge/PipeInDipoles/Gas/Include  = "TRUE"
+b:Ge/PipeInDipoles/Gas/Include  = "FALSE" #FIXMENOW
 
 ########################################
 #5. Dipole 1 and 2. in Pipe
@@ -134,7 +135,7 @@ u:Ge/Dipole1/MagneticFieldDirectionX    = 1.0 #Deflect a beam down
 u:Ge/Dipole1/MagneticFieldDirectionY    = 0.0
 u:Ge/Dipole1/MagneticFieldDirectionZ    = 0.0
 d:Ge/Dipole1/MagneticFieldStrength      = 0.0 tesla
-
+b:Ge/Dipole1/Include  = "FALSE" #FIXMENOW
 d:Ge/ZMinusOf_Dipole1 = Ge/Dipole1/TransZ - Ge/HLOf_DipoleCoil1 mm
 d:Ge/ZPlusOf_Dipole2  = Ge/ZMinusOf_Dipole1 + Ge/DistanceOf_BottomDipoleCoil1_To_TopDipoleCoil2 cm
 
@@ -155,6 +156,7 @@ u:Ge/Dipole2/MagneticFieldDirectionX    = 0.0
 u:Ge/Dipole2/MagneticFieldDirectionY    = 1.0 #Deflect a beam right 
 u:Ge/Dipole2/MagneticFieldDirectionZ    = 0.0
 d:Ge/Dipole2/MagneticFieldStrength      = 0.0 tesla
+b:Ge/Dipole2/Include  = "FALSE" #FIXMENOW
 
 ########################################
 #3. Beam profile monitor 2
@@ -173,7 +175,7 @@ d:Ge/BeamProfileMonitor2/TransZ   = 631.4 mm #FIXME Ge/ZPlusOf_BPM2 - Ge/BeamPro
 d:Ge/BeamProfileMonitor2/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor2/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor2/RotZ     = 0.0 deg
-b:Ge/BeamProfileMonitor2/Include  = "TRUE"
+b:Ge/BeamProfileMonitor2/Include  = "FALSE" #FIXMENOW
 
 s:Ge/BeamProfileMonitor2/Window1/Parent   = "BeamProfileMonitor2"
 s:Ge/BeamProfileMonitor2/Window1/Type     = "TsBox"
@@ -214,6 +216,7 @@ d:Ge/MWC_In_BPM2/RotX       = 0.0   deg
 d:Ge/MWC_In_BPM2/RotY       = 0.0   deg
 d:Ge/MWC_In_BPM2/RotZ       = 0.0   deg
 i:Ge/MWC_In_BPM2/NbOfLayers = 2
+b:Ge/MWC_In_BPM2/Include  = "FALSE" #FIXMENOW
 
 d:Ge/MWC_In_BPM2/Layer1/RMin          = 0.0 mm
 d:Ge/MWC_In_BPM2/Layer1/RMax          = 0.02 mm
@@ -283,7 +286,7 @@ d:Ge/BeamProfileMonitor1/TransZ   = 531.4 mm #FIXME Ge/ZPlusOf_BPM1 - Ge/BeamPro
 d:Ge/BeamProfileMonitor1/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor1/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor1/RotZ     = 0.0 deg
-b:Ge/BeamProfileMonitor1/Include  = "TRUE"
+b:Ge/BeamProfileMonitor1/Include  = "FALSE" #FIXMENOW
 
 s:Ge/BeamProfileMonitor1/Window1/Parent   = "BeamProfileMonitor1"
 s:Ge/BeamProfileMonitor1/Window1/Type     = "TsBox"
@@ -419,6 +422,7 @@ d:Ge/SphereA/DPhi     = 360. deg
 d:Ge/SphereA/STheta   = 0. deg
 d:Ge/SphereA/DTheta   = 180. deg
 d:Ge/SphereA/TransZ   = Ge/WaterBox/MinusHLZ - 50. cm
+b:Ge/SphereA/Include  = "TRUE" 
 
 # Score ambient dose equivalent for neutrons
 sv:Sc/scorerAmbDosePerSource/OnlyIncludeParticlesNamed = 1 "neutron"
