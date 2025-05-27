@@ -53,7 +53,7 @@ d:So/Beam/BeamAngularCutoffX       = 90. deg
 d:So/Beam/BeamAngularCutoffY       = 90. deg
 d:So/Beam/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/Beam/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/Beam/NumberOfHistoriesInRun   = 100000 #FIXME essentially the number of primary particles 
+i:So/Beam/NumberOfHistoriesInRun   = 100 #FIXME essentially the number of primary particles 
 
 b:Ts/ShowCPUTime                  = "true"
 i:Ts/ShowHistoryCountAtInterval   = 0
@@ -99,8 +99,8 @@ sv:Gr/MyOGL/ColorByParticleTypeNames      = 4 "e-" "gamma" "proton" "neutron"sv
 
 s:Gr/ViewA/Type              = "OpenGL"
 
-Ts/UseQt = "False"
-b:Gr/Enable = "False"
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
 
 ########################################
 # Physics
