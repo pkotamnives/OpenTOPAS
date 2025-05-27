@@ -21,5 +21,6 @@ echo Running `hostname`
 mkdir "$HOME/scratch/$SLURM_JOB_ID-gb"
 mv DosetoMatProton_Job1.csv "$HOME/scratch/$SLURM_JOB_ID-gb"
 mv GBScanAmbientDoseNeutronPerSourceNeutron_Job1.csv "$HOME/scratch/$SLURM_JOB_ID-gb"  
+mv NbParticlesInTime.txt "$HOME/scratch/$SLURM_JOB_ID-gb"
 mv gb."$SLURM_JOB_ID".out "$HOME/scratch/$SLURM_JOB_ID-gb"
 mv gb."$SLURM_JOB_ID".err "$HOME/scratch/$SLURM_JOB_ID-gb"
