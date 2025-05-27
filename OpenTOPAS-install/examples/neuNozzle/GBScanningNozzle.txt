@@ -6,11 +6,11 @@ includeFile = ConstantsForNozzles.txt
 
 ########################################
 #1. Beam Exit Window
-#100 um thickness Mylar window
+#100 um thickness Aluminized Polyimide window
 ########################################
 s:Ge/ExitWindow/Parent       = "Gantry"
 s:Ge/ExitWindow/Type         = "TsCylinder"
-s:Ge/ExitWindow/Material     = "Mylar" #FIXME?
+s:Ge/ExitWindow/Material     = "Kapton" #FIXME? supposed to be aluminized polyimide
 d:Ge/ExitWindow/RMin         = 0.0  mm
 d:Ge/ExitWindow/RMax         = 50.0 mm
 d:Ge/ExitWindow/HL           = 0.05 mm #FIXME?
@@ -37,8 +37,7 @@ d:Ge/ZPlusOf_Pipe   = Ge/ZMinusOf_Exit + Ge/DistanceOf_BottomExit_To_TopPipe mm
 d:Ge/HLxyOf_Dipoles       = 12.0 cm #FIXME OK
 d:Ge/ThicknessOf_Pipe     =  3.0 mm #FIXME? 
 s:Ge/MaterialOf_PipeWall  = "Aluminum" #FIXME?
-s:Ge/MaterialOf_PipeGas   = "HeGas" #FIXME?
-#s:Ge/MaterialOf_PipeGas   = "Vacuum" 
+s:Ge/MaterialOf_PipeGas   = "Vacuum" #FIXME? vacuum of 1e-5 Torr 
 
 d:Ge/FLOf_PipeConnector   = 62.0 cm #FIXME?
 
@@ -157,15 +156,15 @@ b:Ge/Dipole2/Include  = "TRUE" #FIXMENOW
 
 ########################################
 #3. Beam profile monitor 2
-# 2 Mylar windows
+# 2 Aluminized polyimide windows
 # 2 sets of Multi-wire chamber
 ########################################
 s:Ge/BeamProfileMonitor2/Parent   = "Gantry"
 s:Ge/BeamProfileMonitor2/Type     = "TsBox"
-s:Ge/BeamProfileMonitor2/Material = "NiGas" #FIXME?
+s:Ge/BeamProfileMonitor2/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr 
 d:Ge/BeamProfileMonitor2/HLX      = 188.0 mm
 d:Ge/BeamProfileMonitor2/HLY      = 188.0 mm
-d:Ge/BeamProfileMonitor2/HLZ      = 10.0 mm #FIXME OK
+d:Ge/BeamProfileMonitor2/HLZ      = 22.1 mm #FIXME OK
 d:Ge/BeamProfileMonitor2/TransX   = 0.0   mm
 d:Ge/BeamProfileMonitor2/TransY   = 0.0   mm
 d:Ge/BeamProfileMonitor2/TransZ   = 641.4 mm #FIXME OK
@@ -176,26 +175,26 @@ b:Ge/BeamProfileMonitor2/Include  = "TRUE" #FIXMENOW
 
 s:Ge/BeamProfileMonitor2/Window1/Parent   = "BeamProfileMonitor2"
 s:Ge/BeamProfileMonitor2/Window1/Type     = "TsBox"
-s:Ge/BeamProfileMonitor2/Window1/Material = "Mylar" #FIXME?
+s:Ge/BeamProfileMonitor2/Window1/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
 d:Ge/BeamProfileMonitor2/Window1/HLX      = 186.0  mm #FIXME OK
 d:Ge/BeamProfileMonitor2/Window1/HLY      = 186.0  mm #FIXME OK
-d:Ge/BeamProfileMonitor2/Window1/HLZ      = 0.01  mm #FIXME?
+d:Ge/BeamProfileMonitor2/Window1/HLZ      = 0.00625 mm #FIXME OK
 d:Ge/BeamProfileMonitor2/Window1/TransX   = 0.0 mm
 d:Ge/BeamProfileMonitor2/Window1/TransY   = 0.0 mm
-d:Ge/BeamProfileMonitor2/Window1/TransZ   = 9.123 mm #FIXME?
+d:Ge/BeamProfileMonitor2/Window1/TransZ   = 22.0 mm #FIXME OK
 d:Ge/BeamProfileMonitor2/Window1/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor2/Window1/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor2/Window1/RotZ     = 0.0 deg
 
 s:Ge/BeamProfileMonitor2/Window2/Parent   = "BeamProfileMonitor2"
 s:Ge/BeamProfileMonitor2/Window2/Type     = "TsBox"
-s:Ge/BeamProfileMonitor2/Window2/Material = "Mylar" #FIXME?
+s:Ge/BeamProfileMonitor2/Window2/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
 d:Ge/BeamProfileMonitor2/Window2/HLX      = 186.0  mm #FIXME OK
 d:Ge/BeamProfileMonitor2/Window2/HLY      = 186.0  mm #FIXME OK
-d:Ge/BeamProfileMonitor2/Window2/HLZ      = 0.01  mm #FIXME?
+d:Ge/BeamProfileMonitor2/Window2/HLZ      = 0.00625 mm #FIXME OK
 d:Ge/BeamProfileMonitor2/Window2/TransX   = 0.0 mm
 d:Ge/BeamProfileMonitor2/Window2/TransY   = 0.0 mm
-d:Ge/BeamProfileMonitor2/Window2/TransZ   = -9.123 mm #FIXME?
+d:Ge/BeamProfileMonitor2/Window2/TransZ   = -21.9 mm #FIXME OK
 d:Ge/BeamProfileMonitor2/Window2/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor2/Window2/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor2/Window2/RotZ     = 0.0 deg
@@ -205,10 +204,10 @@ s:Ge/MWC_In_BPM2/Type       = "TsMultiWireChamber"
 s:Ge/MWC_In_BPM2/Material   = "parent"
 d:Ge/MWC_In_BPM2/HLX        = 186.0  mm #FIXME OK
 d:Ge/MWC_In_BPM2/HLY        = 186.0  mm #FIXME OK
-d:Ge/MWC_In_BPM2/HLZ        = 5.0 mm #FIXME?
+d:Ge/MWC_In_BPM2/HLZ        = 7 mm #FIXME OK
 d:Ge/MWC_In_BPM2/TransX     = 0.0 mm
 d:Ge/MWC_In_BPM2/TransY     = 0.0 mm
-d:Ge/MWC_In_BPM2/TransZ     = 0.0 mm
+d:Ge/MWC_In_BPM2/TransZ     = 0.0 mm #FIXME OK
 d:Ge/MWC_In_BPM2/RotX       = 0.0   deg
 d:Ge/MWC_In_BPM2/RotY       = 0.0   deg
 d:Ge/MWC_In_BPM2/RotZ       = 0.0   deg
@@ -216,11 +215,11 @@ i:Ge/MWC_In_BPM2/NbOfLayers = 2
 b:Ge/MWC_In_BPM2/Include  = "TRUE" #FIXMENOW
 
 d:Ge/MWC_In_BPM2/Layer1/RMin          = 0.0 mm
-d:Ge/MWC_In_BPM2/Layer1/RMax          = 0.02 mm #FIXME?
-s:Ge/MWC_In_BPM2/Layer1/Material      = "Brass" #FIXME?
+d:Ge/MWC_In_BPM2/Layer1/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM2/Layer1/Material      = "Aluminum" #FIXME?
 d:Ge/MWC_In_BPM2/Layer1/HL            = 186.0 mm #FIXME OK
 s:Ge/MWC_In_BPM2/Layer1/Align         = "X"
-d:Ge/MWC_In_BPM2/Layer1/PosZ          = 5.0 mm #FIXME?
+d:Ge/MWC_In_BPM2/Layer1/PosZ          = 7.0 mm #FIXME OK
 s:Ge/MWC_In_BPM2/Layer1/DrawingStyle  = "Solid"
 dv:Ge/MWC_In_BPM2/Layer1/Displacement = 127 #FIXME?
 -119.07 -117.18 -115.29 -113.4 -111.51 -109.62 -107.73 -105.84
@@ -241,11 +240,11 @@ dv:Ge/MWC_In_BPM2/Layer1/Displacement = 127 #FIXME?
 105.84  107.73 109.62 111.51 113.4  115.29 117.18  119.07 mm
 
 d:Ge/MWC_In_BPM2/Layer2/RMin          = 0.0 mm
-d:Ge/MWC_In_BPM2/Layer2/RMax          = 0.02 mm #FIXME?
-s:Ge/MWC_In_BPM2/Layer2/Material      = "Brass" #FIXME?
+d:Ge/MWC_In_BPM2/Layer2/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM2/Layer2/Material      = "Aluminum" #FIXME?
 d:Ge/MWC_In_BPM2/Layer2/HL            = 186.0 mm #FIXME OK
 s:Ge/MWC_In_BPM2/Layer2/Align         = "Y"
-d:Ge/MWC_In_BPM2/Layer2/PosZ          = -5.0 mm #FIXME?
+d:Ge/MWC_In_BPM2/Layer2/PosZ          = -7.0 mm #FIXME OK
 s:Ge/MWC_In_BPM2/Layer2/DrawingStyle  =  "Solid"
 s:Ge/MWC_In_BPM2/Layer2/Color         = "red"
 dv:Ge/MWC_In_BPM2/Layer2/Displacement = 127 #FIXME?
@@ -268,15 +267,15 @@ dv:Ge/MWC_In_BPM2/Layer2/Displacement = 127 #FIXME?
 
 ########################################
 #4. Beam profile monitor 1
-# 2 Mylar windows
+# 2 Aluminized Polyimide windows
 # 2 sets of Multi-wire chamber
 ########################################
 s:Ge/BeamProfileMonitor1/Parent   = "Gantry"
 s:Ge/BeamProfileMonitor1/Type     = "TsBox"
-s:Ge/BeamProfileMonitor1/Material = "NiGas" #FIXME?
+s:Ge/BeamProfileMonitor1/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr
 d:Ge/BeamProfileMonitor1/HLX      = 186.0 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/HLY      = 186.0 mm #FIXME OK
-d:Ge/BeamProfileMonitor1/HLZ      = 10.0 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/HLZ      = 22.1 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/TransX   = 0.0   mm
 d:Ge/BeamProfileMonitor1/TransY   = 0.0   mm
 d:Ge/BeamProfileMonitor1/TransZ   = 541.4 mm #FIXME OK
@@ -287,26 +286,26 @@ b:Ge/BeamProfileMonitor1/Include  = "TRUE" #FIXMENOW
 
 s:Ge/BeamProfileMonitor1/Window1/Parent   = "BeamProfileMonitor1"
 s:Ge/BeamProfileMonitor1/Window1/Type     = "TsBox"
-s:Ge/BeamProfileMonitor1/Window1/Material = "Mylar" #FIXME?
+s:Ge/BeamProfileMonitor1/Window1/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
 d:Ge/BeamProfileMonitor1/Window1/HLX      = 186.0  mm #FIXME OK
 d:Ge/BeamProfileMonitor1/Window1/HLY      = 186.0  mm #FIXME OK
-d:Ge/BeamProfileMonitor1/Window1/HLZ      = 0.01  mm #FIXME?
+d:Ge/BeamProfileMonitor1/Window1/HLZ      = 0.00625 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/Window1/TransX   = 0.0 mm
 d:Ge/BeamProfileMonitor1/Window1/TransY   = 0.0 mm
-d:Ge/BeamProfileMonitor1/Window1/TransZ   = 9.123 mm #FIXME?
+d:Ge/BeamProfileMonitor1/Window1/TransZ   = 22.0 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/Window1/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor1/Window1/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor1/Window1/RotZ     = 0.0 deg
 
 s:Ge/BeamProfileMonitor1/Window2/Parent   = "BeamProfileMonitor1"
 s:Ge/BeamProfileMonitor1/Window2/Type     = "TsBox"
-s:Ge/BeamProfileMonitor1/Window2/Material = "Mylar" #FIXME?
+s:Ge/BeamProfileMonitor1/Window2/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
 d:Ge/BeamProfileMonitor1/Window2/HLX      = 186.0  mm #FIXME OK
 d:Ge/BeamProfileMonitor1/Window2/HLY      = 186.0  mm #FIXME OK
-d:Ge/BeamProfileMonitor1/Window2/HLZ      = 0.01  mm #FIXME?
+d:Ge/BeamProfileMonitor1/Window2/HLZ      = 0.00625 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/Window2/TransX   = 0.0 mm
 d:Ge/BeamProfileMonitor1/Window2/TransY   = 0.0 mm
-d:Ge/BeamProfileMonitor1/Window2/TransZ   = -9.123 mm #FIXME?
+d:Ge/BeamProfileMonitor1/Window2/TransZ   = -21.9 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/Window2/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor1/Window2/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor1/Window2/RotZ     = 0.0 deg
@@ -316,21 +315,21 @@ s:Ge/MWC_In_BPM1/Type       = "TsMultiWireChamber"
 s:Ge/MWC_In_BPM1/Material   = "parent"
 d:Ge/MWC_In_BPM1/HLX        = 186.0  mm #FIXME OK
 d:Ge/MWC_In_BPM1/HLY        = 186.0  mm #FIXME OK
-d:Ge/MWC_In_BPM1/HLZ        = 5.0  mm #FIXME?
+d:Ge/MWC_In_BPM1/HLZ        = 7.0 mm #FIXME OK 
 d:Ge/MWC_In_BPM1/TransX     = 0.0 mm
 d:Ge/MWC_In_BPM1/TransY     = 0.0 mm
-d:Ge/MWC_In_BPM1/TransZ     = 0.0 mm
+d:Ge/MWC_In_BPM1/TransZ     = 0.0 mm #FIXME OK
 d:Ge/MWC_In_BPM1/RotX       = 0.0   deg
 d:Ge/MWC_In_BPM1/RotY       = 0.0   deg
 d:Ge/MWC_In_BPM1/RotZ       = 0.0   deg
 i:Ge/MWC_In_BPM1/NbOfLayers = 2
 
 d:Ge/MWC_In_BPM1/Layer1/RMin          = 0.0 mm
-d:Ge/MWC_In_BPM1/Layer1/RMax          = 0.02 mm #FIXME?
-s:Ge/MWC_In_BPM1/Layer1/Material      = "Brass" #FIXME?
+d:Ge/MWC_In_BPM1/Layer1/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM1/Layer1/Material      = "Aluminum" #FIXME?
 d:Ge/MWC_In_BPM1/Layer1/HL            = 186.0 mm #FIXME OK
 s:Ge/MWC_In_BPM1/Layer1/Align         = "X"
-d:Ge/MWC_In_BPM1/Layer1/PosZ          = 5.0 mm #FIXME?
+d:Ge/MWC_In_BPM1/Layer1/PosZ          = 7.0 mm #FIXME OK
 s:Ge/MWC_In_BPM1/Layer1/DrawingStyle  = "Solid"
 dv:Ge/MWC_In_BPM1/Layer1/Displacement = 127 #FIXME?
 -119.07 -117.18 -115.29 -113.4 -111.51 -109.62 -107.73 -105.84
@@ -351,11 +350,11 @@ dv:Ge/MWC_In_BPM1/Layer1/Displacement = 127 #FIXME?
 105.84  107.73 109.62 111.51 113.4  115.29 117.18  119.07 mm
 
 d:Ge/MWC_In_BPM1/Layer2/RMin          = 0.0 mm
-d:Ge/MWC_In_BPM1/Layer2/RMax          = 0.02 mm #FIXME?
-s:Ge/MWC_In_BPM1/Layer2/Material      = "Brass" #FIXME?
+d:Ge/MWC_In_BPM1/Layer2/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM1/Layer2/Material      = "Aluminum" #FIXME?
 d:Ge/MWC_In_BPM1/Layer2/HL            = 186.0 mm #FIXME OK
 s:Ge/MWC_In_BPM1/Layer2/Align         = "Y"
-d:Ge/MWC_In_BPM1/Layer2/PosZ          = -5.0 mm #FIXME?
+d:Ge/MWC_In_BPM1/Layer2/PosZ          = -7.0 mm #FIXME OK
 s:Ge/MWC_In_BPM1/Layer2/DrawingStyle  =  "Solid"
 s:Ge/MWC_In_BPM1/Layer2/Color         = "red"
 dv:Ge/MWC_In_BPM1/Layer2/Displacement = 127 #FIXME?
