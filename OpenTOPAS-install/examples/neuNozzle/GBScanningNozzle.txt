@@ -383,9 +383,9 @@ i:Gr/ViewA/MagneticFieldArrowDensity = 10
 s:Ge/WaterBox/Type     = "TsBox"
 s:Ge/WaterBox/Parent   = "Gantry"
 s:Ge/WaterBox/Material = "G4_WATER"
-d:Ge/WaterBox/HLX      = 34.0 cm #FIXME OK
-d:Ge/WaterBox/HLY      = 40.0 cm #FIXME OK
-d:Ge/WaterBox/HLZ      = 35.0 cm #FIXME OK
+d:Ge/WaterBox/HLX      = 27.0 cm #FIXME OK
+d:Ge/WaterBox/HLY      = 20.0 cm #FIXME OK
+d:Ge/WaterBox/HLZ      = 17.5 cm #FIXME OK
 d:Ge/WaterBox/MinusHLZ = Ge/WaterBox/HLZ cm * -1.0
 d:Ge/WaterBox/TransX   = 0. cm
 d:Ge/WaterBox/TransY   = 0. cm
@@ -396,14 +396,28 @@ d:Ge/WaterBox/RotZ     = 0. deg
 s:Ge/WaterBox/Color    = "blue"
 
 ##### Dose scoring using DoseToMedium ####
+s:Ge/ScoringCylinder/Type     = "TsCylinder"
+s:Ge/ScoringCylinder/Parent   = "Gantry"
+d:Ge/ScoringCylinder/RMin     = 0. cm
+d:Ge/ScoringCylinder/RMax     = 0.495 cm
+d:Ge/ScoringCylinder/HL       = 17.5 cm
+b:Ge/ScoringCylinder/IsParallel = "True"
+d:Ge/ScoringCylinder/TransX   = 0. cm
+d:Ge/ScoringCylinder/TransY   = 0. cm
+d:Ge/ScoringCylinder/TransZ   = Ge/WaterBox/MinusHLZ cm
+d:Ge/ScoringCylinder/SPhi     = 0. deg
+d:Ge/ScoringCylinder/DPhi     = 360. deg
+#i:Ge/ScoringCylinder/RBins    = 6
+#i:Ge/ScoringCylinder/PhiBins  = 6
+i:Ge/ScoringCylinder/ZBins    = 583
+
 s:Sc/DoseOnRTGrid/Quantity                  = "DoseToMedium"
-b:Sc/DoseOnRTGrid/OutputToConsole            = "True"
-i:Sc/DoseOnRTGrid/ZBins                      = 100
-sv:Sc/DoseOnRTGrid/Report                    = 1 "Mean"
-s:Sc/DoseOnRTGrid/Component                  = "WaterBox"
-s:Sc/DoseOnRTGrid/IfOutputFileAlreadyExists  = "Overwrite"
-#s:Sc/DoseOnRTGrid/OutputFile       = "DosetoMatProton"
+s:Sc/DoseOnRTGrid/Component                 = "ScoringCylinder"
+s:Sc/DoseOnRTGrid/OutputType                = "csv"
+b:Sc/DoseOnRTGrid/OutputToConsole           = "True"
+s:Sc/DoseOnRTGrid/IfOutputFileAlreadyExists = "Overwrite"
 sv:Sc/DoseOnRTGrid/OnlyIncludeParticlesNamed = 1 "proton"
+
 
 ########################################
 # Location A
@@ -412,12 +426,12 @@ s:Ge/SphereA/Type     = "TsSphere"
 s:Ge/SphereA/Parent   = "Gantry"
 s:Ge/SphereA/Material = "Air"
 s:Ge/SphereA/Color    = "red"
-d:Ge/SphereA/RMax     = 10.0 cm
+d:Ge/SphereA/RMax     = 5.0 cm
 d:Ge/SphereA/SPhi     = 0. deg
 d:Ge/SphereA/DPhi     = 360. deg
 d:Ge/SphereA/STheta   = 0. deg
 d:Ge/SphereA/DTheta   = 180. deg
-d:Ge/SphereA/TransZ   = Ge/WaterBox/MinusHLZ - 50. cm
+d:Ge/SphereA/TransZ   = Ge/WaterBox/MinusHLZ - 82.5 cm
 b:Ge/SphereA/Include  = "TRUE" 
 
 # Score ambient dose equivalent for neutrons

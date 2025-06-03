@@ -1,1 +1,1 @@
-topas TOPASGBScanningNozzle.txt 
+topas SbatchGBScanningNozzle.txt 
