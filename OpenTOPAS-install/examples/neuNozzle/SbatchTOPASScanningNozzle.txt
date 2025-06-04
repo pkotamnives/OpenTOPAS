@@ -1,4 +1,4 @@
-includeFile = TOPASScanningNozzle.txt
+includeFile = TOPASScanningNozzle_TRUE.txt
 Ts/Seed = 1
 s:Sc/DoseOnRTGrid/OutputFile       = "DosetoMatProton_Job1"
 s:Sc/scorerAmbDosePerSource/OutputFile = "TOPASScanAmbientDoseNeutronPerSourceNeutron_Job1" 

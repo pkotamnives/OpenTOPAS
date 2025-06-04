@@ -634,6 +634,7 @@ i:Ge/ScoringCylinder/ZBins    = 583
 s:Sc/DoseOnRTGrid/Quantity                  = "DoseToMedium"
 s:Sc/DoseOnRTGrid/Component                 = "ScoringCylinder"
 s:Sc/DoseOnRTGrid/OutputType                = "csv"
+sv:Sc/DoseOnRTGrid/Report                   = 1 "Mean"
 b:Sc/DoseOnRTGrid/OutputToConsole           = "True"
 s:Sc/DoseOnRTGrid/IfOutputFileAlreadyExists = "Overwrite"
 sv:Sc/DoseOnRTGrid/OnlyIncludeParticlesNamed = 1 "proton"
