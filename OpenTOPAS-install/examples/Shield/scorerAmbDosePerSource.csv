@@ -1,0 +1,7 @@
+# TOPAS Version: 4.0
+# Parameter File: GBScanningNozzle.txt
+# Results for scorer: scorerAmbDosePerSource
+# Filtered by: OnlyIncludeParticlesNamed = 1 "neutron"
+# Scored in component: SphereA
+# AmbientDoseEquivalent ( Sv ) : Mean   
+2.896525082843898e-15

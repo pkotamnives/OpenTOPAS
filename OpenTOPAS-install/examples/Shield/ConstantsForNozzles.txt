@@ -1,0 +1,256 @@
+# These values are used in all of the nozzle examples.
+
+#All coordination information comes from TsDefaultParameters.
+#IEC 61217 compliance
+
+#Fixed Reference system (If)     => World volume
+#Gantry coordination system (Ig) => GantryCoordination
+#Source coordination system (S)  => BeamPosition rotateX(180), Z position w.r.t GantryCoordination
+#Beam source coordinate system rotate 180 and translate along z w.r.t g.
+#-> Y is -Y. we have to flip phase space data.
+#Isocenter coordination system (Io)
+
+d:Ge/World/HLX = 6. m
+d:Ge/World/HLY = 1.5 m
+d:Ge/World/HLZ = 6. m
+
+#S2I
+#d:Ge/S2I = 3.0 m
+
+#Backwall 
+s:Ge/Backwall/Type     = "TsBox"
+s:Ge/Backwall/Parent   = "World"
+s:Ge/Backwall/Material = "G4_CONCRETE"
+d:Ge/Backwall/HLX      =  6. m
+d:Ge/Backwall/HLY      =  1.5 m
+d:Ge/Backwall/HLZ      =  1. m
+d:Ge/Backwall/TransX   =  0 m
+d:Ge/Backwall/TransY   =  0 m
+d:Ge/Backwall/TransZ   =  5.0 m
+d:Ge/Backwall/RotX     =  0 deg
+d:Ge/Backwall/RotY     =  0 deg
+d:Ge/Backwall/RotZ     =  0 deg
+s:Ge/Backwall/Color    =  "red"
+b:Ge/Backwall/Include  = "TRUE" 
+
+#Frontwall 
+s:Ge/Frontwall/Type     = "TsBox"
+s:Ge/Frontwall/Parent   = "World"
+s:Ge/Frontwall/Material = "G4_CONCRETE"
+d:Ge/Frontwall/HLX      =  6. m
+d:Ge/Frontwall/HLY      =  1.5 m
+d:Ge/Frontwall/HLZ      =  1. m
+d:Ge/Frontwall/TransX   =  0 m
+d:Ge/Frontwall/TransY   =  0 m
+d:Ge/Frontwall/TransZ   =  -5.0 m
+d:Ge/Frontwall/RotX     =  0 deg
+d:Ge/Frontwall/RotY     =  0 deg
+d:Ge/Frontwall/RotZ     =  0 deg
+s:Ge/Frontwall/Color    =  "red"
+b:Ge/Frontwall/Include  = "TRUE" 
+
+#Cylindrical bottom ring 
+s:Ge/BottomRing/Parent = "World"
+s:Ge/BottomRing/Type = "TsCylinder"
+d:Ge/BottomRing/Rmax = 3.5 m
+d:Ge/BottomRing/Rmin = 3.3 m
+d:Ge/BottomRing/HL = 0.1 m 
+s:Ge/BottomRing/Material = "G4_Al"
+d:Ge/BottomRing/RotX = 90. deg 
+d:Ge/BottomRing/TransX = 0 m
+d:Ge/BottomRing/TransY = -1.0 m
+d:Ge/BottomRing/TransZ = 0 m
+b:Ge/BottomRing/Include  = "TRUE" 
+
+#Tilted extraction
+s:Ge/Extraction/Parent = "World"
+s:Ge/Extraction/Type = "TsCylinder"
+d:Ge/Extraction/Rmax = 0.15 m
+d:Ge/Extraction/HL = 0.5 m 
+s:Ge/Extraction/Material = "G4_Al"
+d:Ge/Extraction/RotX = 30.00 deg 
+d:Ge/Extraction/RotY = 173.09 deg #172.02 deg 
+d:Ge/Extraction/TransX = 3.6 m #3.548 m #3.565 m #1.956 m
+d:Ge/Extraction/TransY = -0.5 m
+d:Ge/Extraction/TransZ = -1.5 m #-0.430 m #-0.500 m #-1.644 m
+b:Ge/Extraction/Include  = "TRUE" 
+
+#Tilted extraction filled with air
+s:Ge/AirExtraction/Parent = "Extraction"
+s:Ge/AirExtraction/Type = "TsCylinder"
+d:Ge/AirExtraction/Rmax = 0.1 m
+d:Ge/AirExtraction/HL = 0.5 m 
+d:Ge/AirExtraction/TransX = 0.0 m 
+d:Ge/AirExtraction/TransY = 0.0 m
+d:Ge/AirExtraction/TransZ = 0.0 m 
+b:Ge/AirExtraction/IsParallel = "True"
+b:Ge/AirExtraction/Include  = "TRUE" 
+
+#Horizontal extraction
+s:Ge/Extraction2/Parent = "Gantry"
+s:Ge/Extraction2/Type = "TsCylinder"
+d:Ge/Extraction2/Rmax = 0.15 m
+d:Ge/Extraction2/HL = 0.5 m 
+s:Ge/Extraction2/Material = "G4_Al"
+d:Ge/Extraction2/TransX = 0.0 m 
+d:Ge/Extraction2/TransY = 0.0 m
+d:Ge/Extraction2/TransZ = 2.8 m 
+b:Ge/Extraction2/Include  = "TRUE" 
+
+#Horizontal extraction filled with air
+s:Ge/AirExtraction2/Parent = "Extraction2"
+s:Ge/AirExtraction2/Type = "TsCylinder"
+d:Ge/AirExtraction2/Rmax = 0.1 m
+d:Ge/AirExtraction2/HL = 0.5 m 
+d:Ge/AirExtraction2/TransX = 0.0 m 
+d:Ge/AirExtraction2/TransY = 0.0 m
+d:Ge/AirExtraction2/TransZ = 0.0 m 
+b:Ge/AirExtraction2/IsParallel = "True"
+b:Ge/AirExtraction2/Include  = "TRUE" 
+
+
+#Cylindrical top ring 
+s:Ge/TopRing/Parent = "World"
+s:Ge/TopRing/Type = "TsCylinder"
+d:Ge/TopRing/Rmax = 3.7 m
+d:Ge/TopRing/Rmin = 3.5 m
+d:Ge/TopRing/HL = 0.1 m 
+s:Ge/TopRing/Material = "G4_Al"
+d:Ge/TopRing/RotX = 90. deg 
+d:Ge/TopRing/RotZ = 180. deg 
+d:Ge/TopRing/SPhi = 90 deg
+d:Ge/TopRing/DPhi = 90 deg 
+d:Ge/TopRing/TransX = 0 m
+d:Ge/TopRing/TransY = 0 m
+d:Ge/TopRing/TransZ = 0 m
+b:Ge/TopRing/Include  = "TRUE" 
+
+#Gantry coordination system (Ig)
+s:Ge/Gantry/Parent = "World"
+s:Ge/Gantry/Type   = "Group"
+d:Ge/Gantry/TransX = 0. m
+d:Ge/Gantry/TransY = 0. m
+d:Ge/Gantry/TransZ = 0. m
+d:Ge/Gantry/RotX   = 0. deg
+d:Ge/Gantry/RotY   = 0. deg
+d:Ge/Gantry/RotZ   = 0. deg
+
+# Default Beam position
+s:Ge/BeamPosition2/Parent = "Extraction2"
+s:Ge/BeamPosition2/Type   = "Group"
+d:Ge/BeamPosition2/TransX = 0. m
+d:Ge/BeamPosition2/TransY = 0. m
+d:Ge/BeamPosition2/TransZ = -0.5 m
+d:Ge/BeamPosition2/RotX   = 180. deg
+d:Ge/BeamPosition2/RotY   = 0. deg
+d:Ge/BeamPosition2/RotZ   = 0. deg
+b:Ge/BeamPosition2/Include  = "TRUE" 
+
+# Tilted Beam position
+s:Ge/BeamPosition/Parent = "Extraction"
+s:Ge/BeamPosition/Type   = "Group"
+d:Ge/BeamPosition/TransX = 0. m
+d:Ge/BeamPosition/TransY = 0. m
+d:Ge/BeamPosition/TransZ = -0.5 m
+d:Ge/BeamPosition/RotX   = 180. deg #30. deg
+d:Ge/BeamPosition/RotY   = 0. deg #173.09 deg
+d:Ge/BeamPosition/RotZ   = 0. deg
+b:Ge/BeamPosition/Include  = "TRUE" 
+
+s:So/Beam2/Type                     = "Beam"
+s:So/Beam2/Component                = "BeamPosition2"
+s:So/Beam2/BeamParticle             = "proton"
+d:So/Beam2/BeamEnergy               = 200 MeV #FIXME 
+u:So/Beam2/BeamEnergySpread         = 1.5 #FIXME 
+s:So/Beam2/BeamPositionDistribution = "Gaussian"
+s:So/Beam2/BeamPositionCutoffShape  = "Ellipse"
+d:So/Beam2/BeamPositionCutoffX      = 5. cm #FIXME
+d:So/Beam2/BeamPositionCutoffY      = 5. cm #FIXME
+d:So/Beam2/BeamPositionSpreadX      = 1.105 cm #FIXME
+d:So/Beam2/BeamPositionSpreadY      = 1.105 cm #FIXME
+s:So/Beam2/BeamAngularDistribution  = "Gaussian"
+d:So/Beam2/BeamAngularCutoffX       = 90. deg
+d:So/Beam2/BeamAngularCutoffY       = 90. deg
+d:So/Beam2/BeamAngularSpreadX       = 0.0030 rad #FIXME
+d:So/Beam2/BeamAngularSpreadY       = 0.0030 rad #FIXME
+i:So/Beam2/NumberOfHistoriesInRun   = 1000 #1000000 #FIXME essentially the number of primary particles 
+b:Ge/Beam2/Include  = "TRUE" 
+
+
+s:So/Beam/Type                     = "Beam"
+s:So/Beam/Component                = "BeamPosition"
+s:So/Beam/BeamParticle             = "proton"
+d:So/Beam/BeamEnergy               = 200 MeV #FIXME 
+u:So/Beam/BeamEnergySpread         = 1.5 #FIXME 
+s:So/Beam/BeamPositionDistribution = "Gaussian"
+s:So/Beam/BeamPositionCutoffShape  = "Ellipse"
+d:So/Beam/BeamPositionCutoffX      = 5. cm #FIXME
+d:So/Beam/BeamPositionCutoffY      = 5. cm #FIXME
+d:So/Beam/BeamPositionSpreadX      = 1.105 cm #FIXME
+d:So/Beam/BeamPositionSpreadY      = 1.105 cm #FIXME
+s:So/Beam/BeamAngularDistribution  = "Gaussian"
+d:So/Beam/BeamAngularCutoffX       = 90. deg
+d:So/Beam/BeamAngularCutoffY       = 90. deg
+d:So/Beam/BeamAngularSpreadX       = 0.0030 rad #FIXME
+d:So/Beam/BeamAngularSpreadY       = 0.0030 rad #FIXME
+i:So/Beam/NumberOfHistoriesInRun   = 1428 #1000000 #FIXME essentially the number of primary particles 
+b:Ge/Beam/Include  = "TRUE" 
+
+b:Ts/ShowCPUTime                  = "true"
+i:Ts/ShowHistoryCountAtInterval   = 0
+b:Ts/ShowHistoryCountOnSingleLine = "False"
+
+########################################
+#Material
+#NitrogenGas for Chamber
+#HeliumGas   for Pipe
+########################################
+sv:Ma/NiGas/Components = 1 "Nitrogen"
+uv:Ma/NiGas/Fractions  = 1 1.0
+d:Ma/NiGas/Density     = 0.001251 g/cm3
+#0.001251 g/cm3 (gas, 0 C, 101.325 kPa)
+
+sv:Ma/HeGas/Components = 1 "Helium"
+uv:Ma/HeGas/Fractions  = 1 1.0
+d:Ma/HeGas/Density     = 0.000166322 g/cm3
+
+sv:Ma/Gold/Components          = 1 "Gold"
+uv:Ma/Gold/Fractions           = 1 1.0
+d:Ma/Gold/Density              = 19.3 g/cm3
+d:Ma/Gold/MeanExcitationEnergy = 790.0 eV
+s:Ma/Gold/DefaultColor         = "orange"
+
+sv:Ma/CompensatorLucite/Components          = 3 "Hydrogen" "Carbon" "Oxygen"
+uv:Ma/CompensatorLucite/Fractions           = 3 0.080538 0.599848 0.319614
+d:Ma/CompensatorLucite/Density              = 1.181 g/cm3
+d:Ma/CompensatorLucite/MeanExcitationEnergy = 74.0 eV
+s:Ma/CompensatorLucite/DefaultColor         = "grey"
+
+########################################
+# OGL Settings
+########################################
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 600
+i:Gr/MyOGL/WindowSizeY = 600
+i:Gr/MyOGL/WindowPosX  = 0
+i:Gr/MyOGL/WindowPosY  = 0
+s:Gr/MyOGL/ColorBy     = "ParticleType"
+sv:Gr/MyOGL/ColorByParticleTypeNames      = 4 "e-" "gamma" "proton" "neutron"
+sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
+
+s:Gr/ViewA/Type              = "OpenGL"
+
+Ts/UseQt = "False"
+b:Gr/Enable = "False"
+
+########################################
+# Physics
+########################################
+sv:Ph/Default/Modules = 7 "g4em-standard_opt3" "g4h-phy_QGSP_BIC_HP" "g4decay" "g4ion-binarycascade" "g4h-elastic_HP" "g4stopping" "g4radioactivedecay" #FIXME
+#d:Ph/Default/CutForAllParticles = 0.05 cm #FIXME
+i:Tf/Verbosity = 1
+
+########################################
+# Sequence control
+########################################
+b:Ts/PauseBeforeSequence = "F"
