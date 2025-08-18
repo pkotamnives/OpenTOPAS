@@ -54,7 +54,7 @@ s:Ge/BottomRingQ1/Parent = "World"
 s:Ge/BottomRingQ1/Type = "TsCylinder"
 d:Ge/BottomRingQ1/Rmax = 3.5 m
 d:Ge/BottomRingQ1/Rmin = 3.3 m
-d:Ge/BottomRingQ1/HL = 0.1 m 
+d:Ge/BottomRingQ1/HL = 0.15 m 
 s:Ge/BottomRingQ1/Material = "G4_Al"
 d:Ge/BottomRingQ1/RotX = 90. deg 
 d:Ge/BottomRingQ1/SPhi = 45 deg
@@ -68,7 +68,7 @@ s:Ge/BottomRingQ2/Parent = "World"
 s:Ge/BottomRingQ2/Type = "TsCylinder"
 d:Ge/BottomRingQ2/Rmax = 3.5 m
 d:Ge/BottomRingQ2/Rmin = 3.3 m
-d:Ge/BottomRingQ2/HL = 0.1 m 
+d:Ge/BottomRingQ2/HL = 0.15 m 
 s:Ge/BottomRingQ2/Material = "G4_Al"
 d:Ge/BottomRingQ2/RotX = 90. deg 
 d:Ge/BottomRingQ2/SPhi = 135 deg
@@ -82,7 +82,7 @@ s:Ge/BottomRingQ3/Parent = "World"
 s:Ge/BottomRingQ3/Type = "TsCylinder"
 d:Ge/BottomRingQ3/Rmax = 3.5 m
 d:Ge/BottomRingQ3/Rmin = 3.3 m
-d:Ge/BottomRingQ3/HL = 0.1 m 
+d:Ge/BottomRingQ3/HL = 0.15 m 
 s:Ge/BottomRingQ3/Material = "G4_Al"
 d:Ge/BottomRingQ3/RotX = 90. deg 
 d:Ge/BottomRingQ3/SPhi = 225 deg
@@ -96,7 +96,7 @@ s:Ge/BottomRingQ4/Parent = "World"
 s:Ge/BottomRingQ4/Type = "TsCylinder"
 d:Ge/BottomRingQ4/Rmax = 3.5 m
 d:Ge/BottomRingQ4/Rmin = 3.3 m
-d:Ge/BottomRingQ4/HL = 0.1 m 
+d:Ge/BottomRingQ4/HL = 0.15 m 
 s:Ge/BottomRingQ4/Material = "G4_Al"
 d:Ge/BottomRingQ4/RotX = 90. deg 
 d:Ge/BottomRingQ4/SPhi = 315 deg
@@ -110,25 +110,25 @@ b:Ge/BottomRingQ4/Include  = "TRUE"
 s:Ge/Extraction/Parent = "World"
 s:Ge/Extraction/Type = "TsCylinder"
 d:Ge/Extraction/Rmax = 0.15 m
-d:Ge/Extraction/HL = 0.5 m 
+d:Ge/Extraction/HL = 0.2 m 
 s:Ge/Extraction/Material = "G4_Al"
 d:Ge/Extraction/RotX = 30.00 deg 
 d:Ge/Extraction/RotY = 173.09 deg #172.02 deg 
 d:Ge/Extraction/TransX = 3.6 m #3.548 m #3.565 m #1.956 m
-d:Ge/Extraction/TransY = -0.5 m
-d:Ge/Extraction/TransZ = -1.5 m #-0.430 m #-0.500 m #-1.644 m
-b:Ge/Extraction/Include  = "TRUE" 
+d:Ge/Extraction/TransY = -0.35 m
+d:Ge/Extraction/TransZ = -1.2 m #-0.430 m #-0.500 m #-1.644 m
+b:Ge/Extraction/Include  = "FALSE" 
 
 #Tilted extraction filled with air
 s:Ge/AirExtraction/Parent = "Extraction"
 s:Ge/AirExtraction/Type = "TsCylinder"
 d:Ge/AirExtraction/Rmax = 0.1 m
-d:Ge/AirExtraction/HL = 0.5 m 
+d:Ge/AirExtraction/HL = 0.2 m 
 d:Ge/AirExtraction/TransX = 0.0 m 
 d:Ge/AirExtraction/TransY = 0.0 m
 d:Ge/AirExtraction/TransZ = 0.0 m 
 b:Ge/AirExtraction/IsParallel = "True"
-b:Ge/AirExtraction/Include  = "TRUE" 
+b:Ge/AirExtraction/Include  = "FALSE" 
 
 #Horizontal extraction
 s:Ge/Extraction2/Parent = "Gantry"
@@ -156,16 +156,16 @@ b:Ge/AirExtraction2/Include  = "TRUE"
 #Cylindrical top ring 
 s:Ge/TopRing/Parent = "World"
 s:Ge/TopRing/Type = "TsCylinder"
-d:Ge/TopRing/Rmax = 3.7 m
-d:Ge/TopRing/Rmin = 3.5 m
-d:Ge/TopRing/HL = 0.1 m 
+d:Ge/TopRing/Rmax = 3.9 m
+d:Ge/TopRing/Rmin = 3.7 m
+d:Ge/TopRing/HL = 0.15 m 
 s:Ge/TopRing/Material = "G4_Al"
 d:Ge/TopRing/RotX = 90. deg 
 d:Ge/TopRing/RotZ = 180. deg 
 d:Ge/TopRing/SPhi = 90 deg
 d:Ge/TopRing/DPhi = 90 deg 
 d:Ge/TopRing/TransX = 0 m
-d:Ge/TopRing/TransY = 0 m
+d:Ge/TopRing/TransY = 0.2 m 
 d:Ge/TopRing/TransZ = 0 m
 b:Ge/TopRing/Include  = "TRUE" 
 
@@ -190,16 +190,6 @@ d:Ge/BeamPosition2/RotY   = 0. deg
 d:Ge/BeamPosition2/RotZ   = 0. deg
 b:Ge/BeamPosition2/Include  = "TRUE" 
 
-# Tilted Beam position
-s:Ge/BeamPosition/Parent = "Extraction"
-s:Ge/BeamPosition/Type   = "Group"
-d:Ge/BeamPosition/TransX = 0. m
-d:Ge/BeamPosition/TransY = 0. m
-d:Ge/BeamPosition/TransZ = -0.5 m
-d:Ge/BeamPosition/RotX   = 180. deg 
-d:Ge/BeamPosition/RotY   = 0. deg 
-d:Ge/BeamPosition/RotZ   = 0. deg
-b:Ge/BeamPosition/Include  = "TRUE" 
 
 # Q1 Beam position
 s:Ge/BeamPositionQ1/Parent = "Gantry"
@@ -261,28 +251,9 @@ d:So/Beam2/BeamAngularCutoffX       = 90. deg
 d:So/Beam2/BeamAngularCutoffY       = 90. deg
 d:So/Beam2/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/Beam2/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/Beam2/NumberOfHistoriesInRun   = 7 #1000000 #FIXME essentially the number of primary particles 
+i:So/Beam2/NumberOfHistoriesInRun   = 10 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/Beam2/Include  = "TRUE" 
 
-
-s:So/Beam/Type                     = "Beam"
-s:So/Beam/Component                = "BeamPosition"
-s:So/Beam/BeamParticle             = "proton"
-d:So/Beam/BeamEnergy               = 200 MeV #FIXME 
-u:So/Beam/BeamEnergySpread         = 1.5 #FIXME 
-s:So/Beam/BeamPositionDistribution = "Gaussian"
-s:So/Beam/BeamPositionCutoffShape  = "Ellipse"
-d:So/Beam/BeamPositionCutoffX      = 5. cm #FIXME
-d:So/Beam/BeamPositionCutoffY      = 5. cm #FIXME
-d:So/Beam/BeamPositionSpreadX      = 1.105 cm #FIXME
-d:So/Beam/BeamPositionSpreadY      = 1.105 cm #FIXME
-s:So/Beam/BeamAngularDistribution  = "Gaussian"
-d:So/Beam/BeamAngularCutoffX       = 90. deg
-d:So/Beam/BeamAngularCutoffY       = 90. deg
-d:So/Beam/BeamAngularSpreadX       = 0.0030 rad #FIXME
-d:So/Beam/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/Beam/NumberOfHistoriesInRun   = 10 #1000000 #FIXME essentially the number of primary particles 
-b:Ge/Beam/Include  = "TRUE" 
 
 s:So/BeamQ1/Type                     = "Beam"
 s:So/BeamQ1/Component                = "BeamPositionQ1"
