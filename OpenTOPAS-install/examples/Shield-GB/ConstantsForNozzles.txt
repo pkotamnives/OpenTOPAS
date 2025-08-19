@@ -134,18 +134,18 @@ b:Ge/AirExtraction/Include  = "FALSE"
 s:Ge/Extraction2/Parent = "Gantry"
 s:Ge/Extraction2/Type = "TsCylinder"
 d:Ge/Extraction2/Rmax = 0.15 m
-d:Ge/Extraction2/HL = 0.5 m 
+d:Ge/Extraction2/HL = 0.25 m 
 s:Ge/Extraction2/Material = "G4_Fe"
 d:Ge/Extraction2/TransX = 0.0 m 
 d:Ge/Extraction2/TransY = 0.0 m
-d:Ge/Extraction2/TransZ = 2.8 m 
+d:Ge/Extraction2/TransZ = 2.55 m 
 b:Ge/Extraction2/Include  = "TRUE" 
 
 #Horizontal extraction filled with air
 s:Ge/AirExtraction2/Parent = "Extraction2"
 s:Ge/AirExtraction2/Type = "TsCylinder"
 d:Ge/AirExtraction2/Rmax = 0.1 m
-d:Ge/AirExtraction2/HL = 0.5 m 
+d:Ge/AirExtraction2/HL = 0.25 m 
 d:Ge/AirExtraction2/TransX = 0.0 m 
 d:Ge/AirExtraction2/TransY = 0.0 m
 d:Ge/AirExtraction2/TransZ = 0.0 m 
@@ -172,10 +172,10 @@ b:Ge/TopRing/Include  = "FALSE"
 #Gantry coordination system (Ig)
 s:Ge/Gantry/Parent = "World"
 s:Ge/Gantry/Type   = "Group"
-d:Ge/Gantry/TransX = 0. m
-d:Ge/Gantry/TransY = 0. m
-d:Ge/Gantry/TransZ = 0. m
-d:Ge/Gantry/RotX   = 0. deg
+d:Ge/Gantry/TransX = 3.8 m
+d:Ge/Gantry/TransY = 0.2 m
+d:Ge/Gantry/TransZ = 2.8 m
+d:Ge/Gantry/RotX   = 180. deg
 d:Ge/Gantry/RotY   = 0. deg
 d:Ge/Gantry/RotZ   = 0. deg
 
@@ -192,7 +192,7 @@ b:Ge/BeamPosition2/Include  = "TRUE"
 
 
 # Q1 Beam position
-s:Ge/BeamPositionQ1/Parent = "Gantry"
+s:Ge/BeamPositionQ1/Parent = "World"
 s:Ge/BeamPositionQ1/Type   = "Group"
 d:Ge/BeamPositionQ1/TransX = 2.404 m
 d:Ge/BeamPositionQ1/TransY = -1.0 m
@@ -203,7 +203,7 @@ d:Ge/BeamPositionQ1/RotZ   = 0. deg
 b:Ge/BeamPositionQ1/Include  = "TRUE" 
 
 # Q2 Beam position
-s:Ge/BeamPositionQ2/Parent = "Gantry"
+s:Ge/BeamPositionQ2/Parent = "World"
 s:Ge/BeamPositionQ2/Type   = "Group"
 d:Ge/BeamPositionQ2/TransX = -2.404 m
 d:Ge/BeamPositionQ2/TransY = -1.0 m
@@ -214,7 +214,7 @@ d:Ge/BeamPositionQ2/RotZ   = 0. deg
 b:Ge/BeamPositionQ2/Include  = "TRUE" 
 
 # Q3 Beam position
-s:Ge/BeamPositionQ3/Parent = "Gantry"
+s:Ge/BeamPositionQ3/Parent = "World"
 s:Ge/BeamPositionQ3/Type   = "Group"
 d:Ge/BeamPositionQ3/TransX = -2.404 m
 d:Ge/BeamPositionQ3/TransY = -1.0 m
@@ -225,7 +225,7 @@ d:Ge/BeamPositionQ3/RotZ   = 0. deg
 b:Ge/BeamPositionQ3/Include  = "TRUE" 
 
 # Q4 Beam position
-s:Ge/BeamPositionQ4/Parent = "Gantry"
+s:Ge/BeamPositionQ4/Parent = "World"
 s:Ge/BeamPositionQ4/Type   = "Group"
 d:Ge/BeamPositionQ4/TransX = 2.404 m
 d:Ge/BeamPositionQ4/TransY = -1.0 m
@@ -251,7 +251,7 @@ d:So/Beam2/BeamAngularCutoffX       = 90. deg
 d:So/Beam2/BeamAngularCutoffY       = 90. deg
 d:So/Beam2/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/Beam2/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/Beam2/NumberOfHistoriesInRun   = 7 #4000 #1000000 #FIXME essentially the number of primary particles 
+i:So/Beam2/NumberOfHistoriesInRun   = 4000 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/Beam2/Include  = "TRUE" 
 
 
@@ -271,7 +271,7 @@ d:So/BeamQ1/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ1/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ1/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ1/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ1/NumberOfHistoriesInRun   = 10 #5000 #FIXME essentially the number of primary particles 
+i:So/BeamQ1/NumberOfHistoriesInRun   = 5000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ1/Include  = "TRUE" 
 
 s:So/BeamQ2/Type                     = "Beam"
@@ -290,7 +290,7 @@ d:So/BeamQ2/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ2/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ2/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ2/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ2/NumberOfHistoriesInRun   = 10 #4800 #1000000 #FIXME essentially the number of primary particles 
+i:So/BeamQ2/NumberOfHistoriesInRun   = 4800 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ2/Include  = "TRUE" 
 
 s:So/BeamQ3/Type                     = "Beam"
@@ -309,7 +309,7 @@ d:So/BeamQ3/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ3/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ3/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ3/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ3/NumberOfHistoriesInRun   = 10 #4600 #1000000 #FIXME essentially the number of primary particles 
+i:So/BeamQ3/NumberOfHistoriesInRun   = 4600 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ3/Include  = "TRUE" 
 
 s:So/BeamQ4/Type                     = "Beam"
@@ -328,7 +328,7 @@ d:So/BeamQ4/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ4/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ4/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ4/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ4/NumberOfHistoriesInRun   = 10 #4400 #1000000 #FIXME essentially the number of primary particles 
+i:So/BeamQ4/NumberOfHistoriesInRun   = 4400 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ4/Include  = "TRUE" 
 
 b:Ts/ShowCPUTime                  = "true"
@@ -375,8 +375,8 @@ sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
 
 s:Gr/ViewA/Type              = "OpenGL"
 
-Ts/UseQt = "True"
-b:Gr/Enable = "True"
+Ts/UseQt = "False"
+b:Gr/Enable = "False"
 
 ########################################
 # Physics
