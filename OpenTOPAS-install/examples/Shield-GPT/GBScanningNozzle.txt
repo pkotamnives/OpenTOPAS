@@ -158,7 +158,7 @@ b:Ge/Dipole2/Include  = "TRUE" #FIXMENOW
 # Extra Dipole near Extraction 
 ########################################
 s:Ge/ExQuad/Type          = "TsBox"
-s:Ge/ExQuad/Parent        = "Gantry"
+s:Ge/ExQuad/Parent        = "World"
 s:Ge/ExQuad/Material      = "parent"
 d:Ge/ExQuad/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/ExQuad/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -178,7 +178,7 @@ d:Ge/ExQuad/MagneticFieldGradientY    = 0.5 tesla/cm
 b:Ge/ExQuad/Include  = "TRUE" 
 
 s:Ge/ExDipole1/Type          = "TsBox"
-s:Ge/ExDipole1/Parent        = "Gantry"
+s:Ge/ExDipole1/Parent        = "World"
 s:Ge/ExDipole1/Material      = "parent"
 d:Ge/ExDipole1/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/ExDipole1/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -197,7 +197,7 @@ d:Ge/ExDipole1/MagneticFieldStrength      = 4.0 tesla
 b:Ge/ExDipole1/Include  = "TRUE" 
 
 s:Ge/ExDipole2/Type          = "TsBox"
-s:Ge/ExDipole2/Parent        = "Gantry"
+s:Ge/ExDipole2/Parent        = "World"
 s:Ge/ExDipole2/Material      = "parent"
 d:Ge/ExDipole2/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/ExDipole2/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -217,7 +217,7 @@ b:Ge/ExDipole2/Include  = "TRUE"
 
 
 s:Ge/ExDipole3/Type          = "TsBox"
-s:Ge/ExDipole3/Parent        = "Gantry"
+s:Ge/ExDipole3/Parent        = "World"
 s:Ge/ExDipole3/Material      = "parent"
 d:Ge/ExDipole3/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/ExDipole3/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -236,11 +236,129 @@ d:Ge/ExDipole3/MagneticFieldStrength      = 4.0 tesla
 b:Ge/ExDipole3/Include  = "TRUE" 
 
 
+#######################################
+# Extra Dipole near Extraction 2
+########################################
+s:Ge/Ex2Dipole1/Type          = "TsBox"
+s:Ge/Ex2Dipole1/Parent        = "World"
+s:Ge/Ex2Dipole1/Material      = "parent"
+d:Ge/Ex2Dipole1/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole1/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole1/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Ex2Dipole1/TransX        = 2.2 m
+d:Ge/Ex2Dipole1/TransY        = 0.2 m
+d:Ge/Ex2Dipole1/TransZ        = 3.1 m
+d:Ge/Ex2Dipole1/RotX          = 0.0 deg
+d:Ge/Ex2Dipole1/RotY          = 45.0 deg
+d:Ge/Ex2Dipole1/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole1/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole1/MagneticFieldDirectionX    = -1.0 #Deflect a beam downward
+u:Ge/Ex2Dipole1/MagneticFieldDirectionY    = 0.0 
+u:Ge/Ex2Dipole1/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole1/MagneticFieldStrength      = 2.0 tesla
+b:Ge/Ex2Dipole1/Include  = "TRUE" 
+
+s:Ge/Ex2Dipole2/Type          = "TsBox"
+s:Ge/Ex2Dipole2/Parent        = "World"
+s:Ge/Ex2Dipole2/Material      = "parent"
+d:Ge/Ex2Dipole2/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole2/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole2/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Ex2Dipole2/TransX        = 1.1 m #1.0 m
+d:Ge/Ex2Dipole2/TransY        = 0.1 m
+d:Ge/Ex2Dipole2/TransZ        = 3.125 m #3.1 m
+d:Ge/Ex2Dipole2/RotX          = 0.0 deg
+d:Ge/Ex2Dipole2/RotY          = 90.0 deg
+d:Ge/Ex2Dipole2/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole2/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole2/MagneticFieldDirectionX    = 0.0 
+u:Ge/Ex2Dipole2/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
+u:Ge/Ex2Dipole2/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole2/MagneticFieldStrength      = 2.0 tesla
+b:Ge/Ex2Dipole2/Include  = "TRUE" 
+
+s:Ge/Ex2Dipole3/Type          = "TsBox"
+s:Ge/Ex2Dipole3/Parent        = "World"
+s:Ge/Ex2Dipole3/Material      = "parent"
+d:Ge/Ex2Dipole3/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole3/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole3/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Ex2Dipole3/TransX        = 0.6 m #0.6 m
+d:Ge/Ex2Dipole3/TransY        = 0.1 m
+d:Ge/Ex2Dipole3/TransZ        = 3.0 m #3.1 m
+d:Ge/Ex2Dipole3/RotX          = 0.0 deg
+d:Ge/Ex2Dipole3/RotY          = 120.0 deg
+d:Ge/Ex2Dipole3/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole3/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole3/MagneticFieldDirectionX    = 0.0 
+u:Ge/Ex2Dipole3/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
+u:Ge/Ex2Dipole3/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole3/MagneticFieldStrength      = 6.0 tesla
+b:Ge/Ex2Dipole3/Include  = "TRUE" 
+
+s:Ge/Ex2Dipole4/Type          = "TsBox"
+s:Ge/Ex2Dipole4/Parent        = "World"
+s:Ge/Ex2Dipole4/Material      = "parent"
+d:Ge/Ex2Dipole4/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole4/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole4/HLZ           = 10 cm
+d:Ge/Ex2Dipole4/TransX        = 0.0 m
+d:Ge/Ex2Dipole4/TransY        = 0.0 m
+d:Ge/Ex2Dipole4/TransZ        = 2.5 m #2.5 m
+d:Ge/Ex2Dipole4/RotX          = 0.0 deg
+d:Ge/Ex2Dipole4/RotY          = 0.0 deg
+d:Ge/Ex2Dipole4/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole4/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole4/MagneticFieldDirectionX    = -1.0 #Deflect beam upward 
+u:Ge/Ex2Dipole4/MagneticFieldDirectionY    = 0.0  
+u:Ge/Ex2Dipole4/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole4/MagneticFieldStrength      = 2.0 tesla
+b:Ge/Ex2Dipole4/Include  = "TRUE" 
+
+s:Ge/Ex2Dipole5/Type          = "TsBox"
+s:Ge/Ex2Dipole5/Parent        = "World"
+s:Ge/Ex2Dipole5/Material      = "parent"
+d:Ge/Ex2Dipole5/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole5/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole5/HLZ           = 10 cm
+d:Ge/Ex2Dipole5/TransX        = 0.0 m
+d:Ge/Ex2Dipole5/TransY        = 0.0 m
+d:Ge/Ex2Dipole5/TransZ        = 2.2 m #2.2 m
+d:Ge/Ex2Dipole5/RotX          = 0.0 deg
+d:Ge/Ex2Dipole5/RotY          = 0.0 deg
+d:Ge/Ex2Dipole5/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole5/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole5/MagneticFieldDirectionX    = 0.0 
+u:Ge/Ex2Dipole5/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
+u:Ge/Ex2Dipole5/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole5/MagneticFieldStrength      = 6.0 tesla
+b:Ge/Ex2Dipole5/Include  = "TRUE" 
+
+s:Ge/Ex2Quad/Type          = "TsBox"
+s:Ge/Ex2Quad/Parent        = "World"
+s:Ge/Ex2Quad/Material      = "parent"
+d:Ge/Ex2Quad/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Quad/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Quad/HLZ           = 5 cm
+d:Ge/Ex2Quad/TransX        = 0.0 m
+d:Ge/Ex2Quad/TransY        = 0.0 m
+d:Ge/Ex2Quad/TransZ        = 2.0 m
+d:Ge/Ex2Quad/RotX          = 0.0 deg
+d:Ge/Ex2Quad/RotY          = 0.0 deg
+d:Ge/Ex2Quad/RotZ          = 0.0 deg
+s:Ge/Ex2Quad/Field = "QuadrupoleMagnet"
+u:Ge/Ex2Quad/MagneticFieldDirectionX    = -1
+u:Ge/Ex2Quad/MagneticFieldDirectionY    = 2.0 
+u:Ge/Ex2Quad/MagneticFieldDirectionZ    = 3.0
+d:Ge/Ex2Quad/MagneticFieldGradientX    = 0.5 tesla/cm 
+d:Ge/Ex2Quad/MagneticFieldGradientY    = 0.5 tesla/cm 
+b:Ge/Ex2Quad/Include  = "FALSE" 
+
 ########################################
 # Extra Dipole by Bottom Ring Quarters 
 ########################################
 s:Ge/Q1Dipole/Type          = "TsBox"
-s:Ge/Q1Dipole/Parent        = "Gantry"
+s:Ge/Q1Dipole/Parent        = "World"
 s:Ge/Q1Dipole/Material      = "parent"
 d:Ge/Q1Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q1Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -259,7 +377,7 @@ d:Ge/Q1Dipole/MagneticFieldStrength      = 4.0 tesla
 b:Ge/Q1Dipole/Include  = "TRUE" 
 
 s:Ge/Q2Dipole/Type          = "TsBox"
-s:Ge/Q2Dipole/Parent        = "Gantry"
+s:Ge/Q2Dipole/Parent        = "World"
 s:Ge/Q2Dipole/Material      = "parent"
 d:Ge/Q2Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q2Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -278,7 +396,7 @@ d:Ge/Q2Dipole/MagneticFieldStrength      = 4.0 tesla
 b:Ge/Q2Dipole/Include  = "TRUE" 
 
 s:Ge/Q3Dipole/Type          = "TsBox"
-s:Ge/Q3Dipole/Parent        = "Gantry"
+s:Ge/Q3Dipole/Parent        = "World"
 s:Ge/Q3Dipole/Material      = "parent"
 d:Ge/Q3Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q3Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -297,7 +415,7 @@ d:Ge/Q3Dipole/MagneticFieldStrength      = 4.0 tesla
 b:Ge/Q3Dipole/Include  = "TRUE" 
 
 s:Ge/Q4Dipole/Type          = "TsBox"
-s:Ge/Q4Dipole/Parent        = "Gantry"
+s:Ge/Q4Dipole/Parent        = "World"
 s:Ge/Q4Dipole/Material      = "parent"
 d:Ge/Q4Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q4Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -316,7 +434,7 @@ d:Ge/Q4Dipole/MagneticFieldStrength      = 4.0 tesla
 b:Ge/Q4Dipole/Include  = "TRUE" 
 
 s:Ge/Q4p2Dipole/Type          = "TsBox"
-s:Ge/Q4p2Dipole/Parent        = "Gantry"
+s:Ge/Q4p2Dipole/Parent        = "World"
 s:Ge/Q4p2Dipole/Material      = "parent"
 d:Ge/Q4p2Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q4p2Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -335,7 +453,7 @@ d:Ge/Q4p2Dipole/MagneticFieldStrength      = 3.0 tesla
 b:Ge/Q4p2Dipole/Include  = "TRUE" 
 
 s:Ge/Q4p3Quad/Type          = "TsBox"
-s:Ge/Q4p3Quad/Parent        = "Gantry"
+s:Ge/Q4p3Quad/Parent        = "World"
 s:Ge/Q4p3Quad/Material      = "parent"
 d:Ge/Q4p3Quad/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q4p3Quad/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -355,7 +473,7 @@ d:Ge/Q4p3Quad/MagneticFieldGradientY    = 0.5 tesla/cm
 b:Ge/Q4p3Quad/Include  = "TRUE" 
 
 s:Ge/Q4p4Dipole/Type          = "TsBox"
-s:Ge/Q4p4Dipole/Parent        = "Gantry"
+s:Ge/Q4p4Dipole/Parent        = "World"
 s:Ge/Q4p4Dipole/Material      = "parent"
 d:Ge/Q4p4Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q4p4Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
@@ -651,7 +769,7 @@ d:Ge/SphereA/SPhi     = 0. deg
 d:Ge/SphereA/DPhi     = 360. deg
 d:Ge/SphereA/STheta   = 0. deg
 d:Ge/SphereA/DTheta   = 180. deg
-d:Ge/SphereA/TransZ   = Ge/WaterBox/MinusHLZ - 82.5 cm
+d:Ge/SphereA/TransZ   = Ge/WaterBox/MinusHLZ - 2.5 cm #82.5 cm
 d:Ge/SphereA/TransY   = 0.5 m
 b:Ge/SphereA/Include  = "TRUE" 
 
@@ -684,7 +802,7 @@ dv:Sc/scorerAmbDosePerSource/FluenceToDoseConversionValues   = 58
 # Location B
 ########################################
 s:Ge/SphereB/Type     = "TsSphere"
-s:Ge/SphereB/Parent   = "Gantry"
+s:Ge/SphereB/Parent   = "World"
 s:Ge/SphereB/Material = "Air"
 s:Ge/SphereB/Color    = "red"
 d:Ge/SphereB/RMax     = 15.0 cm
@@ -722,6 +840,87 @@ dv:Sc/scorerAmbDosePerSourceB/FluenceToDoseConversionValues   = 58
 4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
 4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
 
+########################################
+# Location C
+########################################
+s:Ge/SphereC/Type     = "TsSphere"
+s:Ge/SphereC/Parent   = "Gantry"
+s:Ge/SphereC/Material = "Air"
+s:Ge/SphereC/Color    = "red"
+d:Ge/SphereC/RMax     = 15.0 cm
+d:Ge/SphereC/SPhi     = 0. deg
+d:Ge/SphereC/DPhi     = 360. deg
+d:Ge/SphereC/STheta   = 0. deg
+d:Ge/SphereC/DTheta   = 180. deg
+d:Ge/SphereC/TransZ   = Ge/WaterBox/MinusHLZ - 2.5 cm #82.5
+d:Ge/SphereC/TransY   = -1.0 m
+b:Ge/SphereC/Include  = "TRUE" 
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerSourceC/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerSourceC/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerSourceC/Component                  = "SphereC"
+#s:Sc/scorerAmbDosePerSourceC/OutputFile                 = "GBScanAmbientDoseNeutronPerSourceCNeutron"
+b:Sc/scorerAmbDosePerSourceC/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerSourceC/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerAmbDosePerSourceC/Report                    = 1 "Mean"
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerSourceC/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerSourceC/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerSourceC/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
+########################################
+# Location D
+########################################
+s:Ge/SphereD/Type     = "TsSphere"
+s:Ge/SphereD/Parent   = "Gantry"
+s:Ge/SphereD/Material = "Air"
+s:Ge/SphereD/Color    = "red"
+d:Ge/SphereD/RMax     = 15.0 cm
+d:Ge/SphereD/SPhi     = 0. deg
+d:Ge/SphereD/DPhi     = 360. deg
+d:Ge/SphereD/STheta   = 0. deg
+d:Ge/SphereD/DTheta   = 180. deg
+d:Ge/SphereD/TransZ   = Ge/WaterBox/MinusHLZ - 82.5 cm
+d:Ge/SphereD/TransY   = 0.5 m
+b:Ge/SphereD/Include  = "TRUE" 
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerSourceD/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerSourceD/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerSourceD/Component                  = "SphereD"
+#s:Sc/scorerAmbDosePerSourceD/OutputFile                 = "GBScanAmbientDoseNeutronPerSourceDNeutron"
+b:Sc/scorerAmbDosePerSourceD/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerSourceD/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerAmbDosePerSourceD/Report                    = 1 "Mean"
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerSourceD/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerSourceD/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerSourceD/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
 
 # Score origin counts for neutrons
 #s:Sc/CountWaterBoxNeutron/Quantity = "OriginCount"
