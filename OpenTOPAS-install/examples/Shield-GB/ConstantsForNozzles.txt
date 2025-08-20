@@ -251,7 +251,7 @@ d:So/Beam2/BeamAngularCutoffX       = 90. deg
 d:So/Beam2/BeamAngularCutoffY       = 90. deg
 d:So/Beam2/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/Beam2/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/Beam2/NumberOfHistoriesInRun   = 4000 #1000000 #FIXME essentially the number of primary particles 
+i:So/Beam2/NumberOfHistoriesInRun   = 7 #4000 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/Beam2/Include  = "TRUE" 
 
 
@@ -271,7 +271,7 @@ d:So/BeamQ1/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ1/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ1/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ1/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ1/NumberOfHistoriesInRun   = 5000 #FIXME essentially the number of primary particles 
+i:So/BeamQ1/NumberOfHistoriesInRun   = 10 #5000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ1/Include  = "TRUE" 
 
 s:So/BeamQ2/Type                     = "Beam"
@@ -290,7 +290,7 @@ d:So/BeamQ2/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ2/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ2/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ2/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ2/NumberOfHistoriesInRun   = 4800 #1000000 #FIXME essentially the number of primary particles 
+i:So/BeamQ2/NumberOfHistoriesInRun   = 10 #4800 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ2/Include  = "TRUE" 
 
 s:So/BeamQ3/Type                     = "Beam"
@@ -309,7 +309,7 @@ d:So/BeamQ3/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ3/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ3/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ3/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ3/NumberOfHistoriesInRun   = 4600 #1000000 #FIXME essentially the number of primary particles 
+i:So/BeamQ3/NumberOfHistoriesInRun   = 10 #4600 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ3/Include  = "TRUE" 
 
 s:So/BeamQ4/Type                     = "Beam"
@@ -328,7 +328,7 @@ d:So/BeamQ4/BeamAngularCutoffX       = 90. deg
 d:So/BeamQ4/BeamAngularCutoffY       = 90. deg
 d:So/BeamQ4/BeamAngularSpreadX       = 0.0030 rad #FIXME
 d:So/BeamQ4/BeamAngularSpreadY       = 0.0030 rad #FIXME
-i:So/BeamQ4/NumberOfHistoriesInRun   = 4400 #1000000 #FIXME essentially the number of primary particles 
+i:So/BeamQ4/NumberOfHistoriesInRun   = 10 #4400 #1000000 #FIXME essentially the number of primary particles 
 b:Ge/BeamQ4/Include  = "TRUE" 
 
 b:Ts/ShowCPUTime                  = "true"
@@ -375,8 +375,8 @@ sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
 
 s:Gr/ViewA/Type              = "OpenGL"
 
-Ts/UseQt = "False"
-b:Gr/Enable = "False"
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
 
 ########################################
 # Physics
