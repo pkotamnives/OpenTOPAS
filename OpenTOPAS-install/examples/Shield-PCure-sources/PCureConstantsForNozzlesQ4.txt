@@ -1,0 +1,266 @@
+# These values are used in all of the nozzle examples.
+
+#All coordination information comes from TsDefaultParameters.
+#IEC 61217 compliance
+
+#Fixed Reference system (If)     => World volume
+#Gantry coordination system (Ig) => GantryCoordination
+#Source coordination system (S)  => BeamPosition rotateX(180), Z position w.r.t GantryCoordination
+#Beam source coordinate system rotate 180 and translate along z w.r.t g.
+#-> Y is -Y. we have to flip phase space data.
+#Isocenter coordination system (Io)
+
+d:Ge/World/HLX = 6. m
+d:Ge/World/HLY = 2. m
+d:Ge/World/HLZ = 9. m
+
+#S2I
+#d:Ge/S2I = 3.0 m
+
+#Backwall 
+s:Ge/Backwall/Type     = "TsBox"
+s:Ge/Backwall/Parent   = "World"
+s:Ge/Backwall/Material = "G4_CONCRETE"
+d:Ge/Backwall/HLX      =  6. m
+d:Ge/Backwall/HLY      =  2.0 m
+d:Ge/Backwall/HLZ      =  1. m
+d:Ge/Backwall/TransX   =  0 m
+d:Ge/Backwall/TransY   =  0 m
+d:Ge/Backwall/TransZ   =  8.0 m
+d:Ge/Backwall/RotX     =  0 deg
+d:Ge/Backwall/RotY     =  0 deg
+d:Ge/Backwall/RotZ     =  0 deg
+s:Ge/Backwall/Color    =  "red"
+b:Ge/Backwall/Include  = "TRUE" 
+
+#Frontwall 
+s:Ge/Frontwall/Type     = "TsBox"
+s:Ge/Frontwall/Parent   = "World"
+s:Ge/Frontwall/Material = "G4_CONCRETE"
+d:Ge/Frontwall/HLX      =  6. m
+d:Ge/Frontwall/HLY      =  2 m
+d:Ge/Frontwall/HLZ      =  1. m
+d:Ge/Frontwall/TransX   =  0 m
+d:Ge/Frontwall/TransY   =  0 m
+d:Ge/Frontwall/TransZ   =  -8.0 m
+d:Ge/Frontwall/RotX     =  0 deg
+d:Ge/Frontwall/RotY     =  0 deg
+d:Ge/Frontwall/RotZ     =  0 deg
+s:Ge/Frontwall/Color    =  "red"
+b:Ge/Frontwall/Include  = "TRUE" 
+
+d:Ge/RingRadius            = 260.0 cm         # 4.6 m diameter ring
+d:Ge/SeptumPhi             = 0.0 deg         # azimuthal location of the septum
+d:Ge/SeptumGap             = 3.0 mm         # distance from circulating beam orbit to blade surface
+d:Ge/SeptumBladeThick      = 0.30 mm        # ES blade thickness
+d:Ge/SeptumBladeLength     = 60.0 cm          # along beam/tangent direction
+d:Ge/SeptumBladeHeight     = 8.0 cm           # vertical
+# MS (optional) simple box model, just downstream of blade center
+d:Ge/MSSpacingFromBlade    = 10.0 cm          # drift from blade to MS center
+d:Ge/MSGapeHeight          = 6.0 cm           # field gap vertical size
+d:Ge/MSGapeWidth           = 8.0 cm           # gap width (along radial)
+d:Ge/MSGapeLength          = 60.0 cm          # along tangent/beam direction
+d:Ge/MSYokeThickRadial     = 6.0 cm           # iron yoke thickness around the gap
+d:Ge/MSYokeDoubleThickRadial     = 12.0 cm           # iron yoke thickness around the gap
+
+#Gantry coordination system (Ig)
+s:Ge/Gantry/Parent = "World"
+s:Ge/Gantry/Type   = "Group"
+d:Ge/Gantry/TransX = 2.7 m
+d:Ge/Gantry/TransY = 0.2 m
+d:Ge/Gantry/TransZ = 3.6 m
+d:Ge/Gantry/RotX   = 180. deg
+d:Ge/Gantry/RotY   = 0. deg
+d:Ge/Gantry/RotZ   = 0. deg
+
+# Default Beam position
+s:Ge/BeamPosition/Parent = "World"
+s:Ge/BeamPosition/Type   = "Group"
+d:Ge/BeamPosition/TransX = 2.7 m
+d:Ge/BeamPosition/TransY = 0.2 m
+d:Ge/BeamPosition/TransZ = 2.15 m
+d:Ge/BeamPosition/RotX   = 0. deg
+d:Ge/BeamPosition/RotY   = 0. deg
+d:Ge/BeamPosition/RotZ   = 0. deg
+b:Ge/BeamPosition/Include  = "TRUE" 
+
+# Q1 Beam position
+s:Ge/BeamPositionQ1/Parent = "World"
+s:Ge/BeamPositionQ1/Type   = "Group"
+d:Ge/BeamPositionQ1/TransX = 1.55 m
+d:Ge/BeamPositionQ1/TransY = -0.413 m
+d:Ge/BeamPositionQ1/TransZ = 1.55 m
+d:Ge/BeamPositionQ1/RotX   = 0. deg 
+d:Ge/BeamPositionQ1/RotY   = 45. deg 
+d:Ge/BeamPositionQ1/RotZ   = 0. deg
+b:Ge/BeamPositionQ1/Include  = "TRUE" 
+
+# Q2 Beam position
+s:Ge/BeamPositionQ2/Parent = "World"
+s:Ge/BeamPositionQ2/Type   = "Group"
+d:Ge/BeamPositionQ2/TransX = -1.55 m
+d:Ge/BeamPositionQ2/TransY = -0.413 m
+d:Ge/BeamPositionQ2/TransZ = 1.55 m
+d:Ge/BeamPositionQ2/RotX   = 0. deg 
+d:Ge/BeamPositionQ2/RotY   = 135. deg 
+d:Ge/BeamPositionQ2/RotZ   = 0. deg
+b:Ge/BeamPositionQ2/Include  = "TRUE" 
+
+# Q3 Beam position
+s:Ge/BeamPositionQ3/Parent = "World"
+s:Ge/BeamPositionQ3/Type   = "Group"
+d:Ge/BeamPositionQ3/TransX = -1.55 m
+d:Ge/BeamPositionQ3/TransY = -0.413 m
+d:Ge/BeamPositionQ3/TransZ = -1.55 m
+d:Ge/BeamPositionQ3/RotX   = 0. deg 
+d:Ge/BeamPositionQ3/RotY   = 225. deg 
+d:Ge/BeamPositionQ3/RotZ   = 0. deg
+b:Ge/BeamPositionQ3/Include  = "TRUE" 
+
+# Q4 Beam position
+s:Ge/BeamPositionQ4/Parent = "World"
+s:Ge/BeamPositionQ4/Type   = "Group"
+d:Ge/BeamPositionQ4/TransX = 1.55 m
+d:Ge/BeamPositionQ4/TransY = -0.413 m
+d:Ge/BeamPositionQ4/TransZ = -1.55 m
+d:Ge/BeamPositionQ4/RotX   = 0. deg 
+d:Ge/BeamPositionQ4/RotY   = 315. deg 
+d:Ge/BeamPositionQ4/RotZ   = 0. deg
+b:Ge/BeamPositionQ4/Include  = "TRUE" 
+
+s:So/BeamPrime/Type                     = "Beam"
+s:So/BeamPrime/Component                = "BeamPositionQ4" #FIXME
+s:So/BeamPrime/BeamParticle             = "proton"
+d:So/BeamPrime/BeamEnergy               = 250 MeV  
+u:So/BeamPrime/BeamEnergySpread         = 1.5 
+s:So/BeamPrime/BeamPositionDistribution = "Gaussian"
+s:So/BeamPrime/BeamPositionCutoffShape  = "Ellipse"
+d:So/BeamPrime/BeamPositionCutoffX      = 10. cm #FIXME
+d:So/BeamPrime/BeamPositionCutoffY      = 10. cm #FIXME
+d:So/BeamPrime/BeamPositionSpreadX      = 1.105 cm 
+d:So/BeamPrime/BeamPositionSpreadY      = 1.105 cm 
+s:So/BeamPrime/BeamAngularDistribution  = "Gaussian"
+d:So/BeamPrime/BeamAngularCutoffX       = 90. deg
+d:So/BeamPrime/BeamAngularCutoffY       = 90. deg
+d:So/BeamPrime/BeamAngularSpreadX       = 0.0030 rad 
+d:So/BeamPrime/BeamAngularSpreadY       = 0.0030 rad 
+i:So/BeamPrime/NumberOfHistoriesInRun   = 10000 #essentially the number of primary particles 
+b:Ge/BeamPrime/Include  = "TRUE" 
+
+
+b:Ts/ShowCPUTime                  = "true"
+i:Ts/ShowHistoryCountAtInterval   = 0
+b:Ts/ShowHistoryCountOnSingleLine = "False"
+
+########################################
+#Material
+#NitrogenGas for Chamber
+#HeliumGas   for Pipe
+########################################
+sv:Ma/NiGas/Components = 1 "Nitrogen"
+uv:Ma/NiGas/Fractions  = 1 1.0
+d:Ma/NiGas/Density     = 0.001251 g/cm3
+#0.001251 g/cm3 (gas, 0 C, 101.325 kPa)
+
+sv:Ma/HeGas/Components = 1 "Helium"
+uv:Ma/HeGas/Fractions  = 1 1.0
+d:Ma/HeGas/Density     = 0.000166322 g/cm3
+
+sv:Ma/Gold/Components          = 1 "Gold"
+uv:Ma/Gold/Fractions           = 1 1.0
+d:Ma/Gold/Density              = 19.3 g/cm3
+d:Ma/Gold/MeanExcitationEnergy = 790.0 eV
+s:Ma/Gold/DefaultColor         = "orange"
+
+sv:Ma/CompensatorLucite/Components          = 3 "Hydrogen" "Carbon" "Oxygen"
+uv:Ma/CompensatorLucite/Fractions           = 3 0.080538 0.599848 0.319614
+d:Ma/CompensatorLucite/Density              = 1.181 g/cm3
+d:Ma/CompensatorLucite/MeanExcitationEnergy = 74.0 eV
+s:Ma/CompensatorLucite/DefaultColor         = "grey"
+
+########################################
+# OGL Settings
+########################################
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 600
+i:Gr/MyOGL/WindowSizeY = 600
+i:Gr/MyOGL/WindowPosX  = 0
+i:Gr/MyOGL/WindowPosY  = 0
+s:Gr/MyOGL/ColorBy     = "ParticleType"
+sv:Gr/MyOGL/ColorByParticleTypeNames      = 4 "e-" "gamma" "proton" "neutron"
+sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
+
+s:Gr/ViewA/Type              = "OpenGL"
+
+Ts/UseQt = "False"
+b:Gr/Enable = "False"
+
+########################################
+# Physics
+########################################
+sv:Ph/Default/Modules = 7 "g4em-standard_opt4" "g4h-phy_QGSP_BIC_HP" "g4decay" "g4ion-binarycascade" "g4h-elastic_HP" "g4stopping" "g4radioactivedecay" #FIXME
+#d:Ph/Default/CutForAllParticles = 0.05 cm #FIXME
+i:Tf/Verbosity = 1
+
+########################################
+# Sequence control
+########################################
+b:Ts/PauseBeforeSequence = "F"
+
+########################################
+#Beam Exit Window for calculation
+########################################
+d:Ge/ExitWindow/TransZ       = 207.0 cm 
+d:Ge/ExitWindow/HL           = 0.05 mm
+
+############################################
+#Distance calculation for Pipe
+############################################
+d:Ge/DistanceOf_BottomExit_To_TopPipe = -91 mm #ignore bending magnet and vacuum window
+d:Ge/ZMinusOf_Exit  = Ge/ExitWindow/TransZ - Ge/ExitWindow/HL mm
+d:Ge/ZPlusOf_Pipe   = Ge/ZMinusOf_Exit + Ge/DistanceOf_BottomExit_To_TopPipe mm
+
+############################################
+# Dipole Field specification in length
+############################################
+
+d:Ge/HLxyOf_Dipoles       = 12.0 cm 
+d:Ge/ThicknessOf_Pipe     =  3.0 mm  
+s:Ge/MaterialOf_PipeWall  = "Aluminum" 
+s:Ge/MaterialOf_PipeGas   = "Vacuum" #vacuum of 1e-5 Torr 
+
+d:Ge/FLOf_PipeConnector   = 62.0 cm 
+
+d:Ge/HLOf_Dipole1                                   = 12.0 cm 
+d:Ge/HLOf_Dipole2                                   = 12.0 cm 
+d:Ge/DistanceOf_Coil1_Dipole1                       = 6.0 cm 
+d:Ge/DistanceOf_Coil2_Dipole2                       = 8.0 cm 
+d:Ge/DistanceOf_BottomDipoleCoil1_To_TopDipoleCoil2 = 0.0 cm 
+
+#########################################################
+#Calculated parameters from input
+#Don't modify following calculations
+
+d:Ge/HLOf_DipoleCoil1             = Ge/HLOf_Dipole1 + Ge/DistanceOf_Coil1_Dipole1 cm
+d:Ge/HLOf_DipoleCoil2             = Ge/HLOf_Dipole2 + Ge/DistanceOf_Coil2_Dipole2 cm
+
+d:Ge/FLOf_DipoleCoil1             = Ge/HLOf_DipoleCoil1 cm * 2.0
+d:Ge/FLOf_DipoleCoil2             = Ge/HLOf_DipoleCoil2 cm * 2.0
+d:Ge/FLOf_DipoleCoil1_DipoleCoil2 = Ge/FLOf_DipoleCoil1 + Ge/FLOf_DipoleCoil2  cm
+
+d:Ge/HLOf_PipeConnector           = Ge/FLOf_PipeConnector cm * 0.5
+
+d:Ge/FLOf_PipeInDipoles           = Ge/FLOf_DipoleCoil1_DipoleCoil2 + Ge/DistanceOf_BottomDipoleCoil1_To_TopDipoleCoil2 cm
+d:Ge/HLOf_PipeInDipoles           = Ge/FLOf_PipeInDipoles cm * 0.5
+
+
+d:Ge/FLOf_Pipe                    = Ge/FLOf_PipeConnector cm
+d:Ge/HLOf_Pipe                    = Ge/FLOf_Pipe cm * 0.5
+
+d:Ge/PipeInDipoles/Gas/HLX      = Ge/HLxyOf_Dipoles  mm
+d:Ge/PipeInDipoles/Gas/HLY      = Ge/HLxyOf_Dipoles  mm
+d:Ge/PipeInDipoles/Gas/HLZ      = Ge/HLOf_PipeInDipoles cm
+
+########################################################
+
+
