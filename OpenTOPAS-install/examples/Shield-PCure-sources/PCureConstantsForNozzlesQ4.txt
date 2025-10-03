@@ -50,7 +50,7 @@ s:Ge/Frontwall/Color    =  "red"
 b:Ge/Frontwall/Include  = "TRUE" 
 
 d:Ge/RingRadius            = 260.0 cm         # 4.6 m diameter ring
-d:Ge/SeptumPhi             = 0.0 deg         # azimuthal location of the septum
+d:Ge/SeptumPhi             = 90.0 deg         # azimuthal location of the septum
 d:Ge/SeptumGap             = 3.0 mm         # distance from circulating beam orbit to blade surface
 d:Ge/SeptumBladeThick      = 0.30 mm        # ES blade thickness
 d:Ge/SeptumBladeLength     = 60.0 cm          # along beam/tangent direction
@@ -144,7 +144,7 @@ d:So/BeamPrime/BeamAngularCutoffX       = 90. deg
 d:So/BeamPrime/BeamAngularCutoffY       = 90. deg
 d:So/BeamPrime/BeamAngularSpreadX       = 0.0030 rad 
 d:So/BeamPrime/BeamAngularSpreadY       = 0.0030 rad 
-i:So/BeamPrime/NumberOfHistoriesInRun   = 10000 #essentially the number of primary particles 
+i:So/BeamPrime/NumberOfHistoriesInRun   = 10 #10000 #essentially the number of primary particles 
 b:Ge/BeamPrime/Include  = "TRUE" 
 
 
@@ -192,8 +192,8 @@ sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
 
 s:Gr/ViewA/Type              = "OpenGL"
 
-Ts/UseQt = "False"
-b:Gr/Enable = "False"
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
 
 ########################################
 # Physics
