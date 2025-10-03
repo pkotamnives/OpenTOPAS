@@ -115,7 +115,7 @@ d:Ge/BeamPositionQ4/RotZ   = 0. deg
 b:Ge/BeamPositionQ4/Include  = "TRUE" 
 
 s:So/BeamPrime/Type                     = "Beam"
-s:So/BeamPrime/Component                = "BeamPositionQ1" #FIXME
+s:So/BeamPrime/Component                = "BeamPositionQ4" #FIXME
 s:So/BeamPrime/BeamParticle             = "proton"
 d:So/BeamPrime/BeamEnergy               = 250 MeV  
 u:So/BeamPrime/BeamEnergySpread         = 1.5 
