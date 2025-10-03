@@ -142,7 +142,7 @@ s:Sc/scorerDosePerDipoleQ1C1/Quantity                   = "DoseToMedium"
 s:Sc/scorerDosePerDipoleQ1C1/Component                  = "SphereC1"
 b:Sc/scorerDosePerDipoleQ1C1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ1C1/IfOutputFileAlreadyExists  = "Overwrite"
-sv:Sc/scorerDosePerDipoleQ1C1/Report                    = 1 "Mean" # "Standard_Deviation"
+sv:Sc/scorerDosePerDipoleQ1C1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Score neutron fluence spectra 
 sv:Sc/scorerNeuSpecDosePerDipoleQ1C1/OnlyIncludeParticlesNamed = 1 "neutron"
@@ -161,7 +161,7 @@ s:Sc/scorerAmbDosePerDipoleQ1C1/Quantity                   = "AmbientDoseEquival
 s:Sc/scorerAmbDosePerDipoleQ1C1/Component                  = "SphereC1"
 b:Sc/scorerAmbDosePerDipoleQ1C1/OutputToConsole            = "True"
 s:Sc/scorerAmbDosePerDipoleQ1C1/IfOutputFileAlreadyExists  = "Overwrite"
-sv:Sc/scorerAmbDosePerDipoleQ1C1/Report                    = 1 "Mean" # "Standard_Deviation"
+sv:Sc/scorerAmbDosePerDipoleQ1C1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Set the fluence-to-dose conversion factors.
 s:Sc/scorerAmbDosePerDipoleQ1C1/GetAmbientDoseEquivalentForParticleNamed = "neutron"
