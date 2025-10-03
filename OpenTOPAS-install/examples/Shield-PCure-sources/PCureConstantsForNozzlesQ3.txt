@@ -10,47 +10,33 @@
 #-> Y is -Y. we have to flip phase space data.
 #Isocenter coordination system (Io)
 
-d:Ge/World/HLX = 6. m
-d:Ge/World/HLY = 2. m
-d:Ge/World/HLZ = 9. m
+# ===== WORLD VOLUME =====
+s:Ge/World/Type = "TsBox"
+s:Ge/World/Material = "Air"
+d:Ge/World/HLX = 20.0 m
+d:Ge/World/HLY = 10.0 m
+d:Ge/World/HLZ = 12.0 m
 
-#S2I
-#d:Ge/S2I = 3.0 m
+# ===== TREATMENT ROOM (AIR VOLUME) =====
+s:Ge/TreatmentRoom/Type = "TsBox"
+s:Ge/TreatmentRoom/Parent = "World"
+#s:Ge/TreatmentRoom/Material = "Air"
+d:Ge/TreatmentRoom/HLX = 10.5 m  # Inner space: -5 to 16 = 21m, HL = 10.5
+d:Ge/TreatmentRoom/HLY = 2.5 m   # Inner space: 0 to 5 = 5m, HL = 2.5
+d:Ge/TreatmentRoom/HLZ = 6.0 m   # Inner space: -6 to 4 = 10m (accounting for walls), HL = 5.0
+d:Ge/TreatmentRoom/TransX = 5.5 m
+d:Ge/TreatmentRoom/TransY = 2.5 m   # Center of inner space
+d:Ge/TreatmentRoom/TransZ = -1.0 m
+b:Ge/TreatmentRoom/IsParallel = "True"
+s:Ge/TreatmentRoom/Color = "skyblue"
 
-#Backwall 
-s:Ge/Backwall/Type     = "TsBox"
-s:Ge/Backwall/Parent   = "World"
-s:Ge/Backwall/Material = "G4_CONCRETE"
-d:Ge/Backwall/HLX      =  6. m
-d:Ge/Backwall/HLY      =  2.0 m
-d:Ge/Backwall/HLZ      =  1. m
-d:Ge/Backwall/TransX   =  0 m
-d:Ge/Backwall/TransY   =  0 m
-d:Ge/Backwall/TransZ   =  8.0 m
-d:Ge/Backwall/RotX     =  0 deg
-d:Ge/Backwall/RotY     =  0 deg
-d:Ge/Backwall/RotZ     =  0 deg
-s:Ge/Backwall/Color    =  "red"
-b:Ge/Backwall/Include  = "TRUE" 
 
-#Frontwall 
-s:Ge/Frontwall/Type     = "TsBox"
-s:Ge/Frontwall/Parent   = "World"
-s:Ge/Frontwall/Material = "G4_CONCRETE"
-d:Ge/Frontwall/HLX      =  6. m
-d:Ge/Frontwall/HLY      =  2 m
-d:Ge/Frontwall/HLZ      =  1. m
-d:Ge/Frontwall/TransX   =  0 m
-d:Ge/Frontwall/TransY   =  0 m
-d:Ge/Frontwall/TransZ   =  -8.0 m
-d:Ge/Frontwall/RotX     =  0 deg
-d:Ge/Frontwall/RotY     =  0 deg
-d:Ge/Frontwall/RotZ     =  0 deg
-s:Ge/Frontwall/Color    =  "red"
-b:Ge/Frontwall/Include  = "TRUE" 
+# ===== INCLUDE FILES =====
+includeFile = ConcreteWalls.txt  # Concrete walls geometry
+
 
 d:Ge/RingRadius            = 260.0 cm         # 4.6 m diameter ring
-d:Ge/SeptumPhi             = 0.0 deg         # azimuthal location of the septum
+d:Ge/SeptumPhi             = 90.0 deg         # azimuthal location of the septum
 d:Ge/SeptumGap             = 3.0 mm         # distance from circulating beam orbit to blade surface
 d:Ge/SeptumBladeThick      = 0.30 mm        # ES blade thickness
 d:Ge/SeptumBladeLength     = 60.0 cm          # along beam/tangent direction
@@ -66,15 +52,15 @@ d:Ge/MSYokeDoubleThickRadial     = 12.0 cm           # iron yoke thickness aroun
 #Gantry coordination system (Ig)
 s:Ge/Gantry/Parent = "World"
 s:Ge/Gantry/Type   = "Group"
-d:Ge/Gantry/TransX = 2.7 m
-d:Ge/Gantry/TransY = 0.2 m
-d:Ge/Gantry/TransZ = 3.6 m
-d:Ge/Gantry/RotX   = 180. deg
-d:Ge/Gantry/RotY   = 0. deg
+d:Ge/Gantry/TransX = 0. m
+d:Ge/Gantry/TransY = 0. m
+d:Ge/Gantry/TransZ = 0. m
+d:Ge/Gantry/RotX   = 0. deg
+d:Ge/Gantry/RotY   = -90.0 deg 
 d:Ge/Gantry/RotZ   = 0. deg
 
 # Default Beam position
-s:Ge/BeamPosition/Parent = "World"
+s:Ge/BeamPosition/Parent = "Gantry"
 s:Ge/BeamPosition/Type   = "Group"
 d:Ge/BeamPosition/TransX = 2.7 m
 d:Ge/BeamPosition/TransY = 0.2 m
@@ -85,10 +71,10 @@ d:Ge/BeamPosition/RotZ   = 0. deg
 b:Ge/BeamPosition/Include  = "TRUE" 
 
 # Q1 Beam position
-s:Ge/BeamPositionQ1/Parent = "World"
+s:Ge/BeamPositionQ1/Parent = "Gantry"
 s:Ge/BeamPositionQ1/Type   = "Group"
 d:Ge/BeamPositionQ1/TransX = 1.55 m
-d:Ge/BeamPositionQ1/TransY = -0.413 m
+d:Ge/BeamPositionQ1/TransY = 0.15 m
 d:Ge/BeamPositionQ1/TransZ = 1.55 m
 d:Ge/BeamPositionQ1/RotX   = 0. deg 
 d:Ge/BeamPositionQ1/RotY   = 45. deg 
@@ -96,10 +82,10 @@ d:Ge/BeamPositionQ1/RotZ   = 0. deg
 b:Ge/BeamPositionQ1/Include  = "TRUE" 
 
 # Q2 Beam position
-s:Ge/BeamPositionQ2/Parent = "World"
+s:Ge/BeamPositionQ2/Parent = "Gantry"
 s:Ge/BeamPositionQ2/Type   = "Group"
 d:Ge/BeamPositionQ2/TransX = -1.55 m
-d:Ge/BeamPositionQ2/TransY = -0.413 m
+d:Ge/BeamPositionQ2/TransY = 0.15 m
 d:Ge/BeamPositionQ2/TransZ = 1.55 m
 d:Ge/BeamPositionQ2/RotX   = 0. deg 
 d:Ge/BeamPositionQ2/RotY   = 135. deg 
@@ -107,10 +93,10 @@ d:Ge/BeamPositionQ2/RotZ   = 0. deg
 b:Ge/BeamPositionQ2/Include  = "TRUE" 
 
 # Q3 Beam position
-s:Ge/BeamPositionQ3/Parent = "World"
+s:Ge/BeamPositionQ3/Parent = "Gantry"
 s:Ge/BeamPositionQ3/Type   = "Group"
 d:Ge/BeamPositionQ3/TransX = -1.55 m
-d:Ge/BeamPositionQ3/TransY = -0.413 m
+d:Ge/BeamPositionQ3/TransY = 0.15 m
 d:Ge/BeamPositionQ3/TransZ = -1.55 m
 d:Ge/BeamPositionQ3/RotX   = 0. deg 
 d:Ge/BeamPositionQ3/RotY   = 225. deg 
@@ -118,11 +104,11 @@ d:Ge/BeamPositionQ3/RotZ   = 0. deg
 b:Ge/BeamPositionQ3/Include  = "TRUE" 
 
 # Q4 Beam position
-s:Ge/BeamPositionQ4/Parent = "World"
+s:Ge/BeamPositionQ4/Parent = "Gantry"
 s:Ge/BeamPositionQ4/Type   = "Group"
-d:Ge/BeamPositionQ4/TransX = 1.55 m
-d:Ge/BeamPositionQ4/TransY = -0.413 m
-d:Ge/BeamPositionQ4/TransZ = -1.55 m
+d:Ge/BeamPositionQ4/TransX = 1.0 m
+d:Ge/BeamPositionQ4/TransY = 0.15 m
+d:Ge/BeamPositionQ4/TransZ = -2.0 m
 d:Ge/BeamPositionQ4/RotX   = 0. deg 
 d:Ge/BeamPositionQ4/RotY   = 315. deg 
 d:Ge/BeamPositionQ4/RotZ   = 0. deg
@@ -144,7 +130,7 @@ d:So/BeamPrime/BeamAngularCutoffX       = 90. deg
 d:So/BeamPrime/BeamAngularCutoffY       = 90. deg
 d:So/BeamPrime/BeamAngularSpreadX       = 0.0030 rad 
 d:So/BeamPrime/BeamAngularSpreadY       = 0.0030 rad 
-i:So/BeamPrime/NumberOfHistoriesInRun   = 10000 #essentially the number of primary particles 
+i:So/BeamPrime/NumberOfHistoriesInRun   = 10 #10000 #essentially the number of primary particles 
 b:Ge/BeamPrime/Include  = "TRUE" 
 
 
@@ -192,8 +178,8 @@ sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
 
 s:Gr/ViewA/Type              = "OpenGL"
 
-Ts/UseQt = "False"
-b:Gr/Enable = "False"
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
 
 ########################################
 # Physics

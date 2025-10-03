@@ -7,7 +7,7 @@ includeFile = PCureConstantsForNozzlesQ3.txt
 ########################################
 #Cylindrical bottom quarter 
 ########################################
-s:Ge/BottomRingQ3/Parent = "World"
+s:Ge/BottomRingQ3/Parent = "Gantry"
 s:Ge/BottomRingQ3/Type = "TsCylinder"
 d:Ge/BottomRingQ3/Rmax = 2.3 m
 d:Ge/BottomRingQ3/Rmin = 2.1 m
@@ -17,11 +17,11 @@ d:Ge/BottomRingQ3/RotX = 90. deg
 d:Ge/BottomRingQ3/SPhi = 135 deg
 d:Ge/BottomRingQ3/DPhi = 70 deg 
 d:Ge/BottomRingQ3/TransX = 0 m
-d:Ge/BottomRingQ3/TransY = -0.413 m
+d:Ge/BottomRingQ3/TransY = 0.15 m
 d:Ge/BottomRingQ3/TransZ = 0 m
 b:Ge/BottomRingQ3/Include  = "TRUE" 
 
-s:Ge/BottomRingQ4/Parent = "World"
+s:Ge/BottomRingQ4/Parent = "Gantry"
 s:Ge/BottomRingQ4/Type = "TsCylinder"
 d:Ge/BottomRingQ4/Rmax = 2.3 m
 d:Ge/BottomRingQ4/Rmin = 2.1 m
@@ -31,7 +31,7 @@ d:Ge/BottomRingQ4/RotX = 90. deg
 d:Ge/BottomRingQ4/SPhi = 45 deg
 d:Ge/BottomRingQ4/DPhi = 70 deg 
 d:Ge/BottomRingQ4/TransX = 0 m
-d:Ge/BottomRingQ4/TransY = -0.413 m
+d:Ge/BottomRingQ4/TransY = 0.15 m
 d:Ge/BottomRingQ4/TransZ = 0 m
 b:Ge/BottomRingQ4/Include  = "TRUE" 
 
@@ -39,13 +39,13 @@ b:Ge/BottomRingQ4/Include  = "TRUE"
 # Dipole by Bottom Ring Quarters 
 ########################################
 s:Ge/Q3Dipole/Type          = "TsBox"
-s:Ge/Q3Dipole/Parent        = "World"
+s:Ge/Q3Dipole/Parent        = "Gantry"
 s:Ge/Q3Dipole/Material      = "parent"
 d:Ge/Q3Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q3Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Q3Dipole/HLZ           = Ge/HLOf_Dipole1 mm
 d:Ge/Q3Dipole/TransX        = -1.2 m
-d:Ge/Q3Dipole/TransY        = -0.413 m
+d:Ge/Q3Dipole/TransY        = 0.15 m
 d:Ge/Q3Dipole/TransZ        = -1.8 m
 d:Ge/Q3Dipole/RotX          = 0.0 deg
 d:Ge/Q3Dipole/RotY          = 225.0 deg
@@ -71,8 +71,9 @@ d:Ge/SphereB1/SPhi     = 0. deg
 d:Ge/SphereB1/DPhi     = 360. deg
 d:Ge/SphereB1/STheta   = 0. deg
 d:Ge/SphereB1/DTheta   = 180. deg
-d:Ge/SphereB1/TransZ   = -195.0 cm
-d:Ge/SphereB1/TransX   = -50.0 cm
+d:Ge/SphereB1/TransZ   = 5.55 m
+d:Ge/SphereB1/TransX   = 2.2 m
+d:Ge/SphereB1/TransY   = 0.563 m
 b:Ge/SphereB1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -81,6 +82,17 @@ s:Sc/scorerDosePerDipoleQ3B1/Component                  = "SphereB1"
 b:Sc/scorerDosePerDipoleQ3B1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ3B1/IfOutputFileAlreadyExists  = "Overwrite"
 sv:Sc/scorerDosePerDipoleQ3B1/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ3B1/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ3B1/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ3B1/Component                  = "SphereB1"
+s:Sc/scorerNeuSpecPerDipoleQ3B1/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ3B1/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ3B1/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ3B1/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ3B1/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ3B1/EBinEnergy                = "DepositedInStep"
 
 # Score ambient dose equivalent for neutrons
 sv:Sc/scorerAmbDosePerDipoleQ3B1/OnlyIncludeParticlesNamed = 1 "neutron"
@@ -120,8 +132,9 @@ d:Ge/SphereC1/SPhi     = 0. deg
 d:Ge/SphereC1/DPhi     = 360. deg
 d:Ge/SphereC1/STheta   = 0. deg
 d:Ge/SphereC1/DTheta   = 180. deg
-d:Ge/SphereC1/TransZ   = -195.0 cm
-d:Ge/SphereC1/TransX   = -200.0 cm
+d:Ge/SphereC1/TransZ   = 5.55 m
+d:Ge/SphereC1/TransX   = 0.7 m 
+d:Ge/SphereC1/TransY   = 0.563 m
 b:Ge/SphereC1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -130,6 +143,17 @@ s:Sc/scorerDosePerDipoleQ3C1/Component                  = "SphereC1"
 b:Sc/scorerDosePerDipoleQ3C1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ3C1/IfOutputFileAlreadyExists  = "Overwrite"
 sv:Sc/scorerDosePerDipoleQ3C1/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ3C1/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ3C1/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ3C1/Component                  = "SphereC1"
+s:Sc/scorerNeuSpecPerDipoleQ3C1/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ3C1/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ3C1/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ3C1/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ3C1/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ3C1/EBinEnergy                = "DepositedInStep"
 
 # Score ambient dose equivalent for neutrons
 sv:Sc/scorerAmbDosePerDipoleQ3C1/OnlyIncludeParticlesNamed = 1 "neutron"

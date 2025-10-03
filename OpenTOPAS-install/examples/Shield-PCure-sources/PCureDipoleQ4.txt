@@ -15,7 +15,7 @@ s:Ge/Septum/Material    = "G4_AIR"
 d:Ge/Septum/TransX      = 0.0 cm
 d:Ge/Septum/TransY      = 0.0 cm
 d:Ge/Septum/TransZ      = 2.55 m
-d:Ge/Septum/RotZ        = Ge/SeptumPhi deg # align local X radially
+d:Ge/Septum/RotY        = Ge/SeptumPhi deg # align local X radially
 b:Ge/Septum/Include     = "TRUE" 
 
 # The thin tungsten blade
@@ -42,7 +42,7 @@ d:Ge/MSYoke/TransX     = 0.0 cm
 d:Ge/MSYoke/TransY     = 0.0 cm
 d:Ge/MSYoke/TransZ     = 1.85 m
 # Rotate so local Y is along the ring tangent (same as septum)
-d:Ge/MSYoke/RotZ       = Ge/SeptumPhi deg
+d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
 b:Ge/MSYoke/Include    = "TRUE" 
 
 # Field gap carved as a daughter (overrides parent material)
