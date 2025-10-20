@@ -1,22 +1,24 @@
 # Scanning nozzle used in some demonstrations.
 
-includeFile = PCureConstantsForNozzles.txt
+includeFile = GPTConstantsForNozzles.txt
 
 #Ts/DumpParameters = "T"
+
+b:Ge/TopRing/Include  = "FALSE" 
 
 # Pipeline/Collimator 
 s:Ge/MSYoke/Type       = "TsBox"
 s:Ge/MSYoke/Parent     = "Gantry"
 # Make the yoke bigger than the gap by the chosen iron thickness
 d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLX        = 20.0 cm #Ge/MSYoke/FLX cm * 0.5
-d:Ge/MSYoke/HLY        = 15.0 cm #Ge/MSGapeLength cm * 0.5
+d:Ge/MSYoke/HLX        = 10.0 cm #20.0 cm #Ge/MSYoke/FLX cm * 0.5
+d:Ge/MSYoke/HLY        = 15.0 cm
 d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLZ        = 40.0 cm #Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm #Ge/MSYoke/FLZ cm * 0.5
+d:Ge/MSYoke/HLZ        = 20.0 cm #Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm #Ge/MSYoke/FLZ cm * 0.5
 s:Ge/MSYoke/Material   = "G4_Fe"
-d:Ge/MSYoke/TransX     = 2.7 m
-d:Ge/MSYoke/TransY     = 1.7 m #0.563 m
-d:Ge/MSYoke/TransZ     = 1.85 m
+d:Ge/MSYoke/TransX     = 0.0 m
+d:Ge/MSYoke/TransY     = 1.4 m 
+d:Ge/MSYoke/TransZ     = 1.3 m
 # Rotate so local Y is along the ring tangent (same as septum)
 d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
 b:Ge/MSYoke/Include    = "TRUE" 
@@ -25,12 +27,10 @@ b:Ge/MSYoke/Include    = "TRUE"
 s:Ge/MSGap/Type        = "TsBox"
 s:Ge/MSGap/Parent      = "MSYoke"
 d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm #Ge/MSGapeWidth cm * 0.5
-d:Ge/MSGap/HLY         = 15.0 cm #Ge/MSGapeLength cm * 0.5
+d:Ge/MSGap/HLY         = 15.0 cm
 d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
 s:Ge/MSGap/Material    = "G4_AIR"
 b:Ge/MSGap/IsInvisible  = "FALSE"
-
-
 
 ########################################
 #1. Beam Exit Window
@@ -43,9 +43,9 @@ d:Ge/ExitWindow/RMin         = 0.0  mm
 d:Ge/ExitWindow/RMax         = 50.0 mm
 d:Ge/ExitWindow/SPhi         = 0.0   deg
 d:Ge/ExitWindow/DPhi         = 360.0 deg
-d:Ge/ExitWindow/TransX       = 2.7 m
-d:Ge/ExitWindow/TransY       = 1.7 m #0.563 m
-d:Ge/ExitWindow/TransZ       = 2.62 m
+d:Ge/ExitWindow/TransX       = 0.0 m
+d:Ge/ExitWindow/TransY       = 1.4 m #0.563 m
+d:Ge/ExitWindow/TransZ       = 1.07 m
 d:Ge/ExitWindow/RotX         = 0.0 deg
 d:Ge/ExitWindow/RotY         = 0.0 deg
 d:Ge/ExitWindow/RotZ         = 0.0 deg
@@ -57,10 +57,10 @@ s:Ge/ExitWindow/DrawingStyle = "Solid"
 ########################################
 s:Ge/BeamPipeInQuadsDipoles/Parent = "Gantry"
 s:Ge/BeamPipeInQuadsDipoles/Type   = "Group"
-d:Ge/BeamPipeInQuadsDipoles/TransX = 2.7 m
-d:Ge/BeamPipeInQuadsDipoles/TransY = 1.7 m #0.563 m
-d:Ge/BeamPipeInQuadsDipoles/OriTransZ = Ge/ZPlusOf_Pipe - Ge/HLOf_Pipe mm 
-d:Ge/BeamPipeInQuadsDipoles/TransZ = Ge/BeamPipeInQuadsDipoles/OriTransZ + 2620.0 mm 
+d:Ge/BeamPipeInQuadsDipoles/TransX = 0.0 m
+d:Ge/BeamPipeInQuadsDipoles/TransY = 1.4 m #0.563 m
+d:Ge/BeamPipeInQuadsDipoles/OriTransZ =  Ge/ZPlusOf_Pipe - Ge/HLOf_Pipe mm 
+d:Ge/BeamPipeInQuadsDipoles/TransZ = Ge/BeamPipeInQuadsDipoles/OriTransZ - 1.0 mm 
 d:Ge/BeamPipeInQuadsDipoles/RotX   = 0. deg
 d:Ge/BeamPipeInQuadsDipoles/RotY   = 0. deg
 d:Ge/BeamPipeInQuadsDipoles/RotZ   = 0. deg
@@ -147,9 +147,9 @@ s:Ge/BeamProfileMonitor2/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr
 d:Ge/BeamProfileMonitor2/HLX      = 188.0 mm
 d:Ge/BeamProfileMonitor2/HLY      = 188.0 mm
 d:Ge/BeamProfileMonitor2/HLZ      = 22.1 mm #FIXME OK
-d:Ge/BeamProfileMonitor2/TransX   = 2.7 m
-d:Ge/BeamProfileMonitor2/TransY   = 1.7 m #0.563  m
-d:Ge/BeamProfileMonitor2/TransZ   = 3.2614 m #FIXME OK
+d:Ge/BeamProfileMonitor2/TransX   = 0.0 m
+d:Ge/BeamProfileMonitor2/TransY   = 1.4 m #0.563  m
+d:Ge/BeamProfileMonitor2/TransZ   = -0.3586 m #0.6414 m #FIXME OK
 d:Ge/BeamProfileMonitor2/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor2/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor2/RotZ     = 0.0 deg
@@ -258,9 +258,9 @@ s:Ge/BeamProfileMonitor1/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr
 d:Ge/BeamProfileMonitor1/HLX      = 186.0 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/HLY      = 186.0 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/HLZ      = 22.1 mm #FIXME OK
-d:Ge/BeamProfileMonitor1/TransX   = 2.7 m
-d:Ge/BeamProfileMonitor1/TransY   = 1.7 m #0.563  m
-d:Ge/BeamProfileMonitor1/TransZ   = 3.1614 m #FIXME OK
+d:Ge/BeamProfileMonitor1/TransX   = 0.0 m
+d:Ge/BeamProfileMonitor1/TransY   = 1.4 m #0.563  m
+d:Ge/BeamProfileMonitor1/TransZ   = -0.4586 m #0.5414 m #FIXME OK
 d:Ge/BeamProfileMonitor1/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor1/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor1/RotZ     = 0.0 deg
@@ -368,10 +368,10 @@ s:Ge/WaterBox/Material = "G4_WATER"
 d:Ge/WaterBox/HLX      = 15.0 cm #FIXME OK
 d:Ge/WaterBox/HLY      = 15.0 cm #FIXME OK
 d:Ge/WaterBox/HLZ      = 21.0 cm #17.5 cm #FIXME OK
-#d:Ge/WaterBox/MinusHLZ = Ge/WaterBox/HLZ cm * -1.0
-d:Ge/WaterBox/TransX   = 2.7 m
-d:Ge/WaterBox/TransY   = 1.7 m #0.563 m
-d:Ge/WaterBox/TransZ   = 5.55 m #Ge/WaterBox/MinusHLZ - 195.0 cm # 555 cm from origin 
+d:Ge/WaterBox/MinusHLZ = Ge/WaterBox/HLZ cm * -1.0
+d:Ge/WaterBox/TransX   = 0.0 m
+d:Ge/WaterBox/TransY   = 1.4 m #0.563 m
+d:Ge/WaterBox/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
 d:Ge/WaterBox/RotX     = 0. deg
 d:Ge/WaterBox/RotY     = 0. deg
 d:Ge/WaterBox/RotZ     = 0. deg
@@ -384,9 +384,9 @@ d:Ge/ScoringCylinder/RMin     = 0. cm
 d:Ge/ScoringCylinder/RMax     = 0.495 cm
 d:Ge/ScoringCylinder/HL       = 21.0 cm #17.5 cm
 b:Ge/ScoringCylinder/IsParallel = "True"
-d:Ge/ScoringCylinder/TransX   = 2.7 m
-d:Ge/ScoringCylinder/TransY   = 1.7 m #0.563 m
-d:Ge/ScoringCylinder/TransZ   = 5.55 m #Ge/WaterBox/MinusHLZ - 195 cm # 555 cm from origin
+d:Ge/ScoringCylinder/TransX   = 0.0 m
+d:Ge/ScoringCylinder/TransY   = 1.4 m #0.563 m
+d:Ge/ScoringCylinder/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m
 d:Ge/ScoringCylinder/SPhi     = 0. deg
 d:Ge/ScoringCylinder/DPhi     = 360. deg
 #i:Ge/ScoringCylinder/RBins    = 6
