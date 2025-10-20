@@ -1,8 +1,10 @@
 # Scanning nozzle used in some demonstrations.
 
-includeFile = PCureConstantsForNozzlesQ1.txt
+includeFile = GPTConstantsForNozzlesQ1.txt
 
 #Ts/DumpParameters = "T"
+
+b:Ge/TopRing/Include  = "FALSE" 
 
 ########################################
 #Cylindrical bottom quarter 

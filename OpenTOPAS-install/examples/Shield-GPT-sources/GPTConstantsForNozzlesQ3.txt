@@ -49,6 +49,22 @@ d:Ge/MSGapeLength          = 60.0 cm          # along tangent/beam direction
 d:Ge/MSYokeThickRadial     = 6.0 cm           # iron yoke thickness around the gap
 d:Ge/MSYokeDoubleThickRadial     = 12.0 cm           # iron yoke thickness around the gap
 
+#Cylindrical top ring 
+s:Ge/TopRing/Parent = "Gantry"
+s:Ge/TopRing/Type = "TsCylinder"
+d:Ge/TopRing/Rmax = 3.3 m
+d:Ge/TopRing/Rmin = 3.1 m
+d:Ge/TopRing/HL = 0.15 m 
+s:Ge/TopRing/Material = "G4_Al"
+d:Ge/TopRing/RotX = 90. deg 
+d:Ge/TopRing/RotZ = 180. deg 
+d:Ge/TopRing/SPhi = 137 deg 
+d:Ge/TopRing/DPhi = 15 deg 
+d:Ge/TopRing/TransX = 0 m
+d:Ge/TopRing/TransY = 1.6 m 
+d:Ge/TopRing/TransZ = 0 m
+b:Ge/TopRing/Include  = "TRUE" 
+
 #Gantry coordination system (Ig)
 s:Ge/Gantry/Parent = "World"
 s:Ge/Gantry/Type   = "Group"
@@ -62,13 +78,24 @@ d:Ge/Gantry/RotZ   = 0. deg
 # Default Beam position
 s:Ge/BeamPosition/Parent = "Gantry"
 s:Ge/BeamPosition/Type   = "Group"
-d:Ge/BeamPosition/TransX = 2.7 m
-d:Ge/BeamPosition/TransY = 1.7 m
-d:Ge/BeamPosition/TransZ = 2.15 m
+d:Ge/BeamPosition/TransX = 0.0 m
+d:Ge/BeamPosition/TransY = 1.4 m 
+d:Ge/BeamPosition/TransZ = 1.10 m
 d:Ge/BeamPosition/RotX   = 0. deg
-d:Ge/BeamPosition/RotY   = 0. deg
+d:Ge/BeamPosition/RotY   = 180. deg
 d:Ge/BeamPosition/RotZ   = 0. deg
 b:Ge/BeamPosition/Include  = "TRUE" 
+
+# TopRing Beam position 
+s:Ge/BeamPositionTop/Parent = "TopRing"
+s:Ge/BeamPositionTop/Type   = "Group"
+d:Ge/BeamPositionTop/TransX = -2.2 m #-0.45 m
+d:Ge/BeamPositionTop/TransY = 2.5 m 
+d:Ge/BeamPositionTop/TransZ = 0.0 m
+d:Ge/BeamPositionTop/RotX   = 90. deg
+d:Ge/BeamPositionTop/RotY   = -90. deg
+d:Ge/BeamPositionTop/RotZ   = 0. deg
+b:Ge/BeamPositionTop/Include  = "TRUE" 
 
 # Q1 Beam position
 s:Ge/BeamPositionQ1/Parent = "Gantry"
@@ -115,7 +142,7 @@ d:Ge/BeamPositionQ4/RotZ   = 0. deg
 b:Ge/BeamPositionQ4/Include  = "TRUE" 
 
 s:So/BeamPrime/Type                     = "Beam"
-s:So/BeamPrime/Component                = "BeamPositionQ2" #FIXME
+s:So/BeamPrime/Component                = "BeamPositionQ3" #FIXME
 s:So/BeamPrime/BeamParticle             = "proton"
 d:So/BeamPrime/BeamEnergy               = 250 MeV  
 u:So/BeamPrime/BeamEnergySpread         = 1.5 
@@ -130,7 +157,7 @@ d:So/BeamPrime/BeamAngularCutoffX       = 90. deg
 d:So/BeamPrime/BeamAngularCutoffY       = 90. deg
 d:So/BeamPrime/BeamAngularSpreadX       = 0.0030 rad 
 d:So/BeamPrime/BeamAngularSpreadY       = 0.0030 rad 
-i:So/BeamPrime/NumberOfHistoriesInRun   = 10000 #essentially the number of primary particles 
+i:So/BeamPrime/NumberOfHistoriesInRun   = 10 #000 #essentially the number of primary particles 
 b:Ge/BeamPrime/Include  = "TRUE" 
 
 
@@ -178,8 +205,8 @@ sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
 
 s:Gr/ViewA/Type              = "OpenGL"
 
-Ts/UseQt = "False"
-b:Gr/Enable = "False"
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
 
 ########################################
 # Physics

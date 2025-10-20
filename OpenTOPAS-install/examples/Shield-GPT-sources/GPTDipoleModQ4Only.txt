@@ -1,8 +1,10 @@
 # Scanning nozzle used in some demonstrations.
 
-includeFile = PCureConstantsForNozzlesQ4.txt
+includeFile = GPTConstantsForNozzlesModQ4.txt
 
 #Ts/DumpParameters = "T"
+
+b:Ge/TopRing/Include  = "TRUE" 
 
 # Septum Electrostatic 
 # Mother for septum assembly (optional, keeps things tidy)
@@ -12,10 +14,17 @@ d:Ge/Septum/HLX         = 40 cm
 d:Ge/Septum/HLY         = 40 cm
 d:Ge/Septum/HLZ         = 40 cm
 s:Ge/Septum/Material    = "G4_AIR"
-d:Ge/Septum/TransX      = 0.0 cm
-d:Ge/Septum/TransY      = 0.0 cm
-d:Ge/Septum/TransZ      = 2.55 m
-d:Ge/Septum/RotY        = Ge/SeptumPhi deg # align local X radially
+#d:Ge/Septum/TransX      = 0.0 cm
+#d:Ge/Septum/TransY      = 0.0 cm
+#d:Ge/Septum/TransZ      = 2.55 m
+#d:Ge/Septum/RotY        = Ge/SeptumPhi deg # align local X radially
+
+d:Ge/Septum/TransX        = 1.4 m #2.14 m
+d:Ge/Septum/TransY        = 0.4 m
+d:Ge/Septum/TransZ        = -1.8 m #-0.9 m #-1.0 m
+d:Ge/Septum/RotX          = 0.0 deg
+d:Ge/Septum/RotY          = Ge/SeptumPhi + 305.0 deg #305
+d:Ge/Septum/RotZ          = 0.0 deg
 b:Ge/Septum/Include     = "TRUE" 
 
 # The thin tungsten blade
@@ -27,62 +36,35 @@ d:Ge/SeptumBlade/HLZ      = Ge/SeptumBladeHeight cm * 0.5
 s:Ge/SeptumBlade/Material = "G4_W"
 b:Ge/SeptumBlade/Invisible = "False"
 
-# Septum Magnetostatic  
-# Yoke block centered a short drift downstream along the tangent
-s:Ge/MSYoke/Type       = "TsBox"
-s:Ge/MSYoke/Parent     = "Gantry"
-# Make the yoke bigger than the gap by the chosen iron thickness
-d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLX        = Ge/MSYoke/FLX cm * 0.5
-d:Ge/MSYoke/HLY        = Ge/MSGapeLength cm * 0.5
-d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLZ        = Ge/MSYoke/FLZ cm * 0.5
-s:Ge/MSYoke/Material   = "G4_Fe"
-d:Ge/MSYoke/TransX     = 0.0 cm
-d:Ge/MSYoke/TransY     = 0.0 cm
-d:Ge/MSYoke/TransZ     = 1.85 m
-# Rotate so local Y is along the ring tangent (same as septum)
-d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
-b:Ge/MSYoke/Include    = "TRUE" 
-
-# Field gap carved as a daughter (overrides parent material)
-s:Ge/MSGap/Type        = "TsBox"
-s:Ge/MSGap/Parent      = "MSYoke"
-d:Ge/MSGap/HLX         = Ge/MSGapeWidth cm * 0.5
-d:Ge/MSGap/HLY         = Ge/MSGapeLength cm * 0.5
-d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
-s:Ge/MSGap/Material    = "G4_AIR"
-b:Ge/MSGap/IsInvisible  = "False"
-
 
 ########################################
 #Cylindrical bottom quarter 
 ########################################
-s:Ge/BottomRingQ4/Parent = "World"
+s:Ge/BottomRingQ4/Parent = "Gantry"
 s:Ge/BottomRingQ4/Type = "TsCylinder"
 d:Ge/BottomRingQ4/Rmax = 2.3 m
 d:Ge/BottomRingQ4/Rmin = 2.1 m
 d:Ge/BottomRingQ4/HL = 0.15 m 
 s:Ge/BottomRingQ4/Material = "G4_Fe"
 d:Ge/BottomRingQ4/RotX = 90. deg 
-d:Ge/BottomRingQ4/SPhi = 45 deg
-d:Ge/BottomRingQ4/DPhi = 70 deg 
+d:Ge/BottomRingQ4/SPhi = 65 deg #45
+d:Ge/BottomRingQ4/DPhi = 50 deg 
 d:Ge/BottomRingQ4/TransX = 0 m
-d:Ge/BottomRingQ4/TransY = -0.413 m
+d:Ge/BottomRingQ4/TransY = 0.15 m
 d:Ge/BottomRingQ4/TransZ = 0 m
 b:Ge/BottomRingQ4/Include  = "TRUE" 
 
-s:Ge/BottomRingQ1/Parent = "World"
+s:Ge/BottomRingQ1/Parent = "Gantry"
 s:Ge/BottomRingQ1/Type = "TsCylinder"
 d:Ge/BottomRingQ1/Rmax = 2.3 m
 d:Ge/BottomRingQ1/Rmin = 2.1 m
 d:Ge/BottomRingQ1/HL = 0.15 m 
 s:Ge/BottomRingQ1/Material = "G4_Fe"
 d:Ge/BottomRingQ1/RotX = 90. deg 
-d:Ge/BottomRingQ1/SPhi = 315 deg
+d:Ge/BottomRingQ1/SPhi = 315 deg #315
 d:Ge/BottomRingQ1/DPhi = 70 deg 
 d:Ge/BottomRingQ1/TransX = 0 m
-d:Ge/BottomRingQ1/TransY = -0.413 m
+d:Ge/BottomRingQ1/TransY = 0.15 m
 d:Ge/BottomRingQ1/TransZ = 0 m
 b:Ge/BottomRingQ1/Include  = "TRUE" 
 
@@ -90,13 +72,13 @@ b:Ge/BottomRingQ1/Include  = "TRUE"
 # Dipole by Bottom Ring Quarters 
 ########################################
 s:Ge/Q4Dipole/Type          = "TsBox"
-s:Ge/Q4Dipole/Parent        = "World"
+s:Ge/Q4Dipole/Parent        = "Gantry"
 s:Ge/Q4Dipole/Material      = "parent"
 d:Ge/Q4Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q4Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Q4Dipole/HLZ           = Ge/HLOf_Dipole1 mm
 d:Ge/Q4Dipole/TransX        = 1.8 m
-d:Ge/Q4Dipole/TransY        = -0.413 m
+d:Ge/Q4Dipole/TransY        = 0.15 m
 d:Ge/Q4Dipole/TransZ        = -1.2 m
 d:Ge/Q4Dipole/RotX          = 0.0 deg
 d:Ge/Q4Dipole/RotY          = 315.0 deg
@@ -109,13 +91,13 @@ d:Ge/Q4Dipole/MagneticFieldStrength      = 4.0 tesla
 b:Ge/Q4Dipole/Include  = "TRUE" 
 
 s:Ge/Q4p2Dipole/Type          = "TsBox"
-s:Ge/Q4p2Dipole/Parent        = "World"
+s:Ge/Q4p2Dipole/Parent        = "Gantry"
 s:Ge/Q4p2Dipole/Material      = "parent"
 d:Ge/Q4p2Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Q4p2Dipole/HLY           = 80 mm #Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Q4p2Dipole/HLZ           = Ge/HLOf_Dipole1 mm
 d:Ge/Q4p2Dipole/TransX        = 2.14 m
-d:Ge/Q4p2Dipole/TransY        = -0.18 m
+d:Ge/Q4p2Dipole/TransY        = 0.383 m
 d:Ge/Q4p2Dipole/TransZ        = -0.9 m #-1.0 m
 d:Ge/Q4p2Dipole/RotX          = 0.0 deg
 d:Ge/Q4p2Dipole/RotY          = 305.0 deg
@@ -124,17 +106,17 @@ s:Ge/Q4p2Dipole/Field = "DipoleMagnet"
 u:Ge/Q4p2Dipole/MagneticFieldDirectionX    = 0.0 
 u:Ge/Q4p2Dipole/MagneticFieldDirectionY    = 1.0 #Deflect a beam inward 
 u:Ge/Q4p2Dipole/MagneticFieldDirectionZ    = 0.0
-d:Ge/Q4p2Dipole/MagneticFieldStrength      = 3.0 tesla #6.0
+d:Ge/Q4p2Dipole/MagneticFieldStrength      = 3.5 tesla #6.0
 b:Ge/Q4p2Dipole/Include  = "TRUE" 
 
 s:Ge/Q4p3Quad/Type          = "TsBox"
-s:Ge/Q4p3Quad/Parent        = "World"
+s:Ge/Q4p3Quad/Parent        = "Gantry"
 s:Ge/Q4p3Quad/Material      = "parent"
 d:Ge/Q4p3Quad/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
-d:Ge/Q4p3Quad/HLY           = 80 mm #Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Q4p3Quad/HLY           = Ge/PipeInDipoles/Gas/HLY mm #80 mm
 d:Ge/Q4p3Quad/HLZ           = 5 cm
 d:Ge/Q4p3Quad/TransX        = 2.28 m
-d:Ge/Q4p3Quad/TransY        = -0.05 m
+d:Ge/Q4p3Quad/TransY        = 0.513 m
 d:Ge/Q4p3Quad/TransZ        = -0.64 m #-0.74 m
 d:Ge/Q4p3Quad/RotX          = 0.0 deg
 d:Ge/Q4p3Quad/RotY          = 315.0 deg
@@ -148,36 +130,61 @@ d:Ge/Q4p3Quad/MagneticFieldGradientY    = 0.5 tesla/cm
 b:Ge/Q4p3Quad/Include  = "TRUE" 
 
 s:Ge/Q4p4Dipole/Type          = "TsBox"
-s:Ge/Q4p4Dipole/Parent        = "World"
+s:Ge/Q4p4Dipole/Parent        = "Gantry"
 s:Ge/Q4p4Dipole/Material      = "parent"
 d:Ge/Q4p4Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
-d:Ge/Q4p4Dipole/HLY           = 80 mm #Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Q4p4Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm #80 mm
 d:Ge/Q4p4Dipole/HLZ           = Ge/HLOf_Dipole1 mm
-d:Ge/Q4p4Dipole/TransX        = 2.52 m
-d:Ge/Q4p4Dipole/TransY        = -0.05 m
-d:Ge/Q4p4Dipole/TransZ        = -0.47 m #-0.57 m
+d:Ge/Q4p4Dipole/TransX        = 2.6 m
+d:Ge/Q4p4Dipole/TransY        = 0.6 m
+d:Ge/Q4p4Dipole/TransZ        = -0.25 m #-0.57 m
 d:Ge/Q4p4Dipole/RotX          = 0.0 deg
-d:Ge/Q4p4Dipole/RotY          = 325.0 deg
+d:Ge/Q4p4Dipole/RotY          = 335.0 deg
 d:Ge/Q4p4Dipole/RotZ          = 0.0 deg
 s:Ge/Q4p4Dipole/Field = "DipoleMagnet"
 u:Ge/Q4p4Dipole/MagneticFieldDirectionX    = 1.0 #Deflect a beam upward 
 u:Ge/Q4p4Dipole/MagneticFieldDirectionY    = 0.0  
 u:Ge/Q4p4Dipole/MagneticFieldDirectionZ    = 0.0
-d:Ge/Q4p4Dipole/MagneticFieldStrength      = 0.1 tesla
+d:Ge/Q4p4Dipole/MagneticFieldStrength      = 2.0 tesla
 b:Ge/Q4p4Dipole/Include  = "TRUE" 
+
+
 
 ########################################
 # Extra Dipole near Extraction 
 ########################################
+
+##### TRIAL #####
+
+s:Ge/ExQuad/Type          = "TsBox"
+s:Ge/ExQuad/Parent        = "Gantry"
+s:Ge/ExQuad/Material      = "parent"
+d:Ge/ExQuad/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/ExQuad/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/ExQuad/HLZ           = 5 cm
+d:Ge/ExQuad/TransX        = 2.7 m
+d:Ge/ExQuad/TransY        = 1.6 m
+d:Ge/ExQuad/TransZ        = 1.3 m #-0.74 m
+d:Ge/ExQuad/RotX          = 0.0 deg
+d:Ge/ExQuad/RotY          = 0.0 deg
+d:Ge/ExQuad/RotZ          = 0.0 deg
+s:Ge/ExQuad/Field = "QuadrupoleMagnet"
+u:Ge/ExQuad/MagneticFieldDirectionX    = -1
+u:Ge/ExQuad/MagneticFieldDirectionY    = 2.0 
+u:Ge/ExQuad/MagneticFieldDirectionZ    = 3.0
+d:Ge/ExQuad/MagneticFieldGradientX    = 0.5 tesla/cm 
+d:Ge/ExQuad/MagneticFieldGradientY    = 0.5 tesla/cm 
+b:Ge/ExQuad/Include  = "TRUE" 
+
 s:Ge/ExDipole1/Type          = "TsBox"
-s:Ge/ExDipole1/Parent        = "World"
+s:Ge/ExDipole1/Parent        = "Gantry"
 s:Ge/ExDipole1/Material      = "parent"
 d:Ge/ExDipole1/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/ExDipole1/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/ExDipole1/HLZ           = Ge/HLOf_Dipole1 mm
 d:Ge/ExDipole1/TransX        = 2.7 m
-d:Ge/ExDipole1/TransY        = 0.2 m
-d:Ge/ExDipole1/TransZ        = 0.5 m
+d:Ge/ExDipole1/TransY        = 1.5 m #0.763 m
+d:Ge/ExDipole1/TransZ        = 1.0 m #0.5 m
 d:Ge/ExDipole1/RotX          = 0.0 deg
 d:Ge/ExDipole1/RotY          = 0.0 deg
 d:Ge/ExDipole1/RotZ          = 0.0 deg
@@ -185,46 +192,47 @@ s:Ge/ExDipole1/Field = "DipoleMagnet"
 u:Ge/ExDipole1/MagneticFieldDirectionX    = -1.0 #Deflect a beam downward
 u:Ge/ExDipole1/MagneticFieldDirectionY    = 0.0 
 u:Ge/ExDipole1/MagneticFieldDirectionZ    = 0.0
-d:Ge/ExDipole1/MagneticFieldStrength      = 2.0 tesla
+d:Ge/ExDipole1/MagneticFieldStrength      = 4.0 tesla
 b:Ge/ExDipole1/Include  = "TRUE" 
 
 s:Ge/ExDipole2/Type          = "TsBox"
-s:Ge/ExDipole2/Parent        = "World"
+s:Ge/ExDipole2/Parent        = "Gantry"
 s:Ge/ExDipole2/Material      = "parent"
 d:Ge/ExDipole2/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/ExDipole2/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/ExDipole2/HLZ           = Ge/HLOf_Dipole1 mm
 d:Ge/ExDipole2/TransX        = 2.7 m
-d:Ge/ExDipole2/TransY        = 0.1 m
-d:Ge/ExDipole2/TransZ        = 0.2 m
+d:Ge/ExDipole2/TransY        = 1.2 m #0.663 m
+d:Ge/ExDipole2/TransZ        = 0.6 m #0.2 m
 d:Ge/ExDipole2/RotX          = 0.0 deg
 d:Ge/ExDipole2/RotY          = 0.0 deg
 d:Ge/ExDipole2/RotZ          = 0.0 deg
 s:Ge/ExDipole2/Field = "DipoleMagnet"
-u:Ge/ExDipole2/MagneticFieldDirectionX    = 0.0 
-u:Ge/ExDipole2/MagneticFieldDirectionY    = 1.0 #Deflect a beam inward 
+u:Ge/ExDipole2/MagneticFieldDirectionX    = 1.0 #Deflect a beam upward
+u:Ge/ExDipole2/MagneticFieldDirectionY    = 0.0  
 u:Ge/ExDipole2/MagneticFieldDirectionZ    = 0.0
-d:Ge/ExDipole2/MagneticFieldStrength      = 4.0 tesla
+d:Ge/ExDipole2/MagneticFieldStrength      = 1.5 tesla
 b:Ge/ExDipole2/Include  = "TRUE" 
 
 s:Ge/ExDipole3/Type          = "TsBox"
-s:Ge/ExDipole3/Parent        = "World"
+s:Ge/ExDipole3/Parent        = "Gantry"
 s:Ge/ExDipole3/Material      = "parent"
 d:Ge/ExDipole3/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/ExDipole3/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/ExDipole3/HLZ           = Ge/HLOf_Dipole1 mm
 d:Ge/ExDipole3/TransX        = 2.7 m
-d:Ge/ExDipole3/TransY        = 0.05 m
-d:Ge/ExDipole3/TransZ        = -0.1 m
+d:Ge/ExDipole3/TransY        = 0.9 m #0.613 m
+d:Ge/ExDipole3/TransZ        = 0.2 m #-0.1 m
 d:Ge/ExDipole3/RotX          = 0.0 deg
 d:Ge/ExDipole3/RotY          = 0.0 deg
 d:Ge/ExDipole3/RotZ          = 0.0 deg
 s:Ge/ExDipole3/Field = "DipoleMagnet"
-u:Ge/ExDipole3/MagneticFieldDirectionX    = -1.0 #Deflect a beam down  
-u:Ge/ExDipole3/MagneticFieldDirectionY    = 0.0 
+u:Ge/ExDipole3/MagneticFieldDirectionX    = 0.0   
+u:Ge/ExDipole3/MagneticFieldDirectionY    = 1.0 #Deflect a beam inward  
 u:Ge/ExDipole3/MagneticFieldDirectionZ    = 0.0
-d:Ge/ExDipole3/MagneticFieldStrength      = 2.0 tesla
+d:Ge/ExDipole3/MagneticFieldStrength      = 4 tesla
 b:Ge/ExDipole3/Include  = "TRUE" 
+
 
 i:Gr/ViewA/MagneticFieldArrowDensity = 10
 
@@ -240,8 +248,9 @@ d:Ge/SphereB1/SPhi     = 0. deg
 d:Ge/SphereB1/DPhi     = 360. deg
 d:Ge/SphereB1/STheta   = 0. deg
 d:Ge/SphereB1/DTheta   = 180. deg
-d:Ge/SphereB1/TransZ   = -195.0 cm
-d:Ge/SphereB1/TransX   = -50.0 cm
+d:Ge/SphereB1/TransZ   = 5.55 m
+d:Ge/SphereB1/TransX   = 2.2 m
+d:Ge/SphereB1/TransY   = 1.7 m #0.563 m
 b:Ge/SphereB1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -250,6 +259,17 @@ s:Sc/scorerDosePerDipoleQ4B1/Component                  = "SphereB1"
 b:Sc/scorerDosePerDipoleQ4B1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ4B1/IfOutputFileAlreadyExists  = "Overwrite"
 sv:Sc/scorerDosePerDipoleQ4B1/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ4B1/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ4B1/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ4B1/Component                  = "SphereB1"
+s:Sc/scorerNeuSpecPerDipoleQ4B1/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ4B1/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ4B1/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ4B1/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ4B1/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ4B1/EBinEnergy                = "DepositedInStep"
 
 # Score ambient dose equivalent for neutrons
 sv:Sc/scorerAmbDosePerDipoleQ4B1/OnlyIncludeParticlesNamed = 1 "neutron"
@@ -289,8 +309,9 @@ d:Ge/SphereC1/SPhi     = 0. deg
 d:Ge/SphereC1/DPhi     = 360. deg
 d:Ge/SphereC1/STheta   = 0. deg
 d:Ge/SphereC1/DTheta   = 180. deg
-d:Ge/SphereC1/TransZ   = -195.0 cm
-d:Ge/SphereC1/TransX   = -200.0 cm
+d:Ge/SphereC1/TransZ   = 5.55 m
+d:Ge/SphereC1/TransX   = 0.7 m
+d:Ge/SphereC1/TransY   = 1.7 m #0.563 m
 b:Ge/SphereC1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -299,6 +320,17 @@ s:Sc/scorerDosePerDipoleQ4C1/Component                  = "SphereC1"
 b:Sc/scorerDosePerDipoleQ4C1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ4C1/IfOutputFileAlreadyExists  = "Overwrite"
 sv:Sc/scorerDosePerDipoleQ4C1/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ4C1/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ4C1/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ4C1/Component                  = "SphereC1"
+s:Sc/scorerNeuSpecPerDipoleQ4C1/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ4C1/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ4C1/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ4C1/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ4C1/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ4C1/EBinEnergy                = "DepositedInStep"
 
 # Score ambient dose equivalent for neutrons
 sv:Sc/scorerAmbDosePerDipoleQ4C1/OnlyIncludeParticlesNamed = 1 "neutron"
