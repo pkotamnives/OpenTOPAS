@@ -1,0 +1,7 @@
+# TOPAS Version: 4.0
+# Parameter File: PCureDipoleModQ4Only.txt
+# Results for scorer: scorerAmbDosePerDipoleQ4B1
+# Filtered by: OnlyIncludeParticlesNamed = 1 "neutron"
+# Scored in component: SphereB1
+# AmbientDoseEquivalent ( Sv ) : Mean   Standard_Deviation   
+0, 0

@@ -1,0 +1,112 @@
+# ===================================================================
+# TOPAS G4_CONCRETE Walls Geometry - Include File
+# Filename: G4_CONCRETEWalls.txt
+# Description: G4_CONCRETE boundary walls and thick shielding wall
+# Room outer corners: (-6,-3,-8) to (17,7,5)
+# ===================================================================
+
+# ===== BOUNDARY CONCRETE WALLS =====
+
+# Floor (Ground) - 3m thick
+# Outer edge at Y = -3, extends inward to Y = 0
+s:Ge/Floor/Type = "TsBox"
+s:Ge/Floor/Parent = "World"
+s:Ge/Floor/Material = "G4_CONCRETE"
+d:Ge/Floor/HLX = 10.5 m
+d:Ge/Floor/HLY = 1.5 m   # 3m thick (HL = 1.5)
+d:Ge/Floor/HLZ = 6.5 m
+d:Ge/Floor/TransX = 5.5 m
+d:Ge/Floor/TransY = -1.5 m
+d:Ge/Floor/TransZ = -1.5 m
+s:Ge/Floor/Color = "purple"
+
+# Ceiling - 2m thick
+# Outer edge at Y = 7, extends inward to Y = 5
+s:Ge/Ceiling/Type = "TsBox"
+s:Ge/Ceiling/Parent = "World"
+s:Ge/Ceiling/Material = "G4_CONCRETE"
+d:Ge/Ceiling/HLX = 10.5 m
+d:Ge/Ceiling/HLY = 1.0 m   # 2m thick (HL = 1.0)
+d:Ge/Ceiling/HLZ = 6.5 m
+d:Ge/Ceiling/TransX = 5.5 m
+d:Ge/Ceiling/TransY = 6.0 m
+d:Ge/Ceiling/TransZ = -1.5 m
+s:Ge/Ceiling/Color = "purple"
+
+# Back Wall (Left, X = -6) - 1m thick
+# Outer edge at X = -6, extends inward to X = -5
+s:Ge/BackWall/Type = "TsBox"
+s:Ge/BackWall/Parent = "World"
+s:Ge/BackWall/Material = "G4_CONCRETE"
+d:Ge/BackWall/HLX = 0.5 m   # 1m thick (HL = 0.5)
+d:Ge/BackWall/HLY = 5.0 m
+d:Ge/BackWall/HLZ = 6.5 m
+d:Ge/BackWall/TransX = -5.5 m
+d:Ge/BackWall/TransY = 2.0 m
+d:Ge/BackWall/TransZ = -1.5 m
+s:Ge/BackWall/Color = "purple"
+
+# Front Wall (Right, X = 17) - 1m thick
+# Outer edge at X = 17, extends inward to X = 16
+s:Ge/FrontWall/Type = "TsBox"
+s:Ge/FrontWall/Parent = "World"
+s:Ge/FrontWall/Material = "G4_CONCRETE"
+d:Ge/FrontWall/HLX = 0.5 m   # 1m thick (HL = 0.5)
+d:Ge/FrontWall/HLY = 5.0 m
+d:Ge/FrontWall/HLZ = 6.5 m
+d:Ge/FrontWall/TransX = 16.5 m
+d:Ge/FrontWall/TransY = 2.0 m
+d:Ge/FrontWall/TransZ = -1.5 m
+s:Ge/FrontWall/Color = "purple"
+
+# Bottom Wall (Z = -8) - 2m thick
+# Outer edge at Z = -8, extends inward to Z = -6
+s:Ge/BottomWall/Type = "TsBox"
+s:Ge/BottomWall/Parent = "World"
+s:Ge/BottomWall/Material = "G4_CONCRETE"
+d:Ge/BottomWall/HLX = 10.5 m #11.5 m
+d:Ge/BottomWall/HLY = 2.5 m #5.0 m
+d:Ge/BottomWall/HLZ = 1.0 m   # 2m thick (HL = 1.0)
+d:Ge/BottomWall/TransX = 5.5 m
+d:Ge/BottomWall/TransY = 2.5 m
+d:Ge/BottomWall/TransZ = -7.0 m
+s:Ge/BottomWall/Color = "purple"
+
+# Top Wall (Z = 5) - 1m thick
+# Outer edge at Z = 5, extends inward to Z = 4
+s:Ge/TopWall/Type = "TsBox"
+s:Ge/TopWall/Parent = "World"
+s:Ge/TopWall/Material = "G4_CONCRETE"
+d:Ge/TopWall/HLX = 10.5 m #11.5 m
+d:Ge/TopWall/HLY = 2.5 m #5.0 m
+d:Ge/TopWall/HLZ = 0.5 m   # 1m thick (HL = 0.5)
+d:Ge/TopWall/TransX = 5.5 m
+d:Ge/TopWall/TransY = 2.5 m
+d:Ge/TopWall/TransZ = 4.5 m
+s:Ge/TopWall/Color = "purple"
+
+# ===== THICK SHIELDING WALL (INTERNAL BEAM STOP) =====
+
+# Thick Wall - 2.5m × 10m × 10m (X × Y × Z)
+# Center position: (12.5, 2, -2)
+# This is the primary beam stop and neutron shielding wall
+s:Ge/ThickWall/Type = "TsBox"
+s:Ge/ThickWall/Parent = "World"
+s:Ge/ThickWall/Material = "G4_CONCRETE"
+d:Ge/ThickWall/HLX = 1.25 m   # 2.5m thick (HL = 1.25)
+d:Ge/ThickWall/HLY = 2.5 m    # 10m height (HL = 5.0)
+d:Ge/ThickWall/HLZ = 4.5 m    # 10m length (HL = 5.0)
+d:Ge/ThickWall/TransX = 12.5 m
+d:Ge/ThickWall/TransY = 2.5 m
+d:Ge/ThickWall/TransZ = -1.5 m
+s:Ge/ThickWall/Color = "blue"
+
+# ===== WALL SUMMARY =====
+# Total of 7 concrete structures:
+# 1. Floor (3m thick)
+# 2. Ceiling (2m thick)
+# 3. Back Wall (1m thick)
+# 4. Front Wall (1m thick)
+# 5. Bottom Wall (2m thick)
+# 6. Top Wall (1m thick)
+# 7. Thick Shielding Wall (2.5m thick) - Internal beam stop
