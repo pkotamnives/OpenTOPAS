@@ -1,35 +1,17 @@
 # Scanning nozzle used in some demonstrations.
 
-includeFile = PCureConstantsForNozzles.txt
+includeFile = PCureFull_Constants.txt
+includeFile = PCUREFull_DipoleQ1.txt
+includeFile = PCUREFull_DipoleQ2.txt
+includeFile = PCUREFull_DipoleQ3.txt
+includeFile = PCUREFull_DipoleModQ4Only.txt
+
+s:Gr/ViewA/Type              = "OpenGL"
+
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
 
 #Ts/DumpParameters = "T"
-
-# Pipeline/Collimator 
-s:Ge/MSYoke/Type       = "TsBox"
-s:Ge/MSYoke/Parent     = "FlipGantry"
-# Make the yoke bigger than the gap by the chosen iron thickness
-d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLX        = 20.0 cm 
-d:Ge/MSYoke/HLY        = 30.0 cm
-d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLZ        = 20.0 cm 
-s:Ge/MSYoke/Material   = "G4_Fe"
-d:Ge/MSYoke/TransX     = 2.7 m
-d:Ge/MSYoke/TransY     = -1.5 m 
-d:Ge/MSYoke/TransZ     = -2.0 m #-2.99 m
-# Rotate so local Y is along the ring tangent (same as septum)
-d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
-b:Ge/MSYoke/Include    = "TRUE" 
-
-# Field gap carved as a daughter (overrides parent material)
-s:Ge/MSGap/Type        = "TsBox"
-s:Ge/MSGap/Parent      = "MSYoke"
-d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm
-d:Ge/MSGap/HLY         = 30.0 cm
-d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
-s:Ge/MSGap/Material    = "G4_AIR"
-b:Ge/MSGap/IsInvisible  = "FALSE"
-b:Ge/MSGap/Include    = "FALSE" 
 
 ########################################
 #1. Beam Exit Window

@@ -11,14 +11,14 @@ s:Ge/MSYoke/Type       = "TsBox"
 s:Ge/MSYoke/Parent     = "Gantry"
 # Make the yoke bigger than the gap by the chosen iron thickness
 d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLX        = 10.0 cm #20.0 cm #Ge/MSYoke/FLX cm * 0.5
+d:Ge/MSYoke/HLX        = 20.0 cm 
 d:Ge/MSYoke/HLY        = 15.0 cm
 d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLZ        = 20.0 cm #Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm #Ge/MSYoke/FLZ cm * 0.5
+d:Ge/MSYoke/HLZ        = 20.0 cm 
 s:Ge/MSYoke/Material   = "G4_Fe"
 d:Ge/MSYoke/TransX     = 0.0 m
 d:Ge/MSYoke/TransY     = 1.4 m 
-d:Ge/MSYoke/TransZ     = 1.3 m
+d:Ge/MSYoke/TransZ     = 1.35 m
 # Rotate so local Y is along the ring tangent (same as septum)
 d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
 b:Ge/MSYoke/Include    = "TRUE" 
@@ -26,11 +26,12 @@ b:Ge/MSYoke/Include    = "TRUE"
 # Field gap carved as a daughter (overrides parent material)
 s:Ge/MSGap/Type        = "TsBox"
 s:Ge/MSGap/Parent      = "MSYoke"
-d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm #Ge/MSGapeWidth cm * 0.5
+d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm
 d:Ge/MSGap/HLY         = 15.0 cm
 d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
 s:Ge/MSGap/Material    = "G4_AIR"
 b:Ge/MSGap/IsInvisible  = "FALSE"
+b:Ge/MSGap/Include    = "FALSE" 
 
 ########################################
 #1. Beam Exit Window

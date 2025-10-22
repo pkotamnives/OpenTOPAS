@@ -59,12 +59,22 @@ d:Ge/Gantry/RotX   = 0. deg
 d:Ge/Gantry/RotY   = -90.0 deg 
 d:Ge/Gantry/RotZ   = 0. deg
 
+#FlipGantry coordination system (Ig)
+s:Ge/FlipGantry/Parent = "Gantry"
+s:Ge/FlipGantry/Type   = "Group"
+d:Ge/FlipGantry/TransX = 0. m
+d:Ge/FlipGantry/TransY = 0. m
+d:Ge/FlipGantry/TransZ = 0. m
+d:Ge/FlipGantry/RotX   = 180. deg
+d:Ge/FlipGantry/RotY   = 0. deg  
+d:Ge/FlipGantry/RotZ   = 0. deg
+
 # Default Beam position
 s:Ge/BeamPosition/Parent = "Gantry"
 s:Ge/BeamPosition/Type   = "Group"
 d:Ge/BeamPosition/TransX = 2.7 m
 d:Ge/BeamPosition/TransY = 1.7 m 
-d:Ge/BeamPosition/TransZ = 2.15 m
+d:Ge/BeamPosition/TransZ = 3.24 m #2.15 m
 d:Ge/BeamPosition/RotX   = 0. deg
 d:Ge/BeamPosition/RotY   = 0. deg
 d:Ge/BeamPosition/RotZ   = 0. deg
@@ -107,7 +117,7 @@ b:Ge/BeamPositionQ3/Include  = "TRUE"
 s:Ge/BeamPositionQ4/Parent = "Gantry"
 s:Ge/BeamPositionQ4/Type   = "Group"
 d:Ge/BeamPositionQ4/TransX = 1.0 m
-d:Ge/BeamPositionQ4/TransY = 0.15 m
+d:Ge/BeamPositionQ4/TransY = 0.2 m
 d:Ge/BeamPositionQ4/TransZ = -2.0 m
 d:Ge/BeamPositionQ4/RotX   = 0. deg 
 d:Ge/BeamPositionQ4/RotY   = 315. deg 

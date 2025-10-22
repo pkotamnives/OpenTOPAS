@@ -1,10 +1,39 @@
 # Scanning nozzle used in some demonstrations.
 
-includeFile = GPTConstantsForNozzlesTop.txt
 
 #Ts/DumpParameters = "T"
 
+includeFile = GPTConstantsForNozzlesTop.txt
+
 b:Ge/TopRing/Include  = "TRUE" 
+
+# Pipeline/Collimator 
+s:Ge/MSYoke/Type       = "TsBox"
+s:Ge/MSYoke/Parent     = "Gantry"
+# Make the yoke bigger than the gap by the chosen iron thickness
+d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
+d:Ge/MSYoke/HLX        = 20.0 cm 
+d:Ge/MSYoke/HLY        = 15.0 cm
+d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
+d:Ge/MSYoke/HLZ        = 20.0 cm 
+s:Ge/MSYoke/Material   = "G4_Fe"
+d:Ge/MSYoke/TransX     = 0.0 m
+d:Ge/MSYoke/TransY     = 1.4 m 
+d:Ge/MSYoke/TransZ     = 1.35 m
+# Rotate so local Y is along the ring tangent (same as septum)
+d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
+b:Ge/MSYoke/Include    = "TRUE" 
+
+# Field gap carved as a daughter (overrides parent material)
+s:Ge/MSGap/Type        = "TsBox"
+s:Ge/MSGap/Parent      = "MSYoke"
+d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm
+d:Ge/MSGap/HLY         = 15.0 cm
+d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
+s:Ge/MSGap/Material    = "G4_AIR"
+b:Ge/MSGap/IsInvisible  = "FALSE"
+b:Ge/MSGap/Include    = "FALSE" 
+
 
 #######################################
 # Extra Dipole near Extraction 2
@@ -15,9 +44,9 @@ s:Ge/Ex2Dipole1/Material      = "parent"
 d:Ge/Ex2Dipole1/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Ex2Dipole1/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Ex2Dipole1/HLZ           = Ge/HLOf_Dipole1 mm
-d:Ge/Ex2Dipole1/TransX        = 2.2 m #0.45 m #2.2 m
-d:Ge/Ex2Dipole1/TransY        = 1.6 m #0.2 m
-d:Ge/Ex2Dipole1/TransZ        = 2.5 m #3.1 m
+d:Ge/Ex2Dipole1/TransX        = 1.9 m 
+d:Ge/Ex2Dipole1/TransY        = 1.6 m 
+d:Ge/Ex2Dipole1/TransZ        = 2.2 m 
 d:Ge/Ex2Dipole1/RotX          = 0.0 deg
 d:Ge/Ex2Dipole1/RotY          = 45.0 deg
 d:Ge/Ex2Dipole1/RotZ          = 0.0 deg
@@ -26,7 +55,7 @@ u:Ge/Ex2Dipole1/MagneticFieldDirectionX    = -1.0 #Deflect a beam downward
 u:Ge/Ex2Dipole1/MagneticFieldDirectionY    = 0.0 
 u:Ge/Ex2Dipole1/MagneticFieldDirectionZ    = 0.0
 d:Ge/Ex2Dipole1/MagneticFieldStrength      = 2.0 tesla
-b:Ge/Ex2Dipole1/Include  = "TRUE" 
+b:Ge/Ex2Dipole1/Include  = "FALSE" 
 
 s:Ge/Ex2Dipole2/Type          = "TsBox"
 s:Ge/Ex2Dipole2/Parent        = "Gantry"
@@ -34,11 +63,11 @@ s:Ge/Ex2Dipole2/Material      = "parent"
 d:Ge/Ex2Dipole2/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Ex2Dipole2/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Ex2Dipole2/HLZ           = Ge/HLOf_Dipole1 mm
-d:Ge/Ex2Dipole2/TransX        = 1.2 m #1.1 m #-0.65 m
+d:Ge/Ex2Dipole2/TransX        = 1.2 m 
 d:Ge/Ex2Dipole2/TransY        = 1.5 m
 d:Ge/Ex2Dipole2/TransZ        = 2.525 m
 d:Ge/Ex2Dipole2/RotX          = 0.0 deg
-d:Ge/Ex2Dipole2/RotY          = 120.0 deg #90.0 deg
+d:Ge/Ex2Dipole2/RotY          = 120.0 deg 
 d:Ge/Ex2Dipole2/RotZ          = 0.0 deg
 s:Ge/Ex2Dipole2/Field = "DipoleMagnet"
 u:Ge/Ex2Dipole2/MagneticFieldDirectionX    = 0.0 
@@ -53,17 +82,17 @@ s:Ge/Ex2Dipole3/Material      = "parent"
 d:Ge/Ex2Dipole3/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Ex2Dipole3/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Ex2Dipole3/HLZ           = Ge/HLOf_Dipole1 mm
-d:Ge/Ex2Dipole3/TransX        = 0.7 m #0.6 m#-1.15 m 
+d:Ge/Ex2Dipole3/TransX        = 0.7 m  
 d:Ge/Ex2Dipole3/TransY        = 1.5 m
 d:Ge/Ex2Dipole3/TransZ        = 2.4 m 
 d:Ge/Ex2Dipole3/RotX          = 0.0 deg
-d:Ge/Ex2Dipole3/RotY          = 135.0 deg #120.0 deg
+d:Ge/Ex2Dipole3/RotY          = 135.0 deg 
 d:Ge/Ex2Dipole3/RotZ          = 0.0 deg
 s:Ge/Ex2Dipole3/Field = "DipoleMagnet"
 u:Ge/Ex2Dipole3/MagneticFieldDirectionX    = 0.0 
 u:Ge/Ex2Dipole3/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
 u:Ge/Ex2Dipole3/MagneticFieldDirectionZ    = 0.0
-d:Ge/Ex2Dipole3/MagneticFieldStrength      = 5.0 tesla
+d:Ge/Ex2Dipole3/MagneticFieldStrength      = 4.0 tesla
 b:Ge/Ex2Dipole3/Include  = "TRUE" 
 
 s:Ge/Ex2Dipole4/Type          = "TsBox"
@@ -72,8 +101,8 @@ s:Ge/Ex2Dipole4/Material      = "parent"
 d:Ge/Ex2Dipole4/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Ex2Dipole4/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Ex2Dipole4/HLZ           = 10 cm
-d:Ge/Ex2Dipole4/TransX        = 0.3 m # 0.0 m
-d:Ge/Ex2Dipole4/TransY        = 1.4 m # 1.4 m
+d:Ge/Ex2Dipole4/TransX        = 0.3 m 
+d:Ge/Ex2Dipole4/TransY        = 1.5 m 
 d:Ge/Ex2Dipole4/TransZ        = 2.15 m 
 d:Ge/Ex2Dipole4/RotX          = 0.0 deg
 d:Ge/Ex2Dipole4/RotY          = 145 deg
@@ -91,9 +120,9 @@ s:Ge/Ex2Dipole5/Material      = "parent"
 d:Ge/Ex2Dipole5/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
 d:Ge/Ex2Dipole5/HLY           = Ge/PipeInDipoles/Gas/HLY mm
 d:Ge/Ex2Dipole5/HLZ           = 10 cm
-d:Ge/Ex2Dipole5/TransX        = 0.0 m #-1.75 m
-d:Ge/Ex2Dipole5/TransY        = 1.4 m
-d:Ge/Ex2Dipole5/TransZ        = 1.55 m 
+d:Ge/Ex2Dipole5/TransX        = 0.0 m 
+d:Ge/Ex2Dipole5/TransY        = 1.5 m
+d:Ge/Ex2Dipole5/TransZ        = 1.85 m 
 d:Ge/Ex2Dipole5/RotX          = 0.0 deg
 d:Ge/Ex2Dipole5/RotY          = 0.0 deg
 d:Ge/Ex2Dipole5/RotZ          = 0.0 deg
@@ -101,35 +130,8 @@ s:Ge/Ex2Dipole5/Field = "DipoleMagnet"
 u:Ge/Ex2Dipole5/MagneticFieldDirectionX    = 0.0 
 u:Ge/Ex2Dipole5/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
 u:Ge/Ex2Dipole5/MagneticFieldDirectionZ    = 0.0
-d:Ge/Ex2Dipole5/MagneticFieldStrength      = 4.0 tesla
+d:Ge/Ex2Dipole5/MagneticFieldStrength      = 4.5 tesla  
 b:Ge/Ex2Dipole5/Include  = "TRUE" 
-
-# Pipeline/Collimator 
-s:Ge/MSYoke/Type       = "TsBox"
-s:Ge/MSYoke/Parent     = "Gantry"
-# Make the yoke bigger than the gap by the chosen iron thickness
-d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLX        = 10.0 cm #20.0 cm #Ge/MSYoke/FLX cm * 0.5
-d:Ge/MSYoke/HLY        = 15.0 cm
-d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
-d:Ge/MSYoke/HLZ        = 20.0 cm #Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm #Ge/MSYoke/FLZ cm * 0.5
-s:Ge/MSYoke/Material   = "G4_Fe"
-d:Ge/MSYoke/TransX     = 0.0 m
-d:Ge/MSYoke/TransY     = 1.4 m 
-d:Ge/MSYoke/TransZ     = 1.3 m
-# Rotate so local Y is along the ring tangent (same as septum)
-d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
-b:Ge/MSYoke/Include    = "TRUE" 
-
-# Field gap carved as a daughter (overrides parent material)
-s:Ge/MSGap/Type        = "TsBox"
-s:Ge/MSGap/Parent      = "MSYoke"
-d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm #Ge/MSGapeWidth cm * 0.5
-d:Ge/MSGap/HLY         = 15.0 cm
-d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
-s:Ge/MSGap/Material    = "G4_AIR"
-b:Ge/MSGap/IsInvisible  = "FALSE"
-
 
 
 i:Gr/ViewA/MagneticFieldArrowDensity = 10

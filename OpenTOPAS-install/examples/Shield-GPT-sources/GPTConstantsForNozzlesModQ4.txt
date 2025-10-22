@@ -10,6 +10,12 @@
 #-> Y is -Y. we have to flip phase space data.
 #Isocenter coordination system (Io)
 
+s:Gr/ViewA/Type              = "OpenGL"
+
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
+
+
 # ===== WORLD VOLUME =====
 s:Ge/World/Type = "TsBox"
 s:Ge/World/Material = "Air"
@@ -52,16 +58,16 @@ d:Ge/MSYokeDoubleThickRadial     = 12.0 cm           # iron yoke thickness aroun
 #Cylindrical top ring 
 s:Ge/TopRing/Parent = "Gantry"
 s:Ge/TopRing/Type = "TsCylinder"
-d:Ge/TopRing/Rmax = 3.3 m
-d:Ge/TopRing/Rmin = 3.1 m
-d:Ge/TopRing/HL = 0.15 m 
+d:Ge/TopRing/Rmax = 3.3 m #3.3 m
+d:Ge/TopRing/Rmin = 2.9 m #3.1 m
+d:Ge/TopRing/HL = 0.3 m #0.15 m 
 s:Ge/TopRing/Material = "G4_Al"
 d:Ge/TopRing/RotX = 90. deg 
 d:Ge/TopRing/RotZ = 180. deg 
-d:Ge/TopRing/SPhi = 137 deg 
-d:Ge/TopRing/DPhi = 15 deg 
+d:Ge/TopRing/SPhi = 132 deg 
+d:Ge/TopRing/DPhi = 20 deg 
 d:Ge/TopRing/TransX = 0 m
-d:Ge/TopRing/TransY = 1.6 m 
+d:Ge/TopRing/TransY = 1.5 m 
 d:Ge/TopRing/TransZ = 0 m
 b:Ge/TopRing/Include  = "TRUE" 
 
@@ -134,7 +140,7 @@ b:Ge/BeamPositionQ3/Include  = "TRUE"
 s:Ge/BeamPositionQ4/Parent = "Gantry"
 s:Ge/BeamPositionQ4/Type   = "Group"
 d:Ge/BeamPositionQ4/TransX = 1.0 m
-d:Ge/BeamPositionQ4/TransY = 0.15 m
+d:Ge/BeamPositionQ4/TransY = 0.2 m
 d:Ge/BeamPositionQ4/TransZ = -2.0 m
 d:Ge/BeamPositionQ4/RotX   = 0. deg 
 d:Ge/BeamPositionQ4/RotY   = 315. deg 
@@ -203,10 +209,6 @@ s:Gr/MyOGL/ColorBy     = "ParticleType"
 sv:Gr/MyOGL/ColorByParticleTypeNames      = 4 "e-" "gamma" "proton" "neutron"
 sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
 
-s:Gr/ViewA/Type              = "OpenGL"
-
-Ts/UseQt = "True"
-b:Gr/Enable = "True"
 
 ########################################
 # Physics
