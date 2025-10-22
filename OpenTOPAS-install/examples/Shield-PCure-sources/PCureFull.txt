@@ -1,10 +1,10 @@
 # Scanning nozzle used in some demonstrations.
 
 includeFile = PCureFull_Constants.txt
-includeFile = PCUREFull_DipoleQ1.txt
-includeFile = PCUREFull_DipoleQ2.txt
-includeFile = PCUREFull_DipoleQ3.txt
-includeFile = PCUREFull_DipoleModQ4Only.txt
+includeFile = PCureFull_DipoleQ1.txt
+includeFile = PCureFull_DipoleQ2.txt
+includeFile = PCureFull_DipoleQ3.txt
+includeFile = PCureFull_DipoleModQ4Only.txt
 
 s:Gr/ViewA/Type              = "OpenGL"
 

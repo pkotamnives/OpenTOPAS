@@ -2,7 +2,7 @@
 
 includeFile = PCureConstantsForNozzlesQ1.txt
 
-#Ts/DumpParameters = "T"
+i:Ts/Seed = 1
 
 ########################################
 #Cylindrical bottom quarter 
@@ -73,7 +73,7 @@ d:Ge/SphereB1/STheta   = 0. deg
 d:Ge/SphereB1/DTheta   = 180. deg
 d:Ge/SphereB1/TransZ   = 5.55 m
 d:Ge/SphereB1/TransX   = 2.2 m
-d:Ge/SphereB1/TransY   = 0.613 m
+d:Ge/SphereB1/TransY   = 1.7 m
 b:Ge/SphereB1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -81,6 +81,7 @@ s:Sc/scorerDosePerDipoleQ1B1/Quantity                   = "DoseToMedium"
 s:Sc/scorerDosePerDipoleQ1B1/Component                  = "SphereB1"
 b:Sc/scorerDosePerDipoleQ1B1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ1B1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerDosePerDipoleQ1B1/OutputFile                 = "scorerDosePerDipoleQ1B1" + Ts/Seed
 sv:Sc/scorerDosePerDipoleQ1B1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Score neutron fluence spectra 
@@ -89,6 +90,7 @@ s:Sc/scorerNeuSpecPerDipoleQ1B1/Quantity                   = "Fluence"
 s:Sc/scorerNeuSpecPerDipoleQ1B1/Component                  = "SphereB1"
 s:Sc/scorerNeuSpecPerDipoleQ1B1/OutputType                 = "csv"
 s:Sc/scorerNeuSpecPerDipoleQ1B1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerNeuSpecPerDipoleQ1B1/OutputFile                 = "scorerNeuSpecPerDipoleQ1B1" + Ts/Seed
 i:Sc/scorerNeuSpecPerDipoleQ1B1/EBins                     = 200
 d:Sc/scorerNeuSpecPerDipoleQ1B1/EBinMin                   = 1e-9 MeV
 d:Sc/scorerNeuSpecPerDipoleQ1B1/EBinMax                   = 250 MeV
@@ -100,6 +102,7 @@ s:Sc/scorerAmbDosePerDipoleQ1B1/Quantity                   = "AmbientDoseEquival
 s:Sc/scorerAmbDosePerDipoleQ1B1/Component                  = "SphereB1"
 b:Sc/scorerAmbDosePerDipoleQ1B1/OutputToConsole            = "True"
 s:Sc/scorerAmbDosePerDipoleQ1B1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerAmbDosePerDipoleQ1B1/OutputFile                 = "scorerAmbDosePerDipoleQ1B1" + Ts/Seed
 sv:Sc/scorerAmbDosePerDipoleQ1B1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Set the fluence-to-dose conversion factors.
@@ -134,7 +137,7 @@ d:Ge/SphereC1/STheta   = 0. deg
 d:Ge/SphereC1/DTheta   = 180. deg
 d:Ge/SphereC1/TransZ   = 5.55 m
 d:Ge/SphereC1/TransX   = 0.7 m 
-d:Ge/SphereC1/TransY   = 0.613 m
+d:Ge/SphereC1/TransY   = 1.7 m
 b:Ge/SphereC1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -142,6 +145,7 @@ s:Sc/scorerDosePerDipoleQ1C1/Quantity                   = "DoseToMedium"
 s:Sc/scorerDosePerDipoleQ1C1/Component                  = "SphereC1"
 b:Sc/scorerDosePerDipoleQ1C1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ1C1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerDosePerDipoleQ1C1/OutputFile                 = "scorerDosePerDipoleQ1C1" + Ts/Seed
 sv:Sc/scorerDosePerDipoleQ1C1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Score neutron fluence spectra 
@@ -150,6 +154,7 @@ s:Sc/scorerNeuSpecPerDipoleQ1C1/Quantity                   = "Fluence"
 s:Sc/scorerNeuSpecPerDipoleQ1C1/Component                  = "SphereC1"
 s:Sc/scorerNeuSpecPerDipoleQ1C1/OutputType                 = "csv"
 s:Sc/scorerNeuSpecPerDipoleQ1C1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerNeuSpecPerDipoleQ1C1/OutputFile                 = "scorerNeuSpecPerDipoleQ1C1" + Ts/Seed
 i:Sc/scorerNeuSpecPerDipoleQ1C1/EBins                     = 200
 d:Sc/scorerNeuSpecPerDipoleQ1C1/EBinMin                   = 1e-9 MeV
 d:Sc/scorerNeuSpecPerDipoleQ1C1/EBinMax                   = 250 MeV
@@ -161,6 +166,7 @@ s:Sc/scorerAmbDosePerDipoleQ1C1/Quantity                   = "AmbientDoseEquival
 s:Sc/scorerAmbDosePerDipoleQ1C1/Component                  = "SphereC1"
 b:Sc/scorerAmbDosePerDipoleQ1C1/OutputToConsole            = "True"
 s:Sc/scorerAmbDosePerDipoleQ1C1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerAmbDosePerDipoleQ1C1/OutputFile                 = "scorerAmbDosePerDipoleQ1C1" + Ts/Seed
 sv:Sc/scorerAmbDosePerDipoleQ1C1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Set the fluence-to-dose conversion factors.
