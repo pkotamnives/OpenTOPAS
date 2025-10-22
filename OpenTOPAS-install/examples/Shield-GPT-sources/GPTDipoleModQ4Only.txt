@@ -260,6 +260,8 @@ b:Ge/ExDipole3/Include  = "TRUE"
 
 i:Gr/ViewA/MagneticFieldArrowDensity = 10
 
+d:Ge/WaterBox/MinusHLZ = -21.0 cm 
+
 ########################################
 # Location B1
 ########################################
@@ -272,9 +274,9 @@ d:Ge/SphereB1/SPhi     = 0. deg
 d:Ge/SphereB1/DPhi     = 360. deg
 d:Ge/SphereB1/STheta   = 0. deg
 d:Ge/SphereB1/DTheta   = 180. deg
-d:Ge/SphereB1/TransZ   = 5.55 m
-d:Ge/SphereB1/TransX   = 2.2 m
-d:Ge/SphereB1/TransY   = 1.7 m #0.563 m
+d:Ge/SphereB1/TransX   = -50.0 cm
+d:Ge/SphereB1/TransY   = 1.4 m 
+d:Ge/SphereB1/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
 b:Ge/SphereB1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -282,6 +284,7 @@ s:Sc/scorerDosePerDipoleQ4B1/Quantity                   = "DoseToMedium"
 s:Sc/scorerDosePerDipoleQ4B1/Component                  = "SphereB1"
 b:Sc/scorerDosePerDipoleQ4B1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ4B1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerDosePerDipoleQ4B1/OutputFile                 = "scorerDosePerDipoleQ4B1" + Ts/Seed
 sv:Sc/scorerDosePerDipoleQ4B1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Score neutron fluence spectra 
@@ -290,6 +293,7 @@ s:Sc/scorerNeuSpecPerDipoleQ4B1/Quantity                   = "Fluence"
 s:Sc/scorerNeuSpecPerDipoleQ4B1/Component                  = "SphereB1"
 s:Sc/scorerNeuSpecPerDipoleQ4B1/OutputType                 = "csv"
 s:Sc/scorerNeuSpecPerDipoleQ4B1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerNeuSpecPerDipoleQ4B1/OutputFile                 = "scorerNeuSpecPerDipoleQ4B1" + Ts/Seed
 i:Sc/scorerNeuSpecPerDipoleQ4B1/EBins                     = 200
 d:Sc/scorerNeuSpecPerDipoleQ4B1/EBinMin                   = 1e-9 MeV
 d:Sc/scorerNeuSpecPerDipoleQ4B1/EBinMax                   = 250 MeV
@@ -301,6 +305,7 @@ s:Sc/scorerAmbDosePerDipoleQ4B1/Quantity                   = "AmbientDoseEquival
 s:Sc/scorerAmbDosePerDipoleQ4B1/Component                  = "SphereB1"
 b:Sc/scorerAmbDosePerDipoleQ4B1/OutputToConsole            = "True"
 s:Sc/scorerAmbDosePerDipoleQ4B1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerAmbDosePerDipoleQ4B1/OutputFile                 = "scorerAmbDosePerDipoleQ4B1" + Ts/Seed
 sv:Sc/scorerAmbDosePerDipoleQ4B1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Set the fluence-to-dose conversion factors.
@@ -333,9 +338,9 @@ d:Ge/SphereC1/SPhi     = 0. deg
 d:Ge/SphereC1/DPhi     = 360. deg
 d:Ge/SphereC1/STheta   = 0. deg
 d:Ge/SphereC1/DTheta   = 180. deg
-d:Ge/SphereC1/TransZ   = 5.55 m
-d:Ge/SphereC1/TransX   = 0.7 m
-d:Ge/SphereC1/TransY   = 1.7 m #0.563 m
+d:Ge/SphereC1/TransX   = -200.0 cm
+d:Ge/SphereC1/TransY   = 1.4 m 
+d:Ge/SphereC1/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
 b:Ge/SphereC1/Include  = "TRUE" 
 
 # Score absorbed dose for secondary radiation
@@ -343,6 +348,7 @@ s:Sc/scorerDosePerDipoleQ4C1/Quantity                   = "DoseToMedium"
 s:Sc/scorerDosePerDipoleQ4C1/Component                  = "SphereC1"
 b:Sc/scorerDosePerDipoleQ4C1/OutputToConsole            = "True"
 s:Sc/scorerDosePerDipoleQ4C1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerDosePerDipoleQ4C1/OutputFile                 = "scorerDosePerDipoleQ4C1" + Ts/Seed
 sv:Sc/scorerDosePerDipoleQ4C1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Score neutron fluence spectra 
@@ -351,6 +357,7 @@ s:Sc/scorerNeuSpecPerDipoleQ4C1/Quantity                   = "Fluence"
 s:Sc/scorerNeuSpecPerDipoleQ4C1/Component                  = "SphereC1"
 s:Sc/scorerNeuSpecPerDipoleQ4C1/OutputType                 = "csv"
 s:Sc/scorerNeuSpecPerDipoleQ4C1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerNeuSpecPerDipoleQ4C1/OutputFile                 = "scorerNeuSpecPerDipoleQ4C1" + Ts/Seed
 i:Sc/scorerNeuSpecPerDipoleQ4C1/EBins                     = 200
 d:Sc/scorerNeuSpecPerDipoleQ4C1/EBinMin                   = 1e-9 MeV
 d:Sc/scorerNeuSpecPerDipoleQ4C1/EBinMax                   = 250 MeV
@@ -362,6 +369,7 @@ s:Sc/scorerAmbDosePerDipoleQ4C1/Quantity                   = "AmbientDoseEquival
 s:Sc/scorerAmbDosePerDipoleQ4C1/Component                  = "SphereC1"
 b:Sc/scorerAmbDosePerDipoleQ4C1/OutputToConsole            = "True"
 s:Sc/scorerAmbDosePerDipoleQ4C1/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerAmbDosePerDipoleQ4C1/OutputFile                 = "scorerAmbDosePerDipoleQ4C1" + Ts/Seed
 sv:Sc/scorerAmbDosePerDipoleQ4C1/Report                    = 2 "Mean" "Standard_Deviation"
 
 # Set the fluence-to-dose conversion factors.
@@ -380,3 +388,249 @@ dv:Sc/scorerAmbDosePerDipoleQ4C1/FluenceToDoseConversionValues   = 58
 1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
 4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
 4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
+########################################
+# Location B2
+########################################
+s:Ge/SphereB2/Type     = "TsSphere"
+s:Ge/SphereB2/Parent   = "Gantry"
+s:Ge/SphereB2/Material = "Air"
+s:Ge/SphereB2/Color    = "red"
+d:Ge/SphereB2/RMax     = 15.0 cm 
+d:Ge/SphereB2/SPhi     = 0. deg
+d:Ge/SphereB2/DPhi     = 360. deg
+d:Ge/SphereB2/STheta   = 0. deg
+d:Ge/SphereB2/DTheta   = 180. deg
+d:Ge/SphereB2/TransX   = 50.0 cm
+d:Ge/SphereB2/TransY   = 1.4 m 
+d:Ge/SphereB2/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+b:Ge/SphereB2/Include  = "TRUE" 
+
+# Score absorbed dose for secondary radiation
+s:Sc/scorerDosePerDipoleQ4B2/Quantity                   = "DoseToMedium"
+s:Sc/scorerDosePerDipoleQ4B2/Component                  = "SphereB2"
+b:Sc/scorerDosePerDipoleQ4B2/OutputToConsole            = "True"
+s:Sc/scorerDosePerDipoleQ4B2/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerDosePerDipoleQ4B2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ4B2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ4B2/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ4B2/Component                  = "SphereB2"
+s:Sc/scorerNeuSpecPerDipoleQ4B2/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ4B2/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ4B2/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ4B2/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ4B2/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ4B2/EBinEnergy                = "DepositedInStep"
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerDipoleQ4B2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerDipoleQ4B2/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerDipoleQ4B2/Component                  = "SphereB2"
+b:Sc/scorerAmbDosePerDipoleQ4B2/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerDipoleQ4B2/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerAmbDosePerDipoleQ4B2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerDipoleQ4B2/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerDipoleQ4B2/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerDipoleQ4B2/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
+########################################
+# Location C2
+########################################
+s:Ge/SphereC2/Type     = "TsSphere"
+s:Ge/SphereC2/Parent   = "Gantry"
+s:Ge/SphereC2/Material = "Air"
+s:Ge/SphereC2/Color    = "red"
+d:Ge/SphereC2/RMax     = 15.0 cm 
+d:Ge/SphereC2/SPhi     = 0. deg
+d:Ge/SphereC2/DPhi     = 360. deg
+d:Ge/SphereC2/STheta   = 0. deg
+d:Ge/SphereC2/DTheta   = 180. deg
+d:Ge/SphereC2/TransX   = 200.0 cm
+d:Ge/SphereC2/TransY   = 1.4 m 
+d:Ge/SphereC2/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+b:Ge/SphereC2/Include  = "TRUE" 
+
+# Score absorbed dose for secondary radiation
+s:Sc/scorerDosePerDipoleQ4C2/Quantity                   = "DoseToMedium"
+s:Sc/scorerDosePerDipoleQ4C2/Component                  = "SphereC2"
+b:Sc/scorerDosePerDipoleQ4C2/OutputToConsole            = "True"
+s:Sc/scorerDosePerDipoleQ4C2/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerDosePerDipoleQ4C2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ4C2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ4C2/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ4C2/Component                  = "SphereC2"
+s:Sc/scorerNeuSpecPerDipoleQ4C2/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ4C2/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ4C2/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ4C2/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ4C2/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ4C2/EBinEnergy                = "DepositedInStep"
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerDipoleQ4C2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerDipoleQ4C2/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerDipoleQ4C2/Component                  = "SphereC2"
+b:Sc/scorerAmbDosePerDipoleQ4C2/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerDipoleQ4C2/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerAmbDosePerDipoleQ4C2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerDipoleQ4C2/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerDipoleQ4C2/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerDipoleQ4C2/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
+
+
+
+########################################
+# Location B3
+########################################
+s:Ge/SphereB3/Type     = "TsSphere"
+s:Ge/SphereB3/Parent   = "Gantry"
+s:Ge/SphereB3/Material = "Air"
+s:Ge/SphereB3/Color    = "red"
+d:Ge/SphereB3/RMax     = 15.0 cm 
+d:Ge/SphereB3/SPhi     = 0. deg
+d:Ge/SphereB3/DPhi     = 360. deg
+d:Ge/SphereB3/STheta   = 0. deg
+d:Ge/SphereB3/DTheta   = 180. deg
+d:Ge/SphereB3/TransX   = 0.0 cm
+d:Ge/SphereB3/TransY   = 1.4 m
+d:Ge/SphereB3/TransZ   = Ge/WaterBox/MinusHLZ - 1.5 m 
+b:Ge/SphereB3/Include  = "TRUE" 
+
+# Score absorbed dose for secondary radiation
+s:Sc/scorerDosePerDipoleQ4B3/Quantity                   = "DoseToMedium"
+s:Sc/scorerDosePerDipoleQ4B3/Component                  = "SphereB3"
+b:Sc/scorerDosePerDipoleQ4B3/OutputToConsole            = "True"
+s:Sc/scorerDosePerDipoleQ4B3/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerDosePerDipoleQ4B3/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ4B3/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ4B3/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ4B3/Component                  = "SphereB3"
+s:Sc/scorerNeuSpecPerDipoleQ4B3/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ4B3/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ4B3/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ4B3/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ4B3/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ4B3/EBinEnergy                = "DepositedInStep"
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerDipoleQ4B3/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerDipoleQ4B3/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerDipoleQ4B3/Component                  = "SphereB3"
+b:Sc/scorerAmbDosePerDipoleQ4B3/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerDipoleQ4B3/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerAmbDosePerDipoleQ4B3/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerDipoleQ4B3/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerDipoleQ4B3/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerDipoleQ4B3/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
+########################################
+# Location C3
+########################################
+s:Ge/SphereC3/Type     = "TsSphere"
+s:Ge/SphereC3/Parent   = "Gantry"
+s:Ge/SphereC3/Material = "Air"
+s:Ge/SphereC3/Color    = "red"
+d:Ge/SphereC3/RMax     = 15.0 cm 
+d:Ge/SphereC3/SPhi     = 0. deg
+d:Ge/SphereC3/DPhi     = 360. deg
+d:Ge/SphereC3/STheta   = 0. deg
+d:Ge/SphereC3/DTheta   = 180. deg
+d:Ge/SphereC3/TransX   = 0.0 cm
+d:Ge/SphereC3/TransY   = 1.4 m 
+d:Ge/SphereC3/TransZ   = Ge/WaterBox/MinusHLZ - 3.0 m  
+b:Ge/SphereC3/Include  = "TRUE" 
+
+# Score absorbed dose for secondary radiation
+s:Sc/scorerDosePerDipoleQ4C3/Quantity                   = "DoseToMedium"
+s:Sc/scorerDosePerDipoleQ4C3/Component                  = "SphereC3"
+b:Sc/scorerDosePerDipoleQ4C3/OutputToConsole            = "True"
+s:Sc/scorerDosePerDipoleQ4C3/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerDosePerDipoleQ4C3/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ4C3/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ4C3/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ4C3/Component                  = "SphereC3"
+s:Sc/scorerNeuSpecPerDipoleQ4C3/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ4C3/IfOutputFileAlreadyExists  = "Overwrite"
+i:Sc/scorerNeuSpecPerDipoleQ4C3/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ4C3/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ4C3/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ4C3/EBinEnergy                = "DepositedInStep"
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerDipoleQ4C3/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerDipoleQ4C3/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerDipoleQ4C3/Component                  = "SphereC3"
+b:Sc/scorerAmbDosePerDipoleQ4C3/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerDipoleQ4C3/IfOutputFileAlreadyExists  = "Overwrite"
+sv:Sc/scorerAmbDosePerDipoleQ4C3/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerDipoleQ4C3/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerDipoleQ4C3/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerDipoleQ4C3/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
+
+
