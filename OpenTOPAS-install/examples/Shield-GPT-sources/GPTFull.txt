@@ -1,22 +1,34 @@
 # Scanning nozzle used in some demonstrations.
 
-includeFile = PCureConstantsForNozzles.txt
+includeFile = GPTFull_Constants.txt
+includeFile = GPTFull_DipoleQ1.txt
+includeFile = GPTFull_DipoleQ2.txt
+includeFile = GPTFull_DipoleQ3.txt
+includeFile = GPTFull_DipoleModQ4Only.txt
+includeFile = GPTFull_Top.txt
+
+s:Gr/ViewA/Type              = "OpenGL"
+
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
+
 
 #Ts/DumpParameters = "T"
 
+
 # Pipeline/Collimator 
 s:Ge/MSYoke/Type       = "TsBox"
-s:Ge/MSYoke/Parent     = "FlipGantry"
+s:Ge/MSYoke/Parent     = "Gantry"
 # Make the yoke bigger than the gap by the chosen iron thickness
 d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
 d:Ge/MSYoke/HLX        = 20.0 cm 
-d:Ge/MSYoke/HLY        = 30.0 cm
+d:Ge/MSYoke/HLY        = 15.0 cm
 d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
 d:Ge/MSYoke/HLZ        = 20.0 cm 
 s:Ge/MSYoke/Material   = "G4_Fe"
-d:Ge/MSYoke/TransX     = 2.7 m
-d:Ge/MSYoke/TransY     = -1.5 m 
-d:Ge/MSYoke/TransZ     = -2.0 m #-2.99 m
+d:Ge/MSYoke/TransX     = 0.0 m
+d:Ge/MSYoke/TransY     = 1.4 m 
+d:Ge/MSYoke/TransZ     = 1.35 m
 # Rotate so local Y is along the ring tangent (same as septum)
 d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
 b:Ge/MSYoke/Include    = "TRUE" 
@@ -25,7 +37,7 @@ b:Ge/MSYoke/Include    = "TRUE"
 s:Ge/MSGap/Type        = "TsBox"
 s:Ge/MSGap/Parent      = "MSYoke"
 d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm
-d:Ge/MSGap/HLY         = 30.0 cm
+d:Ge/MSGap/HLY         = 15.0 cm
 d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
 s:Ge/MSGap/Material    = "G4_AIR"
 b:Ge/MSGap/IsInvisible  = "FALSE"
@@ -35,16 +47,16 @@ b:Ge/MSGap/Include    = "FALSE"
 #1. Beam Exit Window
 #100 um thickness Aluminized Polyimide window
 ########################################
-s:Ge/ExitWindow/Parent       = "FlipGantry"
+s:Ge/ExitWindow/Parent       = "Gantry"
 s:Ge/ExitWindow/Type         = "TsCylinder"
 s:Ge/ExitWindow/Material     = "Kapton" #supposed to be aluminized polyimide
 d:Ge/ExitWindow/RMin         = 0.0  mm
 d:Ge/ExitWindow/RMax         = 50.0 mm
 d:Ge/ExitWindow/SPhi         = 0.0   deg
 d:Ge/ExitWindow/DPhi         = 360.0 deg
-d:Ge/ExitWindow/TransX       = 2.7 m
-d:Ge/ExitWindow/TransY       = -1.7 m #0.563 m
-d:Ge/ExitWindow/TransZ       = -3.27 m #2.62 m
+d:Ge/ExitWindow/TransX       = 0.0 m
+d:Ge/ExitWindow/TransY       = 1.4 m #0.563 m
+d:Ge/ExitWindow/TransZ       = 1.07 m
 d:Ge/ExitWindow/RotX         = 0.0 deg
 d:Ge/ExitWindow/RotY         = 0.0 deg
 d:Ge/ExitWindow/RotZ         = 0.0 deg
@@ -54,12 +66,12 @@ s:Ge/ExitWindow/DrawingStyle = "Solid"
 ########################################
 # Pipe through Dipoles/
 ########################################
-s:Ge/BeamPipeInQuadsDipoles/Parent = "FlipGantry"
+s:Ge/BeamPipeInQuadsDipoles/Parent = "Gantry"
 s:Ge/BeamPipeInQuadsDipoles/Type   = "Group"
-d:Ge/BeamPipeInQuadsDipoles/TransX = 2.7 m
-d:Ge/BeamPipeInQuadsDipoles/TransY = -1.7 m #0.563 m
-d:Ge/BeamPipeInQuadsDipoles/OriTransZ =  Ge/ZPlusOf_Pipe - Ge/HLOf_Pipe  mm 
-d:Ge/BeamPipeInQuadsDipoles/TransZ = Ge/BeamPipeInQuadsDipoles/OriTransZ - 1. mm  
+d:Ge/BeamPipeInQuadsDipoles/TransX = 0.0 m
+d:Ge/BeamPipeInQuadsDipoles/TransY = 1.4 m #0.563 m
+d:Ge/BeamPipeInQuadsDipoles/OriTransZ =  Ge/ZPlusOf_Pipe - Ge/HLOf_Pipe mm 
+d:Ge/BeamPipeInQuadsDipoles/TransZ = Ge/BeamPipeInQuadsDipoles/OriTransZ - 1.0 mm 
 d:Ge/BeamPipeInQuadsDipoles/RotX   = 0. deg
 d:Ge/BeamPipeInQuadsDipoles/RotY   = 0. deg
 d:Ge/BeamPipeInQuadsDipoles/RotZ   = 0. deg
@@ -140,15 +152,15 @@ b:Ge/Dipole2/Include  = "TRUE" #FIXMENOW
 # 2 Aluminized polyimide windows
 # 2 sets of Multi-wire chamber
 ########################################
-s:Ge/BeamProfileMonitor2/Parent   = "FlipGantry"
+s:Ge/BeamProfileMonitor2/Parent   = "Gantry"
 s:Ge/BeamProfileMonitor2/Type     = "TsBox"
 s:Ge/BeamProfileMonitor2/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr 
 d:Ge/BeamProfileMonitor2/HLX      = 188.0 mm
 d:Ge/BeamProfileMonitor2/HLY      = 188.0 mm
 d:Ge/BeamProfileMonitor2/HLZ      = 22.1 mm #FIXME OK
-d:Ge/BeamProfileMonitor2/TransX   = 2.7 m
-d:Ge/BeamProfileMonitor2/TransY   = -1.7 m #0.563  m
-d:Ge/BeamProfileMonitor2/TransZ   = -4.6986 m #3.2614 m #FIXME OK
+d:Ge/BeamProfileMonitor2/TransX   = 0.0 m
+d:Ge/BeamProfileMonitor2/TransY   = 1.4 m #0.563  m
+d:Ge/BeamProfileMonitor2/TransZ   = -0.3586 m #0.6414 m #FIXME OK
 d:Ge/BeamProfileMonitor2/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor2/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor2/RotZ     = 0.0 deg
@@ -251,15 +263,15 @@ dv:Ge/MWC_In_BPM2/Layer2/Displacement = 127 #FIXME?
 # 2 Aluminized Polyimide windows
 # 2 sets of Multi-wire chamber
 ########################################
-s:Ge/BeamProfileMonitor1/Parent   = "FlipGantry"
+s:Ge/BeamProfileMonitor1/Parent   = "Gantry"
 s:Ge/BeamProfileMonitor1/Type     = "TsBox"
 s:Ge/BeamProfileMonitor1/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr
 d:Ge/BeamProfileMonitor1/HLX      = 186.0 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/HLY      = 186.0 mm #FIXME OK
 d:Ge/BeamProfileMonitor1/HLZ      = 22.1 mm #FIXME OK
-d:Ge/BeamProfileMonitor1/TransX   = 2.7 m
-d:Ge/BeamProfileMonitor1/TransY   = -1.7 m #0.563  m
-d:Ge/BeamProfileMonitor1/TransZ   = -4.7986 m #3.1614 m #FIXME OK
+d:Ge/BeamProfileMonitor1/TransX   = 0.0 m
+d:Ge/BeamProfileMonitor1/TransY   = 1.4 m #0.563  m
+d:Ge/BeamProfileMonitor1/TransZ   = -0.4586 m #0.5414 m #FIXME OK
 d:Ge/BeamProfileMonitor1/RotX     = 0.0 deg
 d:Ge/BeamProfileMonitor1/RotY     = 0.0 deg
 d:Ge/BeamProfileMonitor1/RotZ     = 0.0 deg
@@ -362,161 +374,32 @@ i:Gr/ViewA/MagneticFieldArrowDensity = 10
 # Water Phantom
 ########################################
 s:Ge/WaterBox/Type     = "TsBox"
-s:Ge/WaterBox/Parent   = "FlipGantry"
+s:Ge/WaterBox/Parent   = "Gantry"
 s:Ge/WaterBox/Material = "G4_WATER"
 d:Ge/WaterBox/HLX      = 15.0 cm #FIXME OK
 d:Ge/WaterBox/HLY      = 15.0 cm #FIXME OK
 d:Ge/WaterBox/HLZ      = 21.0 cm #17.5 cm #FIXME OK
-#d:Ge/WaterBox/MinusHLZ = Ge/WaterBox/HLZ cm * -1.0
-d:Ge/WaterBox/TransX   = 2.7 m
-d:Ge/WaterBox/TransY   = -1.7 m #0.563 m
-d:Ge/WaterBox/TransZ   = -5.55 m #Ge/WaterBox/MinusHLZ - 195.0 cm # 555 cm from origin 
-d:Ge/WaterBox/RotX     = 0. deg #0. deg
+d:Ge/WaterBox/MinusHLZ = Ge/WaterBox/HLZ cm * -1.0
+d:Ge/WaterBox/TransX   = 0.0 m
+d:Ge/WaterBox/TransY   = 1.4 m #0.563 m
+d:Ge/WaterBox/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+d:Ge/WaterBox/RotX     = 0. deg
 d:Ge/WaterBox/RotY     = 0. deg
 d:Ge/WaterBox/RotZ     = 0. deg
 s:Ge/WaterBox/Color    = "blue"
 
 ##### Dose scoring using DoseToMedium ####
 s:Ge/ScoringCylinder/Type     = "TsCylinder"
-s:Ge/ScoringCylinder/Parent   = "FlipGantry"
+s:Ge/ScoringCylinder/Parent   = "Gantry"
 d:Ge/ScoringCylinder/RMin     = 0. cm
 d:Ge/ScoringCylinder/RMax     = 0.495 cm
 d:Ge/ScoringCylinder/HL       = 21.0 cm #17.5 cm
 b:Ge/ScoringCylinder/IsParallel = "True"
-d:Ge/ScoringCylinder/TransX   = 2.7 m
-d:Ge/ScoringCylinder/TransY   = -1.7 m #0.563 m
-d:Ge/ScoringCylinder/TransZ   = -5.55 m #Ge/WaterBox/MinusHLZ - 195 cm # 555 cm from origin
+d:Ge/ScoringCylinder/TransX   = 0.0 m
+d:Ge/ScoringCylinder/TransY   = 1.4 m #0.563 m
+d:Ge/ScoringCylinder/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m
 d:Ge/ScoringCylinder/SPhi     = 0. deg
 d:Ge/ScoringCylinder/DPhi     = 360. deg
 #i:Ge/ScoringCylinder/RBins    = 6
 #i:Ge/ScoringCylinder/PhiBins  = 6
 i:Ge/ScoringCylinder/ZBins    = 583
-
-s:Sc/DoseOnRTGrid/Quantity                  = "DoseToMedium"
-s:Sc/DoseOnRTGrid/Component                 = "ScoringCylinder"
-s:Sc/DoseOnRTGrid/OutputType                = "csv"
-sv:Sc/DoseOnRTGrid/Report                   = 1 "Mean"
-b:Sc/DoseOnRTGrid/OutputToConsole           = "True"
-s:Sc/DoseOnRTGrid/IfOutputFileAlreadyExists = "Overwrite"
-sv:Sc/DoseOnRTGrid/OnlyIncludeParticlesNamed = 1 "proton"
-
-########################################
-# Location B1
-########################################
-s:Ge/SphereB1/Type     = "TsSphere"
-s:Ge/SphereB1/Parent   = "Gantry"
-s:Ge/SphereB1/Material = "Air"
-s:Ge/SphereB1/Color    = "red"
-d:Ge/SphereB1/RMax     = 15.0 cm 
-d:Ge/SphereB1/SPhi     = 0. deg
-d:Ge/SphereB1/DPhi     = 360. deg
-d:Ge/SphereB1/STheta   = 0. deg
-d:Ge/SphereB1/DTheta   = 180. deg
-d:Ge/SphereB1/TransZ   = 5.55 m
-d:Ge/SphereB1/TransX   = 2.2 m
-d:Ge/SphereB1/TransY   = 1.7 m #0.563 m
-b:Ge/SphereB1/Include  = "TRUE" 
-
-# Score absorbed dose for secondary radiation
-s:Sc/scorerDosePerTargetB1/Quantity                   = "DoseToMedium"
-s:Sc/scorerDosePerTargetB1/Component                  = "SphereB1"
-b:Sc/scorerDosePerTargetB1/OutputToConsole            = "True"
-s:Sc/scorerDosePerTargetB1/IfOutputFileAlreadyExists  = "Overwrite"
-sv:Sc/scorerDosePerTargetB1/Report                    = 2 "Mean" "Standard_Deviation"
-
-# Score neutron fluence spectra 
-sv:Sc/scorerNeuSpecDosePerTargetB1/OnlyIncludeParticlesNamed = 1 "neutron"
-s:Sc/scorerNeuSpecPerTargetB1/Quantity                   = "Fluence"
-s:Sc/scorerNeuSpecPerTargetB1/Component                  = "SphereB1"
-s:Sc/scorerNeuSpecPerTargetB1/OutputType                 = "csv"
-s:Sc/scorerNeuSpecPerTargetB1/IfOutputFileAlreadyExists  = "Overwrite"
-i:Sc/scorerNeuSpecPerTargetB1/EBins                     = 200
-d:Sc/scorerNeuSpecPerTargetB1/EBinMin                   = 1e-9 MeV
-d:Sc/scorerNeuSpecPerTargetB1/EBinMax                   = 250 MeV
-s:Sc/scorerNeuSpecPerTargetB1/EBinEnergy                = "DepositedInStep"
-
-# Score ambient dose equivalent for neutrons
-sv:Sc/scorerAmbDosePerTargetB1/OnlyIncludeParticlesNamed = 1 "neutron"
-s:Sc/scorerAmbDosePerTargetB1/Quantity                   = "AmbientDoseEquivalent"
-s:Sc/scorerAmbDosePerTargetB1/Component                  = "SphereB1"
-b:Sc/scorerAmbDosePerTargetB1/OutputToConsole            = "True"
-s:Sc/scorerAmbDosePerTargetB1/IfOutputFileAlreadyExists  = "Overwrite"
-sv:Sc/scorerAmbDosePerTargetB1/Report                    = 2 "Mean" "Standard_Deviation"
-
-# Set the fluence-to-dose conversion factors.
-s:Sc/scorerAmbDosePerTargetB1/GetAmbientDoseEquivalentForParticleNamed = "neutron"
-dv:Sc/scorerAmbDosePerTargetB1/FluenceToDoseConversionEnergies = 58
-2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
-0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
- 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
-  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
-   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
-   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
-dv:Sc/scorerAmbDosePerTargetB1/FluenceToDoseConversionValues   = 58
-1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
-8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
-3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
-1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
-4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
-4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
-
-########################################
-# Location C1
-########################################
-s:Ge/SphereC1/Type     = "TsSphere"
-s:Ge/SphereC1/Parent   = "Gantry"
-s:Ge/SphereC1/Material = "Air"
-s:Ge/SphereC1/Color    = "red"
-d:Ge/SphereC1/RMax     = 15.0 cm 
-d:Ge/SphereC1/SPhi     = 0. deg
-d:Ge/SphereC1/DPhi     = 360. deg
-d:Ge/SphereC1/STheta   = 0. deg
-d:Ge/SphereC1/DTheta   = 180. deg
-d:Ge/SphereC1/TransZ   = 5.55 m
-d:Ge/SphereC1/TransX   = 0.7 m
-d:Ge/SphereC1/TransY   = 1.7 m #0.563 m
-b:Ge/SphereC1/Include  = "TRUE" 
-
-# Score absorbed dose for secondary radiation
-s:Sc/scorerDosePerTargetC1/Quantity                   = "DoseToMedium"
-s:Sc/scorerDosePerTargetC1/Component                  = "SphereC1"
-b:Sc/scorerDosePerTargetC1/OutputToConsole            = "True"
-s:Sc/scorerDosePerTargetC1/IfOutputFileAlreadyExists  = "Overwrite"
-sv:Sc/scorerDosePerTargetC1/Report                    = 2 "Mean" "Standard_Deviation"
-
-# Score neutron fluence spectra 
-sv:Sc/scorerNeuSpecDosePerTargetC1/OnlyIncludeParticlesNamed = 1 "neutron"
-s:Sc/scorerNeuSpecPerTargetC1/Quantity                   = "Fluence"
-s:Sc/scorerNeuSpecPerTargetC1/Component                  = "SphereC1"
-s:Sc/scorerNeuSpecPerTargetC1/OutputType                 = "csv"
-s:Sc/scorerNeuSpecPerTargetC1/IfOutputFileAlreadyExists  = "Overwrite"
-i:Sc/scorerNeuSpecPerTargetC1/EBins                     = 200
-d:Sc/scorerNeuSpecPerTargetC1/EBinMin                   = 1e-9 MeV
-d:Sc/scorerNeuSpecPerTargetC1/EBinMax                   = 250 MeV
-s:Sc/scorerNeuSpecPerTargetC1/EBinEnergy                = "DepositedInStep"
-
-# Score ambient dose equivalent for neutrons
-sv:Sc/scorerAmbDosePerTargetC1/OnlyIncludeParticlesNamed = 1 "neutron"
-s:Sc/scorerAmbDosePerTargetC1/Quantity                   = "AmbientDoseEquivalent"
-s:Sc/scorerAmbDosePerTargetC1/Component                  = "SphereC1"
-b:Sc/scorerAmbDosePerTargetC1/OutputToConsole            = "True"
-s:Sc/scorerAmbDosePerTargetC1/IfOutputFileAlreadyExists  = "Overwrite"
-sv:Sc/scorerAmbDosePerTargetC1/Report                    = 2 "Mean" "Standard_Deviation"
-
-# Set the fluence-to-dose conversion factors.
-s:Sc/scorerAmbDosePerTargetC1/GetAmbientDoseEquivalentForParticleNamed = "neutron"
-dv:Sc/scorerAmbDosePerTargetC1/FluenceToDoseConversionEnergies = 58
-2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
-0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
- 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
-  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
-   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
-   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
-dv:Sc/scorerAmbDosePerTargetC1/FluenceToDoseConversionValues   = 58
-1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
-8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
-3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
-1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
-4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
-4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
-

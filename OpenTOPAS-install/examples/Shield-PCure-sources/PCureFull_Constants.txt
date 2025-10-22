@@ -10,12 +10,6 @@
 #-> Y is -Y. we have to flip phase space data.
 #Isocenter coordination system (Io)
 
-s:Gr/ViewA/Type              = "OpenGL"
-
-Ts/UseQt = "True"
-b:Gr/Enable = "True"
-
-
 # ===== WORLD VOLUME =====
 s:Ge/World/Type = "TsBox"
 s:Ge/World/Material = "Air"
@@ -55,22 +49,6 @@ d:Ge/MSGapeLength          = 60.0 cm          # along tangent/beam direction
 d:Ge/MSYokeThickRadial     = 6.0 cm           # iron yoke thickness around the gap
 d:Ge/MSYokeDoubleThickRadial     = 12.0 cm           # iron yoke thickness around the gap
 
-#Cylindrical top ring 
-s:Ge/TopRing/Parent = "Gantry"
-s:Ge/TopRing/Type = "TsCylinder"
-d:Ge/TopRing/Rmax = 3.3 m #3.3 m
-d:Ge/TopRing/Rmin = 2.9 m #3.1 m
-d:Ge/TopRing/HL = 0.3 m #0.15 m 
-s:Ge/TopRing/Material = "G4_Al"
-d:Ge/TopRing/RotX = 90. deg 
-d:Ge/TopRing/RotZ = 180. deg 
-d:Ge/TopRing/SPhi = 132 deg 
-d:Ge/TopRing/DPhi = 20 deg 
-d:Ge/TopRing/TransX = 0 m
-d:Ge/TopRing/TransY = 1.5 m 
-d:Ge/TopRing/TransZ = 0 m
-b:Ge/TopRing/Include  = "TRUE" 
-
 #Gantry coordination system (Ig)
 s:Ge/Gantry/Parent = "World"
 s:Ge/Gantry/Type   = "Group"
@@ -81,27 +59,26 @@ d:Ge/Gantry/RotX   = 0. deg
 d:Ge/Gantry/RotY   = -90.0 deg 
 d:Ge/Gantry/RotZ   = 0. deg
 
+#FlipGantry coordination system (Ig)
+s:Ge/FlipGantry/Parent = "Gantry"
+s:Ge/FlipGantry/Type   = "Group"
+d:Ge/FlipGantry/TransX = 0. m
+d:Ge/FlipGantry/TransY = 0. m
+d:Ge/FlipGantry/TransZ = 0. m
+d:Ge/FlipGantry/RotX   = 180. deg
+d:Ge/FlipGantry/RotY   = 0. deg  
+d:Ge/FlipGantry/RotZ   = 0. deg
+
 # Default Beam position
 s:Ge/BeamPosition/Parent = "Gantry"
 s:Ge/BeamPosition/Type   = "Group"
-d:Ge/BeamPosition/TransX = 0.0 m
-d:Ge/BeamPosition/TransY = 1.4 m 
-d:Ge/BeamPosition/TransZ = 1.10 m
+d:Ge/BeamPosition/TransX = 2.7 m
+d:Ge/BeamPosition/TransY = 1.7 m 
+d:Ge/BeamPosition/TransZ = 3.24 m #2.15 m
 d:Ge/BeamPosition/RotX   = 0. deg
-d:Ge/BeamPosition/RotY   = 180. deg
+d:Ge/BeamPosition/RotY   = 0. deg
 d:Ge/BeamPosition/RotZ   = 0. deg
 b:Ge/BeamPosition/Include  = "TRUE" 
-
-# TopRing Beam position 
-s:Ge/BeamPositionTop/Parent = "TopRing"
-s:Ge/BeamPositionTop/Type   = "Group"
-d:Ge/BeamPositionTop/TransX = -2.2 m #-0.45 m
-d:Ge/BeamPositionTop/TransY = 2.5 m 
-d:Ge/BeamPositionTop/TransZ = 0.0 m
-d:Ge/BeamPositionTop/RotX   = 90. deg
-d:Ge/BeamPositionTop/RotY   = -90. deg
-d:Ge/BeamPositionTop/RotZ   = 0. deg
-b:Ge/BeamPositionTop/Include  = "TRUE" 
 
 # Q1 Beam position
 s:Ge/BeamPositionQ1/Parent = "Gantry"
@@ -148,7 +125,7 @@ d:Ge/BeamPositionQ4/RotZ   = 0. deg
 b:Ge/BeamPositionQ4/Include  = "TRUE" 
 
 s:So/BeamPrime/Type                     = "Beam"
-s:So/BeamPrime/Component                = "BeamPositionQ2" #FIXME
+s:So/BeamPrime/Component                = "BeamPosition" #FIXME
 s:So/BeamPrime/BeamParticle             = "proton"
 d:So/BeamPrime/BeamEnergy               = 250 MeV  
 u:So/BeamPrime/BeamEnergySpread         = 1.5 
@@ -163,8 +140,84 @@ d:So/BeamPrime/BeamAngularCutoffX       = 90. deg
 d:So/BeamPrime/BeamAngularCutoffY       = 90. deg
 d:So/BeamPrime/BeamAngularSpreadX       = 0.0030 rad 
 d:So/BeamPrime/BeamAngularSpreadY       = 0.0030 rad 
-i:So/BeamPrime/NumberOfHistoriesInRun   = 10 #000 #essentially the number of primary particles 
+i:So/BeamPrime/NumberOfHistoriesInRun   = 5 #000 #essentially the number of primary particles 
 b:Ge/BeamPrime/Include  = "TRUE" 
+
+s:So/BeamPrime2/Type                     = "Beam"
+s:So/BeamPrime2/Component                = "BeamPositionQ1" #FIXME
+s:So/BeamPrime2/BeamParticle             = "proton"
+d:So/BeamPrime2/BeamEnergy               = 250 MeV  
+u:So/BeamPrime2/BeamEnergySpread         = 1.5 
+s:So/BeamPrime2/BeamPositionDistribution = "Gaussian"
+s:So/BeamPrime2/BeamPositionCutoffShape  = "Ellipse"
+d:So/BeamPrime2/BeamPositionCutoffX      = 10. cm #FIXME
+d:So/BeamPrime2/BeamPositionCutoffY      = 10. cm #FIXME
+d:So/BeamPrime2/BeamPositionSpreadX      = 1.105 cm 
+d:So/BeamPrime2/BeamPositionSpreadY      = 1.105 cm 
+s:So/BeamPrime2/BeamAngularDistribution  = "Gaussian"
+d:So/BeamPrime2/BeamAngularCutoffX       = 90. deg
+d:So/BeamPrime2/BeamAngularCutoffY       = 90. deg
+d:So/BeamPrime2/BeamAngularSpreadX       = 0.0030 rad 
+d:So/BeamPrime2/BeamAngularSpreadY       = 0.0030 rad 
+i:So/BeamPrime2/NumberOfHistoriesInRun   = 5 #000 #essentially the number of primary particles 
+b:Ge/BeamPrime2/Include  = "TRUE" 
+
+s:So/BeamPrime3/Type                     = "Beam"
+s:So/BeamPrime3/Component                = "BeamPositionQ2" #FIXME
+s:So/BeamPrime3/BeamParticle             = "proton"
+d:So/BeamPrime3/BeamEnergy               = 250 MeV  
+u:So/BeamPrime3/BeamEnergySpread         = 1.5 
+s:So/BeamPrime3/BeamPositionDistribution = "Gaussian"
+s:So/BeamPrime3/BeamPositionCutoffShape  = "Ellipse"
+d:So/BeamPrime3/BeamPositionCutoffX      = 10. cm #FIXME
+d:So/BeamPrime3/BeamPositionCutoffY      = 10. cm #FIXME
+d:So/BeamPrime3/BeamPositionSpreadX      = 1.105 cm 
+d:So/BeamPrime3/BeamPositionSpreadY      = 1.105 cm 
+s:So/BeamPrime3/BeamAngularDistribution  = "Gaussian"
+d:So/BeamPrime3/BeamAngularCutoffX       = 90. deg
+d:So/BeamPrime3/BeamAngularCutoffY       = 90. deg
+d:So/BeamPrime3/BeamAngularSpreadX       = 0.0030 rad 
+d:So/BeamPrime3/BeamAngularSpreadY       = 0.0030 rad 
+i:So/BeamPrime3/NumberOfHistoriesInRun   = 5 #000 #essentially the number of primary particles 
+b:Ge/BeamPrime3/Include  = "TRUE" 
+
+s:So/BeamPrime4/Type                     = "Beam"
+s:So/BeamPrime4/Component                = "BeamPositionQ3" #FIXME
+s:So/BeamPrime4/BeamParticle             = "proton"
+d:So/BeamPrime4/BeamEnergy               = 250 MeV  
+u:So/BeamPrime4/BeamEnergySpread         = 1.5 
+s:So/BeamPrime4/BeamPositionDistribution = "Gaussian"
+s:So/BeamPrime4/BeamPositionCutoffShape  = "Ellipse"
+d:So/BeamPrime4/BeamPositionCutoffX      = 10. cm #FIXME
+d:So/BeamPrime4/BeamPositionCutoffY      = 10. cm #FIXME
+d:So/BeamPrime4/BeamPositionSpreadX      = 1.105 cm 
+d:So/BeamPrime4/BeamPositionSpreadY      = 1.105 cm 
+s:So/BeamPrime4/BeamAngularDistribution  = "Gaussian"
+d:So/BeamPrime4/BeamAngularCutoffX       = 90. deg
+d:So/BeamPrime4/BeamAngularCutoffY       = 90. deg
+d:So/BeamPrime4/BeamAngularSpreadX       = 0.0030 rad 
+d:So/BeamPrime4/BeamAngularSpreadY       = 0.0030 rad 
+i:So/BeamPrime4/NumberOfHistoriesInRun   = 5 #000 #essentially the number of primary particles 
+b:Ge/BeamPrime4/Include  = "TRUE" 
+
+s:So/BeamPrime5/Type                     = "Beam"
+s:So/BeamPrime5/Component                = "BeamPositionQ4" #FIXME
+s:So/BeamPrime5/BeamParticle             = "proton"
+d:So/BeamPrime5/BeamEnergy               = 250 MeV  
+u:So/BeamPrime5/BeamEnergySpread         = 1.5 
+s:So/BeamPrime5/BeamPositionDistribution = "Gaussian"
+s:So/BeamPrime5/BeamPositionCutoffShape  = "Ellipse"
+d:So/BeamPrime5/BeamPositionCutoffX      = 10. cm #FIXME
+d:So/BeamPrime5/BeamPositionCutoffY      = 10. cm #FIXME
+d:So/BeamPrime5/BeamPositionSpreadX      = 1.105 cm 
+d:So/BeamPrime5/BeamPositionSpreadY      = 1.105 cm 
+s:So/BeamPrime5/BeamAngularDistribution  = "Gaussian"
+d:So/BeamPrime5/BeamAngularCutoffX       = 90. deg
+d:So/BeamPrime5/BeamAngularCutoffY       = 90. deg
+d:So/BeamPrime5/BeamAngularSpreadX       = 0.0030 rad 
+d:So/BeamPrime5/BeamAngularSpreadY       = 0.0030 rad 
+i:So/BeamPrime5/NumberOfHistoriesInRun   = 5 #000 #essentially the number of primary particles 
+b:Ge/BeamPrime5/Include  = "TRUE" 
 
 
 b:Ts/ShowCPUTime                  = "true"
