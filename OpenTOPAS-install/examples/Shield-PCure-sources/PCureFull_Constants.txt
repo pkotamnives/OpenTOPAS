@@ -259,8 +259,8 @@ i:Gr/MyOGL/WindowSizeY = 600
 i:Gr/MyOGL/WindowPosX  = 0
 i:Gr/MyOGL/WindowPosY  = 0
 s:Gr/MyOGL/ColorBy     = "ParticleType"
-sv:Gr/MyOGL/ColorByParticleTypeNames      = 4 "e-" "gamma" "proton" "neutron"
-sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
+sv:Gr/MyOGL/ColorByParticleTypeNames      = 1 "proton" #4 "e-" "gamma" "proton" "neutron"
+sv:Gr/MyOGL/ColorByParticleTypeColors     = 1 "aqua"   #4 "yellow" "pink" "aqua" "grass"
 
 
 ########################################

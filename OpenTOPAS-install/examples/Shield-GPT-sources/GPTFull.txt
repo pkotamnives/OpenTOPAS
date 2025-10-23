@@ -403,3 +403,139 @@ d:Ge/ScoringCylinder/DPhi     = 360. deg
 #i:Ge/ScoringCylinder/RBins    = 6
 #i:Ge/ScoringCylinder/PhiBins  = 6
 i:Ge/ScoringCylinder/ZBins    = 583
+
+########################################
+# Location B1
+########################################
+s:Ge/SphereB1/Type     = "TsSphere"
+s:Ge/SphereB1/Parent   = "Gantry"
+s:Ge/SphereB1/Material = "Air"
+s:Ge/SphereB1/Color    = "red"
+d:Ge/SphereB1/RMax     = 15.0 cm 
+d:Ge/SphereB1/SPhi     = 0. deg
+d:Ge/SphereB1/DPhi     = 360. deg
+d:Ge/SphereB1/STheta   = 0. deg
+d:Ge/SphereB1/DTheta   = 180. deg
+d:Ge/SphereB1/TransX   = -50.0 cm
+d:Ge/SphereB1/TransY   = 1.4 m 
+d:Ge/SphereB1/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+b:Ge/SphereB1/Include  = "TRUE" 
+
+########################################
+# Location C1
+########################################
+s:Ge/SphereC1/Type     = "TsSphere"
+s:Ge/SphereC1/Parent   = "Gantry"
+s:Ge/SphereC1/Material = "Air"
+s:Ge/SphereC1/Color    = "red"
+d:Ge/SphereC1/RMax     = 15.0 cm 
+d:Ge/SphereC1/SPhi     = 0. deg
+d:Ge/SphereC1/DPhi     = 360. deg
+d:Ge/SphereC1/STheta   = 0. deg
+d:Ge/SphereC1/DTheta   = 180. deg
+d:Ge/SphereC1/TransX   = -200.0 cm
+d:Ge/SphereC1/TransY   = 1.4 m 
+d:Ge/SphereC1/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+b:Ge/SphereC1/Include  = "TRUE" 
+
+########################################
+# Location B2
+########################################
+s:Ge/SphereB2/Type     = "TsSphere"
+s:Ge/SphereB2/Parent   = "Gantry"
+s:Ge/SphereB2/Material = "Air"
+s:Ge/SphereB2/Color    = "red"
+d:Ge/SphereB2/RMax     = 15.0 cm 
+d:Ge/SphereB2/SPhi     = 0. deg
+d:Ge/SphereB2/DPhi     = 360. deg
+d:Ge/SphereB2/STheta   = 0. deg
+d:Ge/SphereB2/DTheta   = 180. deg
+d:Ge/SphereB2/TransX   = 50.0 cm
+d:Ge/SphereB2/TransY   = 1.4 m 
+d:Ge/SphereB2/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+b:Ge/SphereB2/Include  = "TRUE" 
+
+########################################
+# Location C2
+########################################
+s:Ge/SphereC2/Type     = "TsSphere"
+s:Ge/SphereC2/Parent   = "Gantry"
+s:Ge/SphereC2/Material = "Air"
+s:Ge/SphereC2/Color    = "red"
+d:Ge/SphereC2/RMax     = 15.0 cm 
+d:Ge/SphereC2/SPhi     = 0. deg
+d:Ge/SphereC2/DPhi     = 360. deg
+d:Ge/SphereC2/STheta   = 0. deg
+d:Ge/SphereC2/DTheta   = 180. deg
+d:Ge/SphereC2/TransX   = 200.0 cm
+d:Ge/SphereC2/TransY   = 1.4 m 
+d:Ge/SphereC2/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+b:Ge/SphereC2/Include  = "TRUE" 
+
+########################################
+# Location B3
+########################################
+s:Ge/SphereB3/Type     = "TsSphere"
+s:Ge/SphereB3/Parent   = "Gantry"
+s:Ge/SphereB3/Material = "Air"
+s:Ge/SphereB3/Color    = "red"
+d:Ge/SphereB3/RMax     = 15.0 cm 
+d:Ge/SphereB3/SPhi     = 0. deg
+d:Ge/SphereB3/DPhi     = 360. deg
+d:Ge/SphereB3/STheta   = 0. deg
+d:Ge/SphereB3/DTheta   = 180. deg
+d:Ge/SphereB3/TransX   = 0.0 cm
+d:Ge/SphereB3/TransY   = 1.4 m
+d:Ge/SphereB3/TransZ   = Ge/WaterBox/MinusHLZ - 1.5 m 
+b:Ge/SphereB3/Include  = "TRUE" 
+
+########################################
+# Location C3
+########################################
+s:Ge/SphereC3/Type     = "TsSphere"
+s:Ge/SphereC3/Parent   = "Gantry"
+s:Ge/SphereC3/Material = "Air"
+s:Ge/SphereC3/Color    = "red"
+d:Ge/SphereC3/RMax     = 15.0 cm 
+d:Ge/SphereC3/SPhi     = 0. deg
+d:Ge/SphereC3/DPhi     = 360. deg
+d:Ge/SphereC3/STheta   = 0. deg
+d:Ge/SphereC3/DTheta   = 180. deg
+d:Ge/SphereC3/TransX   = 0.0 cm
+d:Ge/SphereC3/TransY   = 1.4 m 
+d:Ge/SphereC3/TransZ   = Ge/WaterBox/MinusHLZ - 3.0 m  
+b:Ge/SphereC3/Include  = "TRUE" 
+
+########################################
+# Location B4
+########################################
+s:Ge/SphereB4/Type     = "TsSphere"
+s:Ge/SphereB4/Parent   = "Gantry"
+s:Ge/SphereB4/Material = "Air"
+s:Ge/SphereB4/Color    = "red"
+d:Ge/SphereB4/RMax     = 15.0 cm 
+d:Ge/SphereB4/SPhi     = 0. deg
+d:Ge/SphereB4/DPhi     = 360. deg
+d:Ge/SphereB4/STheta   = 0. deg
+d:Ge/SphereB4/DTheta   = 180. deg
+d:Ge/SphereB4/TransZ   = 5.55 m
+d:Ge/SphereB4/TransX   = 2.2 m
+d:Ge/SphereB4/TransY   = 1.7 m 
+b:Ge/SphereB4/Include  = "TRUE"
+
+########################################
+# Location C4
+########################################
+s:Ge/SphereC4/Type     = "TsSphere"
+s:Ge/SphereC4/Parent   = "Gantry"
+s:Ge/SphereC4/Material = "Air"
+s:Ge/SphereC4/Color    = "red"
+d:Ge/SphereC4/RMax     = 15.0 cm 
+d:Ge/SphereC4/SPhi     = 0. deg
+d:Ge/SphereC4/DPhi     = 360. deg
+d:Ge/SphereC4/STheta   = 0. deg
+d:Ge/SphereC4/DTheta   = 180. deg
+d:Ge/SphereC4/TransZ   = 5.55 m
+d:Ge/SphereC4/TransX   = 0.7 m
+d:Ge/SphereC4/TransY   = 1.7 m 
+b:Ge/SphereC4/Include  = "TRUE" 
