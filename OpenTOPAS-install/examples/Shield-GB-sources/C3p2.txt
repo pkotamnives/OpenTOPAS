@@ -1,0 +1,26 @@
+# =========================================================
+# Block C3: 229 (x) × 50 (z), height 215 (y)
+# (modeled as a single box; tilt/leg can be added later)
+# =========================================================
+
+# C3p2 block
+s:Ge/C3p2/Type      = "TsBox"
+s:Ge/C3p2/Parent    = "World"
+s:Ge/C3p2/Material  = "G4_CONCRETE"
+
+# Half-lengths
+d:Ge/C3p2/HLX       = 25.0 cm          # 50 / 2
+d:Ge/C3p2/HLY       = 107.5 cm         # 215 / 2
+d:Ge/C3p2/HLZ       = 56.0 cm          # 112 / 2
+
+# Position & orientation (centered for now)
+d:Ge/C3p2/TransX    = 609.0 cm
+d:Ge/C3p2/TransY    = 107.5 cm
+d:Ge/C3p2/TransZ    = 155.0 cm
+d:Ge/C3p2/RotX      = 0.0 deg
+d:Ge/C3p2/RotY      = 0.0 deg
+d:Ge/C3p2/RotZ      = 0.0 deg
+
+s:Ge/C3p2/DrawingStyle = "Solid"
+s:Ge/C3p2/Color        = "blue"
+

@@ -1,0 +1,7 @@
+# TOPAS Version: 4.0
+# Parameter File: GPTDipoleQ3.txt
+# Results for scorer: scorerAmbDosePerDipoleQ3P2
+# Filtered by: OnlyIncludeParticlesNamed = 1 "neutron"
+# Scored in component: SphereP2
+# AmbientDoseEquivalent ( Sv ) : Mean   Standard_Deviation   
+0, 0

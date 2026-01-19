@@ -1,0 +1,25 @@
+# =========================================================
+# Block P1: 317 (x) × 40 (z), height 250 (y)
+# =========================================================
+
+# P1 block
+s:Ge/P1/Type      = "TsBox"
+s:Ge/P1/Parent    = "World"
+s:Ge/P1/Material  = "G4_CONCRETE"
+
+# Half-lengths
+d:Ge/P1/HLX       = 158.5 cm         # 317 / 2
+d:Ge/P1/HLY       = 125.0 cm         # 250 / 2
+d:Ge/P1/HLZ       = 20.0 cm          # 40 / 2
+
+# Position & orientation (centered for now)
+d:Ge/P1/TransX    = 1190.5 cm
+d:Ge/P1/TransY    = 125.0 cm
+d:Ge/P1/TransZ    = 159.0 cm
+d:Ge/P1/RotX      = 0.0 deg
+d:Ge/P1/RotY      = 0.0 deg
+d:Ge/P1/RotZ      = 0.0 deg
+
+s:Ge/P1/DrawingStyle = "Solid"
+s:Ge/P1/Color        = "red"
+

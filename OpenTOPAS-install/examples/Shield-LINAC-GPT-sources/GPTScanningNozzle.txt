@@ -1,0 +1,468 @@
+# Scanning nozzle used in some demonstrations.
+
+includeFile = GPTConstantsForNozzles.txt
+
+#Ts/DumpParameters = "T"
+
+b:Ge/TopRing/Include  = "FALSE" 
+
+# Pipeline/Collimator 
+s:Ge/MSYoke/Type       = "TsBox"
+s:Ge/MSYoke/Parent     = "Gantry"
+# Make the yoke bigger than the gap by the chosen iron thickness
+d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
+d:Ge/MSYoke/HLX        = 20.0 cm 
+d:Ge/MSYoke/HLY        = 15.0 cm
+d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
+d:Ge/MSYoke/HLZ        = 20.0 cm 
+s:Ge/MSYoke/Material   = "G4_Fe"
+d:Ge/MSYoke/TransX     = 0.0 m
+d:Ge/MSYoke/TransY     = 1.4 m 
+d:Ge/MSYoke/TransZ     = 1.35 m
+# Rotate so local Y is along the ring tangent (same as septum)
+d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
+b:Ge/MSYoke/Include    = "TRUE" 
+
+# Field gap carved as a daughter (overrides parent material)
+s:Ge/MSGap/Type        = "TsBox"
+s:Ge/MSGap/Parent      = "MSYoke"
+d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm
+d:Ge/MSGap/HLY         = 15.0 cm
+d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
+s:Ge/MSGap/Material    = "G4_AIR"
+b:Ge/MSGap/IsInvisible  = "FALSE"
+b:Ge/MSGap/Include    = "FALSE" 
+
+########################################
+#1. Beam Exit Window
+#100 um thickness Aluminized Polyimide window
+########################################
+s:Ge/ExitWindow/Parent       = "Gantry"
+s:Ge/ExitWindow/Type         = "TsCylinder"
+s:Ge/ExitWindow/Material     = "Kapton" #supposed to be aluminized polyimide
+d:Ge/ExitWindow/RMin         = 0.0  mm
+d:Ge/ExitWindow/RMax         = 50.0 mm
+d:Ge/ExitWindow/SPhi         = 0.0   deg
+d:Ge/ExitWindow/DPhi         = 360.0 deg
+d:Ge/ExitWindow/TransX       = 0.0 m
+d:Ge/ExitWindow/TransY       = 1.4 m #0.563 m
+d:Ge/ExitWindow/TransZ       = 1.07 m
+d:Ge/ExitWindow/RotX         = 0.0 deg
+d:Ge/ExitWindow/RotY         = 0.0 deg
+d:Ge/ExitWindow/RotZ         = 0.0 deg
+b:Ge/ExitWindow/Include      = "TRUE" 
+s:Ge/ExitWindow/DrawingStyle = "Solid"
+
+########################################
+# Pipe through Dipoles/
+########################################
+s:Ge/BeamPipeInQuadsDipoles/Parent = "Gantry"
+s:Ge/BeamPipeInQuadsDipoles/Type   = "Group"
+d:Ge/BeamPipeInQuadsDipoles/TransX = 0.0 m
+d:Ge/BeamPipeInQuadsDipoles/TransY = 1.4 m #0.563 m
+d:Ge/BeamPipeInQuadsDipoles/OriTransZ =  Ge/ZPlusOf_Pipe - Ge/HLOf_Pipe mm 
+d:Ge/BeamPipeInQuadsDipoles/TransZ = Ge/BeamPipeInQuadsDipoles/OriTransZ - 1.0 mm 
+d:Ge/BeamPipeInQuadsDipoles/RotX   = 0. deg
+d:Ge/BeamPipeInQuadsDipoles/RotY   = 0. deg
+d:Ge/BeamPipeInQuadsDipoles/RotZ   = 0. deg
+b:Ge/BeamPipeInQuadsDipoles/Include  = "TRUE" #FIXMENOW
+
+d:Ge/ZPlusPipeInDipoles = 0.0 cm # FIXME Ge/PipeConnector/TransZ - Ge/HLOf_PipeConnector cm
+
+s:Ge/PipeInDipoles/Parent   = "BeamPipeInQuadsDipoles"
+s:Ge/PipeInDipoles/Type     = "TsBox"
+s:Ge/PipeInDipoles/Material = Ge/MaterialOf_PipeWall 
+d:Ge/PipeInDipoles/HLX      = Ge/HLxyOf_Dipoles + Ge/ThicknessOf_Pipe mm
+d:Ge/PipeInDipoles/HLY      = Ge/HLxyOf_Dipoles + Ge/ThicknessOf_Pipe mm
+d:Ge/PipeInDipoles/HLZ      = Ge/HLOf_PipeInDipoles cm
+d:Ge/PipeInDipoles/TransX   = 0.0 mm
+d:Ge/PipeInDipoles/TransY   = 0.0 mm
+d:Ge/PipeInDipoles/TransZ   = Ge/ZPlusPipeInDipoles - Ge/HLOf_PipeInDipoles cm
+d:Ge/PipeInDipoles/RotX     = 0.0 deg
+d:Ge/PipeInDipoles/RotY     = 0.0 deg
+d:Ge/PipeInDipoles/RotZ     = 0.0 deg
+b:Ge/PipeInDipoles/Include  = "TRUE" #FIXMENOW
+
+s:Ge/PipeInDipoles/Gas/Parent   = "PipeInDipoles"
+s:Ge/PipeInDipoles/Gas/Type     = "TsBox"
+s:Ge/PipeInDipoles/Gas/Material = Ge/MaterialOf_PipeGas
+d:Ge/PipeInDipoles/Gas/TransX   = 0.0 mm
+d:Ge/PipeInDipoles/Gas/TransY   = 0.0 mm
+d:Ge/PipeInDipoles/Gas/TransZ   = 0.0 mm
+d:Ge/PipeInDipoles/Gas/RotX     = 0.0 deg
+d:Ge/PipeInDipoles/Gas/RotY     = 0.0 deg
+d:Ge/PipeInDipoles/Gas/RotZ     = 0.0 deg
+b:Ge/PipeInDipoles/Gas/Include  = "TRUE" #FIXMENOW
+
+########################################
+#5. Dipole 1 and 2. in Pipe
+########################################
+s:Ge/Dipole1/Type          = "TsBox"
+s:Ge/Dipole1/Parent        = "PipeInDipoles/Gas"
+s:Ge/Dipole1/Material      = "parent"
+d:Ge/Dipole1/HLX           = Ge/PipeInDipoles/Gas/HLX mm
+d:Ge/Dipole1/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Dipole1/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Dipole1/TransX        = 0.0 cm
+d:Ge/Dipole1/TransY        = 0.0 cm
+d:Ge/Dipole1/TransZ        = Ge/HLOf_PipeInDipoles - Ge/HLOf_DipoleCoil1  mm
+d:Ge/Dipole1/RotX          = 0.0 deg
+d:Ge/Dipole1/RotY          = 0.0 deg
+d:Ge/Dipole1/RotZ          = 0.0 deg
+s:Ge/Dipole1/Field = "DipoleMagnet"
+u:Ge/Dipole1/MagneticFieldDirectionX    = 1.0 #Deflect a beam down 
+u:Ge/Dipole1/MagneticFieldDirectionY    = 0.0
+u:Ge/Dipole1/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole1/MagneticFieldStrength      = 0.0 tesla
+b:Ge/Dipole1/Include  = "TRUE" #FIXMENOW
+d:Ge/ZMinusOf_Dipole1 = Ge/Dipole1/TransZ - Ge/HLOf_DipoleCoil1 mm
+d:Ge/ZPlusOf_Dipole2  = Ge/ZMinusOf_Dipole1 + Ge/DistanceOf_BottomDipoleCoil1_To_TopDipoleCoil2 cm
+
+s:Ge/Dipole2/Type          = "TsBox"
+s:Ge/Dipole2/Parent        = "PipeInDipoles/Gas"
+s:Ge/Dipole2/Material      = "parent"
+d:Ge/Dipole2/HLX           = Ge/PipeInDipoles/Gas/HLX mm
+d:Ge/Dipole2/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Dipole2/HLZ           = Ge/HLOf_Dipole2 mm
+d:Ge/Dipole2/TransX        = 0.0 cm
+d:Ge/Dipole2/TransY        = 0.0 cm
+d:Ge/Dipole2/TransZ        = Ge/ZPlusOf_Dipole2 - Ge/HLOf_DipoleCoil2  mm
+d:Ge/Dipole2/RotX          = 0.0 deg
+d:Ge/Dipole2/RotY          = 0.0 deg
+d:Ge/Dipole2/RotZ          = 0.0 deg
+s:Ge/Dipole2/Field = "DipoleMagnet"
+u:Ge/Dipole2/MagneticFieldDirectionX    = 0.0
+u:Ge/Dipole2/MagneticFieldDirectionY    = 1.0 #Deflect a beam right 
+u:Ge/Dipole2/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole2/MagneticFieldStrength      = 0.0 tesla
+b:Ge/Dipole2/Include  = "TRUE" #FIXMENOW
+
+########################################
+#3. Beam profile monitor 2
+# 2 Aluminized polyimide windows
+# 2 sets of Multi-wire chamber
+########################################
+s:Ge/BeamProfileMonitor2/Parent   = "Gantry"
+s:Ge/BeamProfileMonitor2/Type     = "TsBox"
+s:Ge/BeamProfileMonitor2/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr 
+d:Ge/BeamProfileMonitor2/HLX      = 188.0 mm
+d:Ge/BeamProfileMonitor2/HLY      = 188.0 mm
+d:Ge/BeamProfileMonitor2/HLZ      = 22.1 mm #FIXME OK
+d:Ge/BeamProfileMonitor2/TransX   = 0.0 m
+d:Ge/BeamProfileMonitor2/TransY   = 1.4 m #0.563  m
+d:Ge/BeamProfileMonitor2/TransZ   = -0.3586 m #0.6414 m #FIXME OK
+d:Ge/BeamProfileMonitor2/RotX     = 0.0 deg
+d:Ge/BeamProfileMonitor2/RotY     = 0.0 deg
+d:Ge/BeamProfileMonitor2/RotZ     = 0.0 deg
+b:Ge/BeamProfileMonitor2/Include  = "TRUE" #FIXMENOW
+
+s:Ge/BeamProfileMonitor2/Window1/Parent   = "BeamProfileMonitor2"
+s:Ge/BeamProfileMonitor2/Window1/Type     = "TsBox"
+s:Ge/BeamProfileMonitor2/Window1/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
+d:Ge/BeamProfileMonitor2/Window1/HLX      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window1/HLY      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window1/HLZ      = 0.00625 mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window1/TransX   = 0.0 mm
+d:Ge/BeamProfileMonitor2/Window1/TransY   = 0.0 mm
+d:Ge/BeamProfileMonitor2/Window1/TransZ   = 22.0 mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window1/RotX     = 0.0 deg
+d:Ge/BeamProfileMonitor2/Window1/RotY     = 0.0 deg
+d:Ge/BeamProfileMonitor2/Window1/RotZ     = 0.0 deg
+
+s:Ge/BeamProfileMonitor2/Window2/Parent   = "BeamProfileMonitor2"
+s:Ge/BeamProfileMonitor2/Window2/Type     = "TsBox"
+s:Ge/BeamProfileMonitor2/Window2/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
+d:Ge/BeamProfileMonitor2/Window2/HLX      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window2/HLY      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window2/HLZ      = 0.00625 mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window2/TransX   = 0.0 mm
+d:Ge/BeamProfileMonitor2/Window2/TransY   = 0.0 mm
+d:Ge/BeamProfileMonitor2/Window2/TransZ   = -21.9 mm #FIXME OK
+d:Ge/BeamProfileMonitor2/Window2/RotX     = 0.0 deg
+d:Ge/BeamProfileMonitor2/Window2/RotY     = 0.0 deg
+d:Ge/BeamProfileMonitor2/Window2/RotZ     = 0.0 deg
+
+s:Ge/MWC_In_BPM2/Parent     = "BeamProfileMonitor2"
+s:Ge/MWC_In_BPM2/Type       = "TsMultiWireChamber"
+s:Ge/MWC_In_BPM2/Material   = "parent"
+d:Ge/MWC_In_BPM2/HLX        = 186.0  mm #FIXME OK
+d:Ge/MWC_In_BPM2/HLY        = 186.0  mm #FIXME OK
+d:Ge/MWC_In_BPM2/HLZ        = 7 mm #FIXME OK
+d:Ge/MWC_In_BPM2/TransX     = 0.0 mm
+d:Ge/MWC_In_BPM2/TransY     = 0.0 mm
+d:Ge/MWC_In_BPM2/TransZ     = -7 mm #FIXME OK
+d:Ge/MWC_In_BPM2/RotX       = 0.0   deg
+d:Ge/MWC_In_BPM2/RotY       = 0.0   deg
+d:Ge/MWC_In_BPM2/RotZ       = 0.0   deg
+i:Ge/MWC_In_BPM2/NbOfLayers = 2
+b:Ge/MWC_In_BPM2/Include  = "TRUE" #FIXMENOW
+
+d:Ge/MWC_In_BPM2/Layer1/RMin          = 0.0 mm
+d:Ge/MWC_In_BPM2/Layer1/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM2/Layer1/Material      = "Aluminum" #FIXME?
+d:Ge/MWC_In_BPM2/Layer1/HL            = 186.0 mm #FIXME OK
+s:Ge/MWC_In_BPM2/Layer1/Align         = "X"
+d:Ge/MWC_In_BPM2/Layer1/PosZ          = 7.0 mm #FIXME OK
+s:Ge/MWC_In_BPM2/Layer1/DrawingStyle  = "Solid"
+dv:Ge/MWC_In_BPM2/Layer1/Displacement = 127 #FIXME?
+-119.07 -117.18 -115.29 -113.4 -111.51 -109.62 -107.73 -105.84
+-103.95 -102.06 -100.17 -98.28 -96.39 -94.5 -92.61 -90.72 
+-88.83 -86.94 -85.05 -83.16 -81.27 -79.38 -77.49 -75.6 
+-73.71 -71.82 -69.93 -68.04 -66.15 -64.26 -62.37 -60.48
+-58.59 -56.7 -54.81 -52.92 -51.03 -49.14 -47.25 -45.36
+-43.47 -41.58 -39.69 -37.8 -35.91 -34.02 -32.13 -30.24
+-28.35 -26.46 -24.57 -22.68 -20.79 -18.9 -17.01 -15.12
+-13.23 -11.34 -9.45  -7.56  -5.67  -3.78  -1.89 
+0.      1.89   3.78   5.67   7.56   9.45   11.34   13.23 
+15.12   17.01  18.9   20.79  22.68  24.57  26.46   28.35
+30.24   32.13  34.02  35.91  37.8   39.69  41.58   43.47
+45.36   47.25  49.14  51.03  52.92  54.81  56.7    58.59 
+60.48   62.37  64.26  66.15  68.04  69.93  71.82   73.71
+75.6    77.49  79.38  81.27  83.16  85.05  86.94   88.83
+90.72   92.61  94.5   96.39  98.28  100.17 102.06  103.95
+105.84  107.73 109.62 111.51 113.4  115.29 117.18  119.07 mm
+
+d:Ge/MWC_In_BPM2/Layer2/RMin          = 0.0 mm
+d:Ge/MWC_In_BPM2/Layer2/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM2/Layer2/Material      = "Aluminum" #FIXME?
+d:Ge/MWC_In_BPM2/Layer2/HL            = 186.0 mm #FIXME OK
+s:Ge/MWC_In_BPM2/Layer2/Align         = "Y"
+d:Ge/MWC_In_BPM2/Layer2/PosZ          = -7.0 mm #FIXME OK
+s:Ge/MWC_In_BPM2/Layer2/DrawingStyle  =  "Solid"
+s:Ge/MWC_In_BPM2/Layer2/Color         = "red"
+dv:Ge/MWC_In_BPM2/Layer2/Displacement = 127 #FIXME?
+-119.07 -117.18 -115.29 -113.4 -111.51 -109.62 -107.73 -105.84
+-103.95 -102.06 -100.17 -98.28 -96.39 -94.5 -92.61 -90.72 
+-88.83 -86.94 -85.05 -83.16 -81.27 -79.38 -77.49 -75.6 
+-73.71 -71.82 -69.93 -68.04 -66.15 -64.26 -62.37 -60.48
+-58.59 -56.7 -54.81 -52.92 -51.03 -49.14 -47.25 -45.36
+-43.47 -41.58 -39.69 -37.8 -35.91 -34.02 -32.13 -30.24
+-28.35 -26.46 -24.57 -22.68 -20.79 -18.9 -17.01 -15.12
+-13.23 -11.34 -9.45  -7.56  -5.67  -3.78  -1.89 
+0.      1.89   3.78   5.67   7.56   9.45   11.34   13.23 
+15.12   17.01  18.9   20.79  22.68  24.57  26.46   28.35
+30.24   32.13  34.02  35.91  37.8   39.69  41.58   43.47
+45.36   47.25  49.14  51.03  52.92  54.81  56.7    58.59 
+60.48   62.37  64.26  66.15  68.04  69.93  71.82   73.71
+75.6    77.49  79.38  81.27  83.16  85.05  86.94   88.83
+90.72   92.61  94.5   96.39  98.28  100.17 102.06  103.95
+105.84  107.73 109.62 111.51 113.4  115.29 117.18  119.07 mm
+
+########################################
+#4. Beam profile monitor 1
+# 2 Aluminized Polyimide windows
+# 2 sets of Multi-wire chamber
+########################################
+s:Ge/BeamProfileMonitor1/Parent   = "Gantry"
+s:Ge/BeamProfileMonitor1/Type     = "TsBox"
+s:Ge/BeamProfileMonitor1/Material = "Vacuum" #FIXME? vacuum of 1e-5 Torr
+d:Ge/BeamProfileMonitor1/HLX      = 186.0 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/HLY      = 186.0 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/HLZ      = 22.1 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/TransX   = 0.0 m
+d:Ge/BeamProfileMonitor1/TransY   = 1.4 m #0.563  m
+d:Ge/BeamProfileMonitor1/TransZ   = -0.4586 m #0.5414 m #FIXME OK
+d:Ge/BeamProfileMonitor1/RotX     = 0.0 deg
+d:Ge/BeamProfileMonitor1/RotY     = 0.0 deg
+d:Ge/BeamProfileMonitor1/RotZ     = 0.0 deg
+b:Ge/BeamProfileMonitor1/Include  = "TRUE" #FIXMENOW
+
+s:Ge/BeamProfileMonitor1/Window1/Parent   = "BeamProfileMonitor1"
+s:Ge/BeamProfileMonitor1/Window1/Type     = "TsBox"
+s:Ge/BeamProfileMonitor1/Window1/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
+d:Ge/BeamProfileMonitor1/Window1/HLX      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window1/HLY      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window1/HLZ      = 0.00625 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window1/TransX   = 0.0 mm
+d:Ge/BeamProfileMonitor1/Window1/TransY   = 0.0 mm
+d:Ge/BeamProfileMonitor1/Window1/TransZ   = 22.0 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window1/RotX     = 0.0 deg
+d:Ge/BeamProfileMonitor1/Window1/RotY     = 0.0 deg
+d:Ge/BeamProfileMonitor1/Window1/RotZ     = 0.0 deg
+
+s:Ge/BeamProfileMonitor1/Window2/Parent   = "BeamProfileMonitor1"
+s:Ge/BeamProfileMonitor1/Window2/Type     = "TsBox"
+s:Ge/BeamProfileMonitor1/Window2/Material = "Kapton" #FIXME? supposed to be aluminized polyimide
+d:Ge/BeamProfileMonitor1/Window2/HLX      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window2/HLY      = 186.0  mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window2/HLZ      = 0.00625 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window2/TransX   = 0.0 mm
+d:Ge/BeamProfileMonitor1/Window2/TransY   = 0.0 mm
+d:Ge/BeamProfileMonitor1/Window2/TransZ   = -21.9 mm #FIXME OK
+d:Ge/BeamProfileMonitor1/Window2/RotX     = 0.0 deg
+d:Ge/BeamProfileMonitor1/Window2/RotY     = 0.0 deg
+d:Ge/BeamProfileMonitor1/Window2/RotZ     = 0.0 deg
+
+s:Ge/MWC_In_BPM1/Parent     = "BeamProfileMonitor1"
+s:Ge/MWC_In_BPM1/Type       = "TsMultiWireChamber"
+s:Ge/MWC_In_BPM1/Material   = "parent"
+d:Ge/MWC_In_BPM1/HLX        = 186.0  mm #FIXME OK
+d:Ge/MWC_In_BPM1/HLY        = 186.0  mm #FIXME OK
+d:Ge/MWC_In_BPM1/HLZ        = 7.0 mm #FIXME OK 
+d:Ge/MWC_In_BPM1/TransX     = 0.0 mm
+d:Ge/MWC_In_BPM1/TransY     = 0.0 mm
+d:Ge/MWC_In_BPM1/TransZ     = -7.0 mm #FIXME OK
+d:Ge/MWC_In_BPM1/RotX       = 0.0   deg
+d:Ge/MWC_In_BPM1/RotY       = 0.0   deg
+d:Ge/MWC_In_BPM1/RotZ       = 0.0   deg
+i:Ge/MWC_In_BPM1/NbOfLayers = 2
+
+d:Ge/MWC_In_BPM1/Layer1/RMin          = 0.0 mm
+d:Ge/MWC_In_BPM1/Layer1/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM1/Layer1/Material      = "Aluminum" #FIXME?
+d:Ge/MWC_In_BPM1/Layer1/HL            = 186.0 mm #FIXME OK
+s:Ge/MWC_In_BPM1/Layer1/Align         = "X"
+d:Ge/MWC_In_BPM1/Layer1/PosZ          = 7.0 mm #FIXME OK
+s:Ge/MWC_In_BPM1/Layer1/DrawingStyle  = "Solid"
+dv:Ge/MWC_In_BPM1/Layer1/Displacement = 127 #FIXME?
+-119.07 -117.18 -115.29 -113.4 -111.51 -109.62 -107.73 -105.84
+-103.95 -102.06 -100.17 -98.28 -96.39 -94.5 -92.61 -90.72 
+-88.83 -86.94 -85.05 -83.16 -81.27 -79.38 -77.49 -75.6 
+-73.71 -71.82 -69.93 -68.04 -66.15 -64.26 -62.37 -60.48
+-58.59 -56.7 -54.81 -52.92 -51.03 -49.14 -47.25 -45.36
+-43.47 -41.58 -39.69 -37.8 -35.91 -34.02 -32.13 -30.24
+-28.35 -26.46 -24.57 -22.68 -20.79 -18.9 -17.01 -15.12
+-13.23 -11.34 -9.45  -7.56  -5.67  -3.78  -1.89 
+0.      1.89   3.78   5.67   7.56   9.45   11.34   13.23 
+15.12   17.01  18.9   20.79  22.68  24.57  26.46   28.35
+30.24   32.13  34.02  35.91  37.8   39.69  41.58   43.47
+45.36   47.25  49.14  51.03  52.92  54.81  56.7    58.59 
+60.48   62.37  64.26  66.15  68.04  69.93  71.82   73.71
+75.6    77.49  79.38  81.27  83.16  85.05  86.94   88.83
+90.72   92.61  94.5   96.39  98.28  100.17 102.06  103.95
+105.84  107.73 109.62 111.51 113.4  115.29 117.18  119.07 mm
+
+d:Ge/MWC_In_BPM1/Layer2/RMin          = 0.0 mm
+d:Ge/MWC_In_BPM1/Layer2/RMax          = 0.00625 mm #FIXME?
+s:Ge/MWC_In_BPM1/Layer2/Material      = "Aluminum" #FIXME?
+d:Ge/MWC_In_BPM1/Layer2/HL            = 186.0 mm #FIXME OK
+s:Ge/MWC_In_BPM1/Layer2/Align         = "Y"
+d:Ge/MWC_In_BPM1/Layer2/PosZ          = -7.0 mm #FIXME OK
+s:Ge/MWC_In_BPM1/Layer2/DrawingStyle  =  "Solid"
+s:Ge/MWC_In_BPM1/Layer2/Color         = "red"
+dv:Ge/MWC_In_BPM1/Layer2/Displacement = 127 #FIXME?
+-119.07 -117.18 -115.29 -113.4 -111.51 -109.62 -107.73 -105.84
+-103.95 -102.06 -100.17 -98.28 -96.39 -94.5 -92.61 -90.72 
+-88.83 -86.94 -85.05 -83.16 -81.27 -79.38 -77.49 -75.6 
+-73.71 -71.82 -69.93 -68.04 -66.15 -64.26 -62.37 -60.48
+-58.59 -56.7 -54.81 -52.92 -51.03 -49.14 -47.25 -45.36
+-43.47 -41.58 -39.69 -37.8 -35.91 -34.02 -32.13 -30.24
+-28.35 -26.46 -24.57 -22.68 -20.79 -18.9 -17.01 -15.12
+-13.23 -11.34 -9.45  -7.56  -5.67  -3.78  -1.89   0.
+1.89   3.78   5.67   7.56   9.45   11.34   13.23  15.12 
+17.01  18.9   20.79  22.68  24.57  26.46   28.35  30.24  
+32.13  34.02  35.91  37.8   39.69  41.58   43.47  45.36
+47.25  49.14  51.03  52.92  54.81  56.7    58.59  60.48
+62.37  64.26  66.15  68.04  69.93  71.82   73.71  75.6
+77.49  79.38  81.27  83.16  85.05  86.94   88.83  90.72
+92.61  94.5   96.39  98.28  100.17 102.06  103.95 105.84
+107.73 109.62 111.51 113.4  115.29 117.18  119.07 mm
+
+i:Gr/ViewA/MagneticFieldArrowDensity = 10
+
+########################################
+# Water Phantom
+########################################
+s:Ge/WaterBox/Type     = "TsBox"
+s:Ge/WaterBox/Parent   = "Gantry"
+s:Ge/WaterBox/Material = "G4_WATER"
+d:Ge/WaterBox/HLX      = 15.0 cm #FIXME OK
+d:Ge/WaterBox/HLY      = 15.0 cm #FIXME OK
+d:Ge/WaterBox/HLZ      = 21.0 cm #17.5 cm #FIXME OK
+d:Ge/WaterBox/MinusHLZ = Ge/WaterBox/HLZ cm * -1.0
+d:Ge/WaterBox/TransX   = 0.0 m
+d:Ge/WaterBox/TransY   = 1.4 m 
+d:Ge/WaterBox/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m 
+d:Ge/WaterBox/RotX     = 0. deg
+d:Ge/WaterBox/RotY     = 0. deg
+d:Ge/WaterBox/RotZ     = 0. deg
+s:Ge/WaterBox/Color    = "blue"
+
+##### Dose scoring using DoseToMedium ####
+s:Ge/ScoringCylinder/Type     = "TsCylinder"
+s:Ge/ScoringCylinder/Parent   = "Gantry"
+d:Ge/ScoringCylinder/RMin     = 0. cm
+d:Ge/ScoringCylinder/RMax     = 0.495 cm
+d:Ge/ScoringCylinder/HL       = 21.0 cm #17.5 cm
+b:Ge/ScoringCylinder/IsParallel = "True"
+d:Ge/ScoringCylinder/TransX   = 0.0 m
+d:Ge/ScoringCylinder/TransY   = 1.4 m 
+d:Ge/ScoringCylinder/TransZ   = Ge/WaterBox/MinusHLZ - 1.0 m
+d:Ge/ScoringCylinder/SPhi     = 0. deg
+d:Ge/ScoringCylinder/DPhi     = 360. deg
+#i:Ge/ScoringCylinder/RBins    = 6
+#i:Ge/ScoringCylinder/PhiBins  = 6
+i:Ge/ScoringCylinder/ZBins    = 583
+
+s:Sc/DoseOnRTGrid/Quantity                  = "DoseToMedium"
+s:Sc/DoseOnRTGrid/Component                 = "ScoringCylinder"
+s:Sc/DoseOnRTGrid/OutputType                = "csv"
+sv:Sc/DoseOnRTGrid/Report                   = 1 "Mean"
+b:Sc/DoseOnRTGrid/OutputToConsole           = "True"
+s:Sc/DoseOnRTGrid/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/DoseOnRTGrid/OnlyIncludeParticlesNamed = 1 "proton"
+
+
+########################################
+# Location P2
+########################################
+s:Ge/SphereP2/Type     = "TsSphere"
+s:Ge/SphereP2/Parent   = "World"
+s:Ge/SphereP2/Material = "Air"
+s:Ge/SphereP2/Color    = "red"
+d:Ge/SphereP2/RMax     = 15.0 cm 
+d:Ge/SphereP2/SPhi     = 0. deg
+d:Ge/SphereP2/DPhi     = 360. deg
+d:Ge/SphereP2/TransX = -4.8 m 
+d:Ge/SphereP2/TransY = 1.75 m
+d:Ge/SphereP2/TransZ = -0.5 m
+d:Ge/SphereP2/STheta   = 0. deg
+d:Ge/SphereP2/DTheta   = 180. deg
+b:Ge/SphereP2/Include  = "TRUE" 
+
+# Score absorbed dose for secondary radiation
+s:Sc/scorerDosePerTargetP2/Quantity                   = "DoseToMedium"
+s:Sc/scorerDosePerTargetP2/Component                  = "SphereP2"
+b:Sc/scorerDosePerTargetP2/OutputToConsole            = "True"
+s:Sc/scorerDosePerTargetP2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerDosePerTargetP2/OutputFile                 = "scorerDosePerTargetP2" + Ts/Seed
+sv:Sc/scorerDosePerTargetP2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerTargetP2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerTargetP2/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerTargetP2/Component                  = "SphereP2"
+s:Sc/scorerNeuSpecPerTargetP2/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerTargetP2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerNeuSpecPerTargetP2/OutputFile                 = "scorerNeuSpecPerTargetP2" + Ts/Seed
+i:Sc/scorerNeuSpecPerTargetP2/EBins                     = 200
+d:Sc/scorerNeuSpecPerTargetP2/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerTargetP2/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerTargetP2/EBinEnergy                = "DepositedInStep"
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerTargetP2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerTargetP2/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerTargetP2/Component                  = "SphereP2"
+b:Sc/scorerAmbDosePerTargetP2/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerTargetP2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerAmbDosePerTargetP2/OutputFile                 = "scorerAmbDosePerTargetP2" + Ts/Seed
+sv:Sc/scorerAmbDosePerTargetP2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerTargetP2/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerTargetP2/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerTargetP2/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+

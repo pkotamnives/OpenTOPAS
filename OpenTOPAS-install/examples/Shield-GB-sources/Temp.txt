@@ -1,0 +1,85 @@
+
+########################################
+# Pipe through Dipoles/
+########################################
+s:Ge/BeamPipeInQuadsDipoles/Parent = "FlipGantry"
+s:Ge/BeamPipeInQuadsDipoles/Type   = "Group"
+d:Ge/BeamPipeInQuadsDipoles/TransX = 2.7 m
+d:Ge/BeamPipeInQuadsDipoles/TransY = -1.7 m #0.563 m
+d:Ge/BeamPipeInQuadsDipoles/OriTransZ = Ge/ZPlusOf_Pipe - Ge/ZPlusOf_Pipe mm #flip sign  
+d:Ge/BeamPipeInQuadsDipoles/TransZ = Ge/BeamPipeInQuadsDipoles/OriTransZ + 5.34 m #2620.0 mm 
+d:Ge/BeamPipeInQuadsDipoles/RotX   = 0. deg
+d:Ge/BeamPipeInQuadsDipoles/RotY   = 0. deg
+d:Ge/BeamPipeInQuadsDipoles/RotZ   = 0. deg
+b:Ge/BeamPipeInQuadsDipoles/Include  = "TRUE" #FIXMENOW
+
+d:Ge/ZPlusPipeInDipoles = 0.0 cm # FIXME Ge/PipeConnector/TransZ - Ge/HLOf_PipeConnector cm
+
+s:Ge/PipeInDipoles/Parent   = "BeamPipeInQuadsDipoles"
+s:Ge/PipeInDipoles/Type     = "TsBox"
+s:Ge/PipeInDipoles/Material = Ge/MaterialOf_PipeWall 
+d:Ge/PipeInDipoles/HLX      = Ge/HLxyOf_Dipoles + Ge/ThicknessOf_Pipe mm
+d:Ge/PipeInDipoles/HLY      = Ge/HLxyOf_Dipoles + Ge/ThicknessOf_Pipe mm
+d:Ge/PipeInDipoles/HLZ      = Ge/HLOf_PipeInDipoles cm
+d:Ge/PipeInDipoles/TransX   = 0.0 mm
+d:Ge/PipeInDipoles/TransY   = 0.0 mm
+d:Ge/PipeInDipoles/TransZ   = Ge/ZPlusPipeInDipoles - Ge/HLOf_PipeInDipoles cm
+d:Ge/PipeInDipoles/RotX     = 0.0 deg
+d:Ge/PipeInDipoles/RotY     = 0.0 deg
+d:Ge/PipeInDipoles/RotZ     = 0.0 deg
+b:Ge/PipeInDipoles/Include  = "TRUE" #FIXMENOW
+
+s:Ge/PipeInDipoles/Gas/Parent   = "PipeInDipoles"
+s:Ge/PipeInDipoles/Gas/Type     = "TsBox"
+s:Ge/PipeInDipoles/Gas/Material = Ge/MaterialOf_PipeGas
+d:Ge/PipeInDipoles/Gas/TransX   = 0.0 mm
+d:Ge/PipeInDipoles/Gas/TransY   = 0.0 mm
+d:Ge/PipeInDipoles/Gas/TransZ   = 0.0 mm
+d:Ge/PipeInDipoles/Gas/RotX     = 0.0 deg
+d:Ge/PipeInDipoles/Gas/RotY     = 0.0 deg
+d:Ge/PipeInDipoles/Gas/RotZ     = 0.0 deg
+b:Ge/PipeInDipoles/Gas/Include  = "TRUE" #FIXMENOW
+
+########################################
+#5. Dipole 1 and 2. in Pipe
+########################################
+s:Ge/Dipole1/Type          = "TsBox"
+s:Ge/Dipole1/Parent        = "PipeInDipoles/Gas"
+s:Ge/Dipole1/Material      = "parent"
+d:Ge/Dipole1/HLX           = Ge/PipeInDipoles/Gas/HLX mm
+d:Ge/Dipole1/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Dipole1/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Dipole1/TransX        = 0.0 cm
+d:Ge/Dipole1/TransY        = 0.0 cm
+d:Ge/Dipole1/TransZ        = Ge/HLOf_PipeInDipoles - Ge/HLOf_DipoleCoil1  mm
+d:Ge/Dipole1/RotX          = 0.0 deg
+d:Ge/Dipole1/RotY          = 0.0 deg
+d:Ge/Dipole1/RotZ          = 0.0 deg
+s:Ge/Dipole1/Field = "DipoleMagnet"
+u:Ge/Dipole1/MagneticFieldDirectionX    = 1.0 #Deflect a beam down 
+u:Ge/Dipole1/MagneticFieldDirectionY    = 0.0
+u:Ge/Dipole1/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole1/MagneticFieldStrength      = 0.0 tesla
+b:Ge/Dipole1/Include  = "TRUE" #FIXMENOW
+d:Ge/ZMinusOf_Dipole1 = Ge/Dipole1/TransZ - Ge/HLOf_DipoleCoil1 mm
+d:Ge/ZPlusOf_Dipole2  = Ge/ZMinusOf_Dipole1 + Ge/DistanceOf_BottomDipoleCoil1_To_TopDipoleCoil2 cm
+
+s:Ge/Dipole2/Type          = "TsBox"
+s:Ge/Dipole2/Parent        = "PipeInDipoles/Gas"
+s:Ge/Dipole2/Material      = "parent"
+d:Ge/Dipole2/HLX           = Ge/PipeInDipoles/Gas/HLX mm
+d:Ge/Dipole2/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Dipole2/HLZ           = Ge/HLOf_Dipole2 mm
+d:Ge/Dipole2/TransX        = 0.0 cm
+d:Ge/Dipole2/TransY        = 0.0 cm
+d:Ge/Dipole2/TransZ        = Ge/ZPlusOf_Dipole2 - Ge/HLOf_DipoleCoil2  mm
+d:Ge/Dipole2/RotX          = 0.0 deg
+d:Ge/Dipole2/RotY          = 0.0 deg
+d:Ge/Dipole2/RotZ          = 0.0 deg
+s:Ge/Dipole2/Field = "DipoleMagnet"
+u:Ge/Dipole2/MagneticFieldDirectionX    = 0.0
+u:Ge/Dipole2/MagneticFieldDirectionY    = 1.0 #Deflect a beam right 
+u:Ge/Dipole2/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole2/MagneticFieldStrength      = 0.0 tesla
+b:Ge/Dipole2/Include  = "TRUE" #FIXMENOW
+

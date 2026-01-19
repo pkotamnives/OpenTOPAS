@@ -1,0 +1,6 @@
+# TOPAS Version: 4.0
+# Parameter File: GPTScanningNozzle.txt
+# Results for scorer: scorerDosePerTargetM135
+# Scored in component: SphereM135
+# DoseToMedium ( Gy ) : Max   Standard_Deviation   
+-8.999999999999998e+111, 0

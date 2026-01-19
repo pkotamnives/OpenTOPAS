@@ -1,0 +1,25 @@
+# =========================================================
+# Block G9: 1249 (x) × 80 (z), height 250 (y)
+# =========================================================
+
+# G9 block
+s:Ge/G9/Type      = "TsBox"
+s:Ge/G9/Parent    = "World"
+s:Ge/G9/Material  = "G4_CONCRETE"    # swap to V300 etc.
+
+# Half-lengths
+d:Ge/G9/HLX       = 365 cm         # 730 / 2
+d:Ge/G9/HLY       = 125.0 cm         # 250 / 2
+d:Ge/G9/HLZ       = 40.0 cm          # 80 / 2
+
+# Position & orientation (centered for now)
+d:Ge/G9/TransX    = 465 cm
+d:Ge/G9/TransY    = 125 cm
+d:Ge/G9/TransZ   = -392.785 cm
+d:Ge/G9/RotX      = 0.0 deg
+d:Ge/G9/RotY      = 0.0 deg
+d:Ge/G9/RotZ      = 0.0 deg
+
+s:Ge/G9/DrawingStyle = "Solid"
+s:Ge/G9/Color        = "blue"
+

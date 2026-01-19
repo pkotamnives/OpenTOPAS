@@ -1,0 +1,7 @@
+# TOPAS Version: 4.0
+# Parameter File: GPTScanningNozzle.txt
+# Results for scorer: scorerAmbDosePerTargetC3
+# Filtered by: OnlyIncludeParticlesNamed = 1 "neutron"
+# Scored in component: SphereC3
+# AmbientDoseEquivalent ( Sv ) : Max   Standard_Deviation   
+-8.999999999999998e+111, 0

@@ -1,0 +1,25 @@
+# =========================================================
+# Block M1: 50 (x) × 160 (z), height 240 (y)
+# =========================================================
+
+# M1 block
+s:Ge/M1/Type      = "TsBox"
+s:Ge/M1/Parent    = "World"
+s:Ge/M1/Material  = "G4_CONCRETE"    # or your V300 material name
+
+# Half-lengths
+d:Ge/M1/HLX       = 25.0 cm          # 50 / 2
+d:Ge/M1/HLY       = 120.0 cm         # 240 / 2
+d:Ge/M1/HLZ       = 80.0 cm          # 160 / 2
+
+# Position & orientation (centered for now)
+d:Ge/M1/TransX    = 239.0 cm
+d:Ge/M1/TransY    = 120.0 cm
+d:Ge/M1/TransZ    = -663.0 cm
+d:Ge/M1/RotX      = 0.0 deg
+d:Ge/M1/RotY      = 0.0 deg
+d:Ge/M1/RotZ      = 0.0 deg
+
+s:Ge/M1/DrawingStyle = "Solid"
+s:Ge/M1/Color        = "red"
+

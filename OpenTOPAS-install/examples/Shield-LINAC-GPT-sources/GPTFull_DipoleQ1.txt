@@ -1,0 +1,48 @@
+# Scanning nozzle used in some demonstrations.
+
+#Ts/DumpParameters = "T"
+
+includeFile = GPTFull_Constants.txt
+
+
+########################################
+#Cylindrical bottom quarter 
+########################################
+s:Ge/BottomRingQ1/Parent = "Gantry"
+s:Ge/BottomRingQ1/Type = "TsCylinder"
+d:Ge/BottomRingQ1/Rmax = 2.3 m
+d:Ge/BottomRingQ1/Rmin = 2.1 m
+d:Ge/BottomRingQ1/HL = 0.15 m 
+s:Ge/BottomRingQ1/Material = "G4_Fe"
+d:Ge/BottomRingQ1/RotX = 90. deg 
+d:Ge/BottomRingQ1/SPhi = 315 deg
+d:Ge/BottomRingQ1/DPhi = 70 deg 
+d:Ge/BottomRingQ1/TransX = 0 m
+d:Ge/BottomRingQ1/TransY = 0.15 m
+d:Ge/BottomRingQ1/TransZ = 0 m
+b:Ge/BottomRingQ1/Include  = "True" 
+
+########################################
+# Dipole by Bottom Ring Quarters 
+########################################
+s:Ge/Q1Dipole/Type          = "TsBox"
+s:Ge/Q1Dipole/Parent        = "Gantry"
+s:Ge/Q1Dipole/Material      = "parent"
+d:Ge/Q1Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Q1Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Q1Dipole/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Q1Dipole/TransX        = 1.2 m
+d:Ge/Q1Dipole/TransY        = 0.15 m
+d:Ge/Q1Dipole/TransZ        = 1.8 m
+d:Ge/Q1Dipole/RotX          = 0.0 deg
+d:Ge/Q1Dipole/RotY          = 45.0 deg
+d:Ge/Q1Dipole/RotZ          = 0.0 deg
+s:Ge/Q1Dipole/Field = "DipoleMagnet"
+u:Ge/Q1Dipole/MagneticFieldDirectionX    = 0.0 
+u:Ge/Q1Dipole/MagneticFieldDirectionY    = 1.0 #Deflect a beam inward 
+u:Ge/Q1Dipole/MagneticFieldDirectionZ    = 0.0
+d:Ge/Q1Dipole/MagneticFieldStrength      = 4.0 tesla
+b:Ge/Q1Dipole/Include  = "True" 
+
+i:Gr/ViewA/MagneticFieldArrowDensity = 10
+

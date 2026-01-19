@@ -416,3 +416,72 @@ d:Ge/SphereC1/TransX   = 0.7 m
 d:Ge/SphereC1/TransY   = 1.7 m #0.563 m
 b:Ge/SphereC1/Include  = "TRUE" 
 
+
+########################################
+# Location M0
+########################################
+s:Ge/SphereM0/Type     = "TsSphere"
+s:Ge/SphereM0/Parent   = "Gantry"
+s:Ge/SphereM0/Material = "Air"
+s:Ge/SphereM0/Color    = "red"
+d:Ge/SphereM0/RMax     = 15.0 cm 
+d:Ge/SphereM0/SPhi     = 0. deg
+d:Ge/SphereM0/DPhi     = 360. deg
+d:Ge/SphereM0/STheta   = 0. deg
+d:Ge/SphereM0/DTheta   = 180. deg
+d:Ge/SphereM0/TransX   = 2.7 m
+d:Ge/SphereM0/TransY   = 1.7 m
+d:Ge/SphereM0/TransZ   = 6.55  m 
+b:Ge/SphereM0/Include  = "TRUE" 
+
+########################################
+# Location M45
+########################################
+s:Ge/SphereM45/Type     = "TsSphere"
+s:Ge/SphereM45/Parent   = "Gantry"
+s:Ge/SphereM45/Material = "Air"
+s:Ge/SphereM45/Color    = "red"
+d:Ge/SphereM45/RMax     = 15.0 cm 
+d:Ge/SphereM45/SPhi     = 0. deg
+d:Ge/SphereM45/DPhi     = 360. deg
+d:Ge/SphereM45/STheta   = 0. deg
+d:Ge/SphereM45/DTheta   = 180. deg
+d:Ge/SphereM45/TransX   = 1.9929 m
+d:Ge/SphereM45/TransY   = 1.7 m
+d:Ge/SphereM45/TransZ   = 6.2571 m 
+b:Ge/SphereM45/Include  = "TRUE" 
+
+########################################
+# Location M90
+########################################
+s:Ge/SphereM90/Type     = "TsSphere"
+s:Ge/SphereM90/Parent   = "Gantry"
+s:Ge/SphereM90/Material = "Air"
+s:Ge/SphereM90/Color    = "red"
+d:Ge/SphereM90/RMax     = 15.0 cm 
+d:Ge/SphereM90/SPhi     = 0. deg
+d:Ge/SphereM90/DPhi     = 360. deg
+d:Ge/SphereM90/STheta   = 0. deg
+d:Ge/SphereM90/DTheta   = 180. deg
+d:Ge/SphereM90/TransX   = 1.7 m
+d:Ge/SphereM90/TransY   = 1.7 m
+d:Ge/SphereM90/TransZ   = 5.55  m 
+b:Ge/SphereM90/Include  = "TRUE" 
+
+########################################
+# Location M135
+########################################
+s:Ge/SphereM135/Type     = "TsSphere"
+s:Ge/SphereM135/Parent   = "Gantry"
+s:Ge/SphereM135/Material = "Air"
+s:Ge/SphereM135/Color    = "red"
+d:Ge/SphereM135/RMax     = 15.0 cm 
+d:Ge/SphereM135/SPhi     = 0. deg
+d:Ge/SphereM135/DPhi     = 360. deg
+d:Ge/SphereM135/STheta   = 0. deg
+d:Ge/SphereM135/DTheta   = 180. deg
+d:Ge/SphereM135/TransX   = 1.9929 m
+d:Ge/SphereM135/TransY   = 1.7 m
+d:Ge/SphereM135/TransZ   = 4.8429 m 
+b:Ge/SphereM135/Include  = "TRUE" 
+

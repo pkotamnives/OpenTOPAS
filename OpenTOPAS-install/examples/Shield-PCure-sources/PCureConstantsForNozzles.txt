@@ -140,7 +140,7 @@ d:So/BeamPrime/BeamAngularCutoffX       = 90. deg
 d:So/BeamPrime/BeamAngularCutoffY       = 90. deg
 d:So/BeamPrime/BeamAngularSpreadX       = 0.0030 rad 
 d:So/BeamPrime/BeamAngularSpreadY       = 0.0030 rad 
-i:So/BeamPrime/NumberOfHistoriesInRun   = 10000 #essentially the number of primary particles 
+i:So/BeamPrime/NumberOfHistoriesInRun   = 10 #essentially the number of primary particles 
 b:Ge/BeamPrime/Include  = "TRUE" 
 
 
@@ -188,8 +188,8 @@ sv:Gr/MyOGL/ColorByParticleTypeColors     = 4 "yellow" "pink" "aqua" "grass"
 
 s:Gr/ViewA/Type              = "OpenGL"
 
-Ts/UseQt = "False"
-b:Gr/Enable = "False"
+Ts/UseQt = "True"
+b:Gr/Enable = "True"
 
 ########################################
 # Physics

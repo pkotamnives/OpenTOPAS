@@ -1,0 +1,129 @@
+# Scanning nozzle used in some demonstrations.
+
+includeFile = GPTConstantsForNozzlesQ2.txt
+
+b:Ge/TopRing/Include  = "FALSE" 
+
+#Ts/DumpParameters = "T"
+
+########################################
+#Cylindrical bottom quarter 
+########################################
+s:Ge/BottomRingQ2/Parent = "Gantry"
+s:Ge/BottomRingQ2/Type = "TsCylinder"
+d:Ge/BottomRingQ2/Rmax = 2.3 m
+d:Ge/BottomRingQ2/Rmin = 2.1 m
+d:Ge/BottomRingQ2/HL = 0.15 m 
+s:Ge/BottomRingQ2/Material = "G4_Fe"
+d:Ge/BottomRingQ2/RotX = 90. deg 
+d:Ge/BottomRingQ2/SPhi = 225 deg
+d:Ge/BottomRingQ2/DPhi = 70 deg 
+d:Ge/BottomRingQ2/TransX = 0 m
+d:Ge/BottomRingQ2/TransY = 0.15 m
+d:Ge/BottomRingQ2/TransZ = 0 m
+b:Ge/BottomRingQ2/Include  = "TRUE" 
+
+s:Ge/BottomRingQ3/Parent = "Gantry"
+s:Ge/BottomRingQ3/Type = "TsCylinder"
+d:Ge/BottomRingQ3/Rmax = 2.3 m
+d:Ge/BottomRingQ3/Rmin = 2.1 m
+d:Ge/BottomRingQ3/HL = 0.15 m 
+s:Ge/BottomRingQ3/Material = "G4_Fe"
+d:Ge/BottomRingQ3/RotX = 90. deg 
+d:Ge/BottomRingQ3/SPhi = 135 deg
+d:Ge/BottomRingQ3/DPhi = 70 deg 
+d:Ge/BottomRingQ3/TransX = 0 m
+d:Ge/BottomRingQ3/TransY = 0.15 m
+d:Ge/BottomRingQ3/TransZ = 0 m
+b:Ge/BottomRingQ3/Include  = "TRUE" 
+
+########################################
+# Dipole by Bottom Ring Quarters 
+########################################
+s:Ge/Q2Dipole/Type          = "TsBox"
+s:Ge/Q2Dipole/Parent        = "Gantry"
+s:Ge/Q2Dipole/Material      = "parent"
+d:Ge/Q2Dipole/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Q2Dipole/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Q2Dipole/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Q2Dipole/TransX        = -1.8 m
+d:Ge/Q2Dipole/TransY        = 0.15 m
+d:Ge/Q2Dipole/TransZ        = 1.2 m
+d:Ge/Q2Dipole/RotX          = 0.0 deg
+d:Ge/Q2Dipole/RotY          = 135.0 deg
+d:Ge/Q2Dipole/RotZ          = 0.0 deg
+s:Ge/Q2Dipole/Field = "DipoleMagnet"
+u:Ge/Q2Dipole/MagneticFieldDirectionX    = 0.0 
+u:Ge/Q2Dipole/MagneticFieldDirectionY    = 1.0 #Deflect a beam inward 
+u:Ge/Q2Dipole/MagneticFieldDirectionZ    = 0.0
+d:Ge/Q2Dipole/MagneticFieldStrength      = 4.0 tesla
+b:Ge/Q2Dipole/Include  = "TRUE" 
+
+i:Gr/ViewA/MagneticFieldArrowDensity = 10
+
+d:Ge/WaterBox/MinusHLZ = -21.0 cm 
+
+########################################
+# Location P2
+########################################
+s:Ge/SphereP2/Type     = "TsSphere"
+s:Ge/SphereP2/Parent   = "World"
+s:Ge/SphereP2/Material = "Air"
+s:Ge/SphereP2/Color    = "red"
+d:Ge/SphereP2/RMax     = 15.0 cm 
+d:Ge/SphereP2/SPhi     = 0. deg
+d:Ge/SphereP2/DPhi     = 360. deg
+d:Ge/SphereP2/TransX = -4.8 m 
+d:Ge/SphereP2/TransY = 1.75 m
+d:Ge/SphereP2/TransZ = -0.5 m
+d:Ge/SphereP2/STheta   = 0. deg
+d:Ge/SphereP2/DTheta   = 180. deg
+b:Ge/SphereP2/Include  = "TRUE" 
+
+# Score absorbed dose for secondary radiation
+s:Sc/scorerDosePerDipoleQ2P2/Quantity                   = "DoseToMedium"
+s:Sc/scorerDosePerDipoleQ2P2/Component                  = "SphereP2"
+b:Sc/scorerDosePerDipoleQ2P2/OutputToConsole            = "True"
+s:Sc/scorerDosePerDipoleQ2P2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerDosePerDipoleQ2P2/OutputFile                 = "scorerDosePerDipoleQ2P2" + Ts/Seed
+sv:Sc/scorerDosePerDipoleQ2P2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerDipoleQ2P2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerDipoleQ2P2/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerDipoleQ2P2/Component                  = "SphereP2"
+s:Sc/scorerNeuSpecPerDipoleQ2P2/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerDipoleQ2P2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerNeuSpecPerDipoleQ2P2/OutputFile                 = "scorerNeuSpecPerDipoleQ2P2" + Ts/Seed
+i:Sc/scorerNeuSpecPerDipoleQ2P2/EBins                     = 200
+d:Sc/scorerNeuSpecPerDipoleQ2P2/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerDipoleQ2P2/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerDipoleQ2P2/EBinEnergy                = "DepositedInStep"
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerDipoleQ2P2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerDipoleQ2P2/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerDipoleQ2P2/Component                  = "SphereP2"
+b:Sc/scorerAmbDosePerDipoleQ2P2/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerDipoleQ2P2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerAmbDosePerDipoleQ2P2/OutputFile                 = "scorerAmbDosePerDipoleQ2P2" + Ts/Seed
+sv:Sc/scorerAmbDosePerDipoleQ2P2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerDipoleQ2P2/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerDipoleQ2P2/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerDipoleQ2P2/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
+

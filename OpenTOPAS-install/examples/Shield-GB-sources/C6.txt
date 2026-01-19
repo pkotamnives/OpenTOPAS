@@ -1,0 +1,49 @@
+
+# --------------------------
+# C6 right triangle
+# --------------------------
+# TsRidgeFilter shape is defined in its **local** x–z plane:
+#   initial point: (0, 0)
+#   then (XPoints[i], ZPoints[i]) in order
+#   final point: (Width, 0)
+#
+# To match your world vertices:
+#   local vertices: (0,0), (100,0), (100,80)
+#   then we translate by (TransX, TransZ) = (0, -392.785)
+#
+# World coordinates become:
+#   (0,0)   -> (0, -392.785)   = P0
+#   (100,0) -> (100,-472.785)  = P1
+#   (100,80)-> (100,-472.785)  = P2
+
+s:Ge/C6/Type     = "TsRidgeFilter"
+# Place C6 so that local (0,0) is at world (0,-392.785)
+b:Ge/C6/RepeatRidges = "False"
+dv:Ge/C6/Displacement = 1
+0.0 cm
+d:Ge/C6/TransX   = 50.0 cm
+d:Ge/C6/TransY   = 125.0 cm
+d:Ge/C6/TransZ   = -392.785 cm
+d:Ge/C6/RotX     = 0.0 deg
+d:Ge/C6/RotY     = 180.0 deg
+d:Ge/C6/RotZ     = 0.0 deg
+
+# Extrusion length along +y
+d:Ge/C6/Length   = 250.0 cm
+
+# Width in x must match last XPoints entry
+d:Ge/C6/Width    = 100.0 cm
+
+# Polygon points (local coordinates)
+# construct triangle: (0,0) -> (0,80) -> (100,0)
+dv:Ge/C6/XPoints = 2
+0.0   100.0 cm
+
+dv:Ge/C6/ZPoints = 2
+80.0  0.0  cm
+
+# Visualization / debug
+s:Ge/C6/DrawingStyle      = "Solid"
+s:Ge/C6/Color             = "red"
+b:Ge/C6/PrintInformation  = "True"
+

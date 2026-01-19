@@ -1,0 +1,202 @@
+# Scanning nozzle used in some demonstrations.
+
+
+#Ts/DumpParameters = "T"
+
+includeFile = GPTConstantsForNozzlesTop.txt
+
+b:Ge/TopRing/Include  = "TRUE" 
+
+# Pipeline/Collimator 
+s:Ge/MSYoke/Type       = "TsBox"
+s:Ge/MSYoke/Parent     = "Gantry"
+# Make the yoke bigger than the gap by the chosen iron thickness
+d:Ge/MSYoke/FLX        = Ge/MSGapeWidth + Ge/MSYokeDoubleThickRadial cm
+d:Ge/MSYoke/HLX        = 20.0 cm 
+d:Ge/MSYoke/HLY        = 15.0 cm
+d:Ge/MSYoke/FLZ        = Ge/MSGapeHeight + Ge/MSYokeDoubleThickRadial cm
+d:Ge/MSYoke/HLZ        = 20.0 cm 
+s:Ge/MSYoke/Material   = "G4_Fe"
+d:Ge/MSYoke/TransX     = 0.0 m
+d:Ge/MSYoke/TransY     = 1.4 m 
+d:Ge/MSYoke/TransZ     = 1.35 m
+# Rotate so local Y is along the ring tangent (same as septum)
+d:Ge/MSYoke/RotY       = Ge/SeptumPhi deg
+b:Ge/MSYoke/Include    = "TRUE" 
+
+# Field gap carved as a daughter (overrides parent material)
+s:Ge/MSGap/Type        = "TsBox"
+s:Ge/MSGap/Parent      = "MSYoke"
+d:Ge/MSGap/HLX         = Ge/MSYoke/HLX cm
+d:Ge/MSGap/HLY         = 15.0 cm
+d:Ge/MSGap/HLZ         = Ge/MSGapeHeight cm * 0.5
+s:Ge/MSGap/Material    = "G4_AIR"
+b:Ge/MSGap/IsInvisible  = "FALSE"
+b:Ge/MSGap/Include    = "FALSE" 
+
+
+#######################################
+# Extra Dipole near Extraction 2
+########################################
+s:Ge/Ex2Dipole1/Type          = "TsBox"
+s:Ge/Ex2Dipole1/Parent        = "Gantry"
+s:Ge/Ex2Dipole1/Material      = "parent"
+d:Ge/Ex2Dipole1/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole1/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole1/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Ex2Dipole1/TransX        = 1.9 m 
+d:Ge/Ex2Dipole1/TransY        = 1.6 m 
+d:Ge/Ex2Dipole1/TransZ        = 2.2 m 
+d:Ge/Ex2Dipole1/RotX          = 0.0 deg
+d:Ge/Ex2Dipole1/RotY          = 45.0 deg
+d:Ge/Ex2Dipole1/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole1/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole1/MagneticFieldDirectionX    = -1.0 #Deflect a beam downward
+u:Ge/Ex2Dipole1/MagneticFieldDirectionY    = 0.0 
+u:Ge/Ex2Dipole1/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole1/MagneticFieldStrength      = 2.0 tesla
+b:Ge/Ex2Dipole1/Include  = "FALSE" 
+
+s:Ge/Ex2Dipole2/Type          = "TsBox"
+s:Ge/Ex2Dipole2/Parent        = "Gantry"
+s:Ge/Ex2Dipole2/Material      = "parent"
+d:Ge/Ex2Dipole2/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole2/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole2/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Ex2Dipole2/TransX        = 1.2 m 
+d:Ge/Ex2Dipole2/TransY        = 1.5 m
+d:Ge/Ex2Dipole2/TransZ        = 2.525 m
+d:Ge/Ex2Dipole2/RotX          = 0.0 deg
+d:Ge/Ex2Dipole2/RotY          = 120.0 deg 
+d:Ge/Ex2Dipole2/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole2/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole2/MagneticFieldDirectionX    = 0.0 
+u:Ge/Ex2Dipole2/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
+u:Ge/Ex2Dipole2/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole2/MagneticFieldStrength      = 2.0 tesla
+b:Ge/Ex2Dipole2/Include  = "TRUE" 
+
+s:Ge/Ex2Dipole3/Type          = "TsBox"
+s:Ge/Ex2Dipole3/Parent        = "Gantry"
+s:Ge/Ex2Dipole3/Material      = "parent"
+d:Ge/Ex2Dipole3/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole3/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole3/HLZ           = Ge/HLOf_Dipole1 mm
+d:Ge/Ex2Dipole3/TransX        = 0.7 m  
+d:Ge/Ex2Dipole3/TransY        = 1.5 m
+d:Ge/Ex2Dipole3/TransZ        = 2.4 m 
+d:Ge/Ex2Dipole3/RotX          = 0.0 deg
+d:Ge/Ex2Dipole3/RotY          = 135.0 deg 
+d:Ge/Ex2Dipole3/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole3/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole3/MagneticFieldDirectionX    = 0.0 
+u:Ge/Ex2Dipole3/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
+u:Ge/Ex2Dipole3/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole3/MagneticFieldStrength      = 4.0 tesla
+b:Ge/Ex2Dipole3/Include  = "TRUE" 
+
+s:Ge/Ex2Dipole4/Type          = "TsBox"
+s:Ge/Ex2Dipole4/Parent        = "Gantry"
+s:Ge/Ex2Dipole4/Material      = "parent"
+d:Ge/Ex2Dipole4/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole4/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole4/HLZ           = 10 cm
+d:Ge/Ex2Dipole4/TransX        = 0.3 m 
+d:Ge/Ex2Dipole4/TransY        = 1.5 m 
+d:Ge/Ex2Dipole4/TransZ        = 2.15 m 
+d:Ge/Ex2Dipole4/RotX          = 0.0 deg
+d:Ge/Ex2Dipole4/RotY          = 145 deg
+d:Ge/Ex2Dipole4/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole4/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole4/MagneticFieldDirectionX    = 0.0 
+u:Ge/Ex2Dipole4/MagneticFieldDirectionY    = 1.0 #deflect beam inward  
+u:Ge/Ex2Dipole4/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole4/MagneticFieldStrength      = 4.0 tesla
+b:Ge/Ex2Dipole4/Include  = "TRUE" 
+
+s:Ge/Ex2Dipole5/Type          = "TsBox"
+s:Ge/Ex2Dipole5/Parent        = "Gantry"
+s:Ge/Ex2Dipole5/Material      = "parent"
+d:Ge/Ex2Dipole5/HLX           = Ge/PipeInDipoles/Gas/HLX + Ge/PipeInDipoles/Gas/HLX mm 
+d:Ge/Ex2Dipole5/HLY           = Ge/PipeInDipoles/Gas/HLY mm
+d:Ge/Ex2Dipole5/HLZ           = 10 cm
+d:Ge/Ex2Dipole5/TransX        = 0.0 m 
+d:Ge/Ex2Dipole5/TransY        = 1.5 m
+d:Ge/Ex2Dipole5/TransZ        = 1.85 m 
+d:Ge/Ex2Dipole5/RotX          = 0.0 deg
+d:Ge/Ex2Dipole5/RotY          = 0.0 deg
+d:Ge/Ex2Dipole5/RotZ          = 0.0 deg
+s:Ge/Ex2Dipole5/Field = "DipoleMagnet"
+u:Ge/Ex2Dipole5/MagneticFieldDirectionX    = 0.0 
+u:Ge/Ex2Dipole5/MagneticFieldDirectionY    = 1.0 #Deflect beam inward 
+u:Ge/Ex2Dipole5/MagneticFieldDirectionZ    = 0.0
+d:Ge/Ex2Dipole5/MagneticFieldStrength      = 4.5 tesla  
+b:Ge/Ex2Dipole5/Include  = "TRUE" 
+
+
+i:Gr/ViewA/MagneticFieldArrowDensity = 10
+
+d:Ge/WaterBox/MinusHLZ = -21.0 cm 
+
+# Location P2
+########################################
+s:Ge/SphereP2/Type     = "TsSphere"
+s:Ge/SphereP2/Parent   = "World"
+s:Ge/SphereP2/Material = "Air"
+s:Ge/SphereP2/Color    = "red"
+d:Ge/SphereP2/RMax     = 15.0 cm 
+d:Ge/SphereP2/SPhi     = 0. deg
+d:Ge/SphereP2/DPhi     = 360. deg
+d:Ge/SphereP2/TransX = -4.8 m 
+d:Ge/SphereP2/TransY = 1.75 m
+d:Ge/SphereP2/TransZ = -0.5 m
+d:Ge/SphereP2/STheta   = 0. deg
+d:Ge/SphereP2/DTheta   = 180. deg
+b:Ge/SphereP2/Include  = "TRUE" 
+
+# Score absorbed dose for secondary radiation
+s:Sc/scorerDosePerTopP2/Quantity                   = "DoseToMedium"
+s:Sc/scorerDosePerTopP2/Component                  = "SphereP2"
+b:Sc/scorerDosePerTopP2/OutputToConsole            = "True"
+s:Sc/scorerDosePerTopP2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerDosePerTopP2/OutputFile                 = "scorerDosePerTopP2" + Ts/Seed
+sv:Sc/scorerDosePerTopP2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Score neutron fluence spectra 
+sv:Sc/scorerNeuSpecDosePerTopP2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerNeuSpecPerTopP2/Quantity                   = "Fluence"
+s:Sc/scorerNeuSpecPerTopP2/Component                  = "SphereP2"
+s:Sc/scorerNeuSpecPerTopP2/OutputType                 = "csv"
+s:Sc/scorerNeuSpecPerTopP2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerNeuSpecPerTopP2/OutputFile                 = "scorerNeuSpecPerTopP2" + Ts/Seed
+i:Sc/scorerNeuSpecPerTopP2/EBins                     = 200
+d:Sc/scorerNeuSpecPerTopP2/EBinMin                   = 1e-9 MeV
+d:Sc/scorerNeuSpecPerTopP2/EBinMax                   = 250 MeV
+s:Sc/scorerNeuSpecPerTopP2/EBinEnergy                = "DepositedInStep"
+
+# Score ambient dose equivalent for neutrons
+sv:Sc/scorerAmbDosePerTopP2/OnlyIncludeParticlesNamed = 1 "neutron"
+s:Sc/scorerAmbDosePerTopP2/Quantity                   = "AmbientDoseEquivalent"
+s:Sc/scorerAmbDosePerTopP2/Component                  = "SphereP2"
+b:Sc/scorerAmbDosePerTopP2/OutputToConsole            = "True"
+s:Sc/scorerAmbDosePerTopP2/IfOutputFileAlreadyExists  = "Overwrite"
+s:Sc/scorerAmbDosePerTopP2/OutputFile                 = "scorerAmbDosePerTopP2" + Ts/Seed
+sv:Sc/scorerAmbDosePerTopP2/Report                    = 2 "Mean" "Standard_Deviation"
+
+# Set the fluence-to-dose conversion factors.
+s:Sc/scorerAmbDosePerTopP2/GetAmbientDoseEquivalentForParticleNamed = "neutron"
+dv:Sc/scorerAmbDosePerTopP2/FluenceToDoseConversionEnergies = 58
+2.5314e-08 7.71605e-08 2.35195e-07 6.33404e-07 1.70582e-06 4.05885e-06 1.02746e-05 2.44475e-05 6.18866e-05 0.000142765
+0.000309568 0.000611723 0.00100388 0.00150131 0.00217678 0.00305995 0.00430144 0.00604662 0.00849986  0.0119484
+ 0.0157877  0.0221931  0.0293242  0.0399651  0.0511969  0.0676476  0.0866593   0.101168     0.1296   0.171243
+  0.233382   0.289858    0.37132   0.490632   0.590784   0.711379          1    1.85741    2.95521    4.95083
+   9.98711    14.7825     18.937    20.1466    48.9368    98.7183    195.073    504.105    996.138    2182.41
+   5086.78     9846.4      29400    99357.1     302853     982103 3.05600e+06 9.91011e+06  MeV
+dv:Sc/scorerAmbDosePerTopP2/FluenceToDoseConversionValues   = 58
+1.04694e-09 1.0279e-09 1.00922e-09 9.90868e-10 9.72854e-10 9.55168e-10 9.37803e-10 9.29239e-10 9.12346e-10 8.95759e-10
+8.79474e-10 8.71443e-10 8.63485e-10 1.07615e-09 1.31681e-09 1.59657e-09 1.91809e-09 2.32559e-09 2.79393e-09 3.35658e-09
+3.99571e-09 4.7131e-09 5.50853e-09 6.55742e-09 7.52478e-09 8.71443e-09 9.8182e-09 1.09608e-08 1.29287e-08 1.56754e-08
+1.86602e-08 2.18095e-08 2.59623e-08 3.06236e-08 3.51412e-08 3.95922e-08 4.93432e-08 4.67006e-08 4.46069e-08 4.26071e-08
+4.69871e-08 5.15014e-08 5.64495e-08 5.24551e-08 3.61218e-08 2.6443e-08 2.2418e-08 2.95202e-08 3.7933e-08 4.31315e-08
+4.93432e-08 5.27769e-08 5.15014e-08 5.05651e-08 5.96437e-08 7.20944e-08 9.0956e-08 1.17594e-07 Sv*mm2
+
